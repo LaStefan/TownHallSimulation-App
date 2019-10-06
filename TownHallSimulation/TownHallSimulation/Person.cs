@@ -8,14 +8,15 @@ namespace TownHallSimulation
 {
     public class Person
     {
-        private static int id = 0;
+        private static int counter = 0;
 
         public Person(Appointment appointment)
         {
-            id++;
+            counter++;
             this.GetAppointment = appointment;
         }
         public Appointment GetAppointment { get; }
+        public int GetId { get; } = counter;
     }
 
     //Types of appointments... to be discussed.

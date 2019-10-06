@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.SpawnTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
+            // 
+            // SpawnTimer
+            // 
+            this.SpawnTimer.Enabled = true;
+            this.SpawnTimer.Interval = 5000;
+            this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -42,6 +50,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Timer SpawnTimer;
     }
 }
 

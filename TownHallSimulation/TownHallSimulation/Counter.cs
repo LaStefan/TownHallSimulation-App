@@ -8,17 +8,19 @@ using System.Drawing;
 namespace TownHallSimulation
 {
     class Counter
-    {
+    { // fields and properties of the class
         private int id;
-        public Point location;
-        public bool isOpened;
-        public bool isOccupied;
-
-        public Counter(Point loc)
+        public Point location { get; set; }
+        public bool isOpened { get; set; }
+        public bool isOccupied { get; set; }
+        // class constructor 
+        public Counter(int id,Point loc)
         {
+            this.id = id;
             this.location = loc;
+            this.isOccupied = false;
         }
-
+        // methods of the class
         public void OpenCounter()
         {
             isOpened = true;

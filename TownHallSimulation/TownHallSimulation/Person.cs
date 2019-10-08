@@ -14,14 +14,15 @@ namespace TownHallSimulation
         PropertySale,
         PermitRequest
     }
+    //Class Person
     public class Person
-    {
+    {   //Fields and Properties
         private static int counter = 0;
         private int id = 0;
         public Point Location { get; private set; }
         public Point[] PathToFollow { get; private set; }
         public Bitmap Image { get; private set; }
-
+        //Constructor
         public Person(Appointment appointment, Point location, Bitmap image)
         {
             counter++;
@@ -30,8 +31,8 @@ namespace TownHallSimulation
             this.Image = image;
         }
         public Appointment GetAppointment { get; }
-        public int GetId { get; } = counter;
-
+        
+        //Methods of the class 
         public int GetPersonId()
         {
             return this.id;

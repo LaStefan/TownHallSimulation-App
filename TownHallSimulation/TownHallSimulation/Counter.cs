@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-<<<<<<< HEAD
-=======
 using System.Drawing;
->>>>>>> Stefan
 
 namespace TownHallSimulation
 {
     class Counter
     {
-<<<<<<< HEAD
-=======
         private int id;
         public Point location;
         public bool isOpened;
@@ -23,8 +18,6 @@ namespace TownHallSimulation
         {
             this.location = loc;
         }
-
-
 
         public void OpenCounter()
         {
@@ -36,7 +29,7 @@ namespace TownHallSimulation
         }
         public void UpdateStatus()
         {
-            if(isOccupied == false)
+            if (isOccupied == false)
             {
                 isOccupied = true;
             }
@@ -45,7 +38,5 @@ namespace TownHallSimulation
                 isOccupied = false;
             }
         }
-
->>>>>>> Stefan
     }
 }

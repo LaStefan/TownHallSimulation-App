@@ -12,7 +12,6 @@ namespace TownHallSimulation
         public int TotalNrOfPeopleWaiting { get; private set; }
         public int TotalNrOfCounters { get; private set; }
         private Simulator sim;
-        public int Time { get; private set; }
 
 
         public Statistics(Simulator simulator)
@@ -20,7 +19,6 @@ namespace TownHallSimulation
             TotalNrPeople = 0;
             TotalNrOfPeopleWaiting = 0;
             sim = simulator;
-            Time = 8;
             TotalNrOfCounters = 9;
         }
 
@@ -36,11 +34,6 @@ namespace TownHallSimulation
            // totalNrPeople += total;
 
         }
-
-        //public int GetTotalNrOfPeople()
-        //{
-        //    return totalNrPeople;
-        //}
         
         public int GetTotalNrOfPeopleWaiting()
         {
@@ -60,7 +53,7 @@ namespace TownHallSimulation
             return num;
         }
 
-        public int GetTotoalNrOfCountersOccupied()
+        public int GetTotalNrOfCountersOccupied()
         {
             int num = 0;
             foreach (Counter C in sim.CounterList)
@@ -73,7 +66,7 @@ namespace TownHallSimulation
             return num;
         }
 
-        public int GetTotoalNrOfCountersFree()
+        public int GetTotalNrOfCountersFree()
         {
             int num = 0;
             foreach (Counter C in sim.CounterList)
@@ -84,14 +77,6 @@ namespace TownHallSimulation
                 }
             }
             return num;
-        }
-
-        public void UpdateCurrentTime()
-        {
-            if (Time<17 && Time >8)
-            {
-                Time++;
-            }
         }
     }
 }

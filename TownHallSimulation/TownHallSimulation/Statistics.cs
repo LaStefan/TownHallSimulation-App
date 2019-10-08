@@ -15,11 +15,11 @@ namespace TownHallSimulation
         public int Time { get; private set; }
 
 
-        public Statistics(Simulator sim)
+        public Statistics(Simulator simulator)
         {
             TotalNrPeople = 0;
             TotalNrOfPeopleWaiting = 0;
-            sim =  Simulator;
+            sim = simulator;
             Time = 8;
             TotalNrOfCounters = 9;
         }
@@ -92,7 +92,6 @@ namespace TownHallSimulation
             {
                 Time++;
             }
-            fjwjrwerwjhrjkw;
         }
     }
 }

@@ -18,19 +18,20 @@ namespace TownHallSimulation
         {
             //intiliaze vars
             sim = new Simulator();
+            statistics = new Statistics(sim);
             Time = 9;
         }
 
         //Different number of people are created, added to a list and then it is returned.
         public List<Person> RandomSpawnPersons()
         {
-            sim.PeopleList.Clear();
-            var current = random.Next(0, 16);         
+            var current = random.Next(0, 16);
             for (int i = 0; i < current; i++)
             {
                 sim.CreatePerson();
-                statistics.UpdateTotalNrOfPeople(1);
             }
+            //Moved statistic update out of loop to optimize program.
+            statistics.UpdateTotalNrOfPeople(current);
             return sim.PeopleList;
         }
         public void UpdateCurrentTime()
@@ -39,6 +40,14 @@ namespace TownHallSimulation
             {
                 Time++;
             }
+        }
+
+        //Will happen when a visitor reaches the counter. Removes visitor from list upon completion. Parameter is for testing purposes atm.
+        public void Process()
+        {
+            Person p = new Person(Appointment.AddressChange);
+            sim.PeopleList.Add(p);
+            sim.ProcessAndRemove(p);
         }
     }
 }

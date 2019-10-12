@@ -24,8 +24,13 @@ namespace TownHallSimulation
         {
             foreach ( Person p in TheHall.RandomSpawnPersons())
             {
-                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetId);
+                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
             }
+        }
+        //Test button for processig requests.
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TheHall.Process();
         }
     }
 }

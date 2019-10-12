@@ -14,28 +14,37 @@ namespace TownHallSimulation
         PropertySale,
         PermitRequest
     }
+
+
     //Class Person
     public class Person
     {   //Fields and Properties
         private static int counter = 0;
-        private int id = 0;
+        private int id;
         public Point Location { get; private set; }
         public Point[] PathToFollow { get; private set; }
         public Bitmap Image { get; private set; }
-        //Constructor
+        //Constructor 1
         public Person(Appointment appointment, Point location, Bitmap image)
         {
             counter++;
-            this.GetAppointment = appointment;
-            this.Location = location;
-            this.Image = image;
+            GetAppointment = appointment;
+            Location = location;
+            Image = image;
+        }
+        //Constructor 2, Used in simulator to create objects before location and image are used.
+        public Person(Appointment appointment)
+        {
+            counter++;
+            id = counter;
+            GetAppointment = appointment;
         }
         public Appointment GetAppointment { get; }
-        
+
         //Methods of the class 
         public int GetPersonId()
         {
-            return this.id;
+            return id;
         }
 
         public void DrawPerson(Graphics gr)
@@ -43,10 +52,10 @@ namespace TownHallSimulation
             gr.DrawImage(Image, Location);
         }
 
-       // public bool GoToCounter()
-       //{
-            
-       // }
+        // public bool GoToCounter()
+        //{
+
+        // }
 
 
 

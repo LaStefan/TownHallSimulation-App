@@ -1,24 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Timers;
 using System.Drawing;
 
 namespace TownHallSimulation
 {
     class Counter
-    {
+    { // fields and properties of the class
         private int id;
-        public Point location;
-        public bool isOpened;
-        public bool isOccupied;
+        public Point location { get; set; }
+        public bool isOpened { get; set; }
+        public bool isOccupied { get; set; }
+        private string currentAppointment { get; set; }
 
-        public Counter(Point loc)
+        private Timer t;
+        // class constructor 
+        public Counter(int id, Point loc)
         {
-            this.location = loc;
+            this.id = id;
+            location = loc;
+            isOccupied = false;
+            t = new Timer();
         }
-
+        // methods of the class
         public void OpenCounter()
         {
             isOpened = true;
@@ -37,6 +40,43 @@ namespace TownHallSimulation
             {
                 isOccupied = false;
             }
+        }
+
+        //Processes the appointment of the person with this assigned counter. Will be called when person reaches assigned counter.
+        public void ProcessAppointment(Person p)
+        {
+            Appointment current = p.GetAppointment;
+            this.UpdateStatus();
+            Console.WriteLine("Counter {0} is now occupied with {1}", id, current);
+            if (current == Appointment.AddressChange)
+            {
+                currentAppointment = "Address Change";
+                t.Interval = 3000;
+            }
+            else if (current == Appointment.PermitRequest)
+            {
+                currentAppointment = "Permit Request";
+                t.Interval = 5000;
+            }
+            else
+            {
+                currentAppointment = "Property Sale";
+                t.Interval = 8000;
+            }
+            SetTimer();
+        }
+
+        public void SetTimer()
+        {
+            t.Elapsed += OnTick;
+            t.AutoReset = false;
+            t.Enabled = true;
+        }
+
+        public void OnTick(Object source, ElapsedEventArgs e)
+        {
+            UpdateStatus();
+            Console.WriteLine("Counter {0} isOccupied: {1}. Task finished: {2} for {3}ms", id, isOccupied, currentAppointment, t.Interval);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace TownHallSimulation
         {
             foreach ( Person p in TheHall.RandomSpawnPersons())
             {
-                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetId);
+                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
             }
         }
 

@@ -27,5 +27,37 @@ namespace TownHallSimulation
                 Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetId);
             }
         }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Counter6_Click(object sender, EventArgs e)
+        {
+            this.Enabled = true;
+            this.BackColor = Color.DarkCyan;
+        }
+
+        private void RoundButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoundButton_Paint(object sender, PaintEventArgs e)
+        {
+            // Create pen.
+            Pen blackPen = new Pen(Color.DarkCyan, 10);
+            // Create rectangle.
+            Rectangle rect = new Rectangle(0, 0, 200, 200);
+            // Draw rectangle to screen.
+            e.Graphics.DrawRectangle(blackPen, rect);
+        }
+
+        private void CircularButton1_Click(object sender, EventArgs e)
+        {
+            this.Enabled = true;
+            this.BackColor = Color.DarkCyan; 
+        }
     }
 }

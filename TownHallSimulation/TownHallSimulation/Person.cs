@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace TownHallSimulation
 {
+    public enum Position
+    {
+        UP, LEFT, RIGHT
+    }
     public class Person
     {
         private static int counter = 0;

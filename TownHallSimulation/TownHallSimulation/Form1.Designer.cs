@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnResume = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.roundButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.circularButton1 = new TownHallSimulation.CircularButton();
             this.circularButton2 = new TownHallSimulation.CircularButton();
             this.circularButton3 = new TownHallSimulation.CircularButton();
@@ -52,8 +52,8 @@
             this.circularButton9 = new TownHallSimulation.CircularButton();
             this.circularButton10 = new TownHallSimulation.CircularButton();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // SpawnTimer
@@ -98,6 +98,16 @@
             this.label1.Size = new System.Drawing.Size(348, 36);
             this.label1.TabIndex = 1;
             this.label1.Text = "TOWN HALL SIMULATION";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -190,16 +200,6 @@
             this.roundButton.UseVisualStyleBackColor = true;
             this.roundButton.Click += new System.EventHandler(this.RoundButton_Click);
             this.roundButton.Paint += new System.Windows.Forms.PaintEventHandler(this.RoundButton_Paint);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // circularButton1
             // 
@@ -364,8 +364,8 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

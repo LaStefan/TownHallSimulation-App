@@ -34,11 +34,10 @@ namespace TownHallSimulation
         //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
         public void ProcessAndRemove(Person p)
         {
-            if (!c.isOccupied && PeopleList.Contains(p))
+            if (!c.isOccupied)
             {
                 c.ProcessAppointment(p);
                 PeopleList.Remove(p);
-                Console.WriteLine("Person p removed.");
             }
         }
 

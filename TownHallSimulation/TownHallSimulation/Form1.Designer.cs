@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.SpawnTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStatistics = new System.Windows.Forms.Button();
             this.btnResume = new System.Windows.Forms.Button();
@@ -42,6 +40,7 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.roundButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.circularButton1 = new TownHallSimulation.CircularButton();
             this.circularButton2 = new TownHallSimulation.CircularButton();
             this.circularButton3 = new TownHallSimulation.CircularButton();
@@ -52,17 +51,14 @@
             this.circularButton8 = new TownHallSimulation.CircularButton();
             this.circularButton9 = new TownHallSimulation.CircularButton();
             this.circularButton10 = new TownHallSimulation.CircularButton();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // SpawnTimer
             // 
             this.SpawnTimer.Enabled = true;
-            this.SpawnTimer.Interval = 5000;
             this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel1
@@ -102,16 +98,6 @@
             this.label1.Size = new System.Drawing.Size(348, 36);
             this.label1.TabIndex = 1;
             this.label1.Text = "TOWN HALL SIMULATION";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -178,6 +164,7 @@
             this.btnStop.TabIndex = 4;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
+            this.btnStop.Click += new System.EventHandler(this.BtnStop_Click);
             // 
             // btnStart
             // 
@@ -191,6 +178,7 @@
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // roundButton
             // 
@@ -202,6 +190,16 @@
             this.roundButton.UseVisualStyleBackColor = true;
             this.roundButton.Click += new System.EventHandler(this.RoundButton_Click);
             this.roundButton.Paint += new System.Windows.Forms.PaintEventHandler(this.RoundButton_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
+            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(130, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // circularButton1
             // 
@@ -339,23 +337,12 @@
             this.circularButton10.Text = "circularButton10";
             this.circularButton10.UseVisualStyleBackColor = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(462, 375);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 30);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(843, 439);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.roundButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.circularButton1);
@@ -369,15 +356,16 @@
             this.Controls.Add(this.circularButton9);
             this.Controls.Add(this.circularButton10);
             this.Controls.Add(this.panel1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,7 +394,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button roundButton;
-        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }
 

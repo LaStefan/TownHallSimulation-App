@@ -56,10 +56,15 @@ namespace TownHallSimulation
             gr.DrawImage(Image, Location);
         }
 
-        // public bool GoToCounter()
+        //public bool GoToCounter()
         //{
+        //    if (Location == Counter.location)
+        //    {
+        //        return true;
+        //    }
 
-        // }
+        //    Point pathStarting = PathToFollow[0];
+        //}
 
 
 

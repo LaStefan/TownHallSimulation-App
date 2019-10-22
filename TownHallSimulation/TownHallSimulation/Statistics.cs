@@ -30,10 +30,7 @@ namespace TownHallSimulation
         public void UpdateTotalNrOfPeople(int total)
         {
             TotalNrPeople += total;
-<<<<<<< Updated upstream
-            //Every time x amount of people is spawned they get added to the total count. You get the number of the people from the random generator in the town hall class.
-=======
->>>>>>> Stashed changes
+
 
         }
         

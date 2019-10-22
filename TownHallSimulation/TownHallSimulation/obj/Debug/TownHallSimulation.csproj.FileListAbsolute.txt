@@ -2,7 +2,6 @@ C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulati
 C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.Form1.resources
 C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.Properties.Resources.resources
 C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.GenerateResource.cache
-C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CoreCompileInputs.cache
 C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe.config
 C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe
 C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.pdb
@@ -13,13 +12,8 @@ C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHal
 C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.exe
 C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.pdb
 C:\Users\ezehc\OneDrive\Desktop\proCpNew\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csprojAssemblyReference.cache
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe.config
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.pdb
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csprojAssemblyReference.cache
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.Form1.resources
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.Properties.Resources.resources
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.GenerateResource.cache
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CoreCompileInputs.cache
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.exe
-C:\Users\Stefan Lazarevic\Desktop\Fakultet\ProCP\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.pdb
+C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe.config
+C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe
+C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.pdb
+C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.exe
+C:\Users\HP\Desktop\Fontys\Year 3\Semester 1\ProCp\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.pdb

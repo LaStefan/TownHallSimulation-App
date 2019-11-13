@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Timers;
 using System.Drawing;
+using System.Windows.Forms.VisualStyles;
 
 namespace TownHallSimulation
 {
@@ -20,6 +21,7 @@ namespace TownHallSimulation
             location = loc;
             isOccupied = false;
             t = new Timer();
+            t.Elapsed += OnTick;
         }
         // methods of the class
         public void OpenCounter()
@@ -46,8 +48,6 @@ namespace TownHallSimulation
         public void ProcessAppointment(Person p)
         {
             Appointment current = p.GetAppointment;
-            this.UpdateStatus();
-            Console.WriteLine("Counter {0} is now occupied with {1}", id, current);
             if (current == Appointment.AddressChange)
             {
                 currentAppointment = "Address Change";
@@ -63,12 +63,13 @@ namespace TownHallSimulation
                 currentAppointment = "Property Sale";
                 t.Interval = 8000;
             }
+            this.UpdateStatus();
+            Console.WriteLine("Counter {0} is now occupied with {1}", id, current);
             SetTimer();
         }
 
         public void SetTimer()
         {
-            t.Elapsed += OnTick;
             t.AutoReset = false;
             t.Enabled = true;
         }

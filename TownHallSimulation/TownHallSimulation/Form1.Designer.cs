@@ -241,7 +241,7 @@
             this.circularButton2.Name = "circularButton2";
             this.circularButton2.Size = new System.Drawing.Size(100, 70);
             this.circularButton2.TabIndex = 18;
-            this.circularButton2.Text = "circularButton2";
+            this.circularButton2.Text = "Counter 6";
             this.circularButton2.UseVisualStyleBackColor = false;
             // 
             // circularButton3
@@ -300,7 +300,7 @@
             this.circularButton6.Name = "circularButton6";
             this.circularButton6.Size = new System.Drawing.Size(100, 70);
             this.circularButton6.TabIndex = 14;
-            this.circularButton6.Text = "circularButton6";
+            this.circularButton6.Text = "Counter 5";
             this.circularButton6.UseVisualStyleBackColor = false;
             // 
             // circularButton7
@@ -314,7 +314,7 @@
             this.circularButton7.Name = "circularButton7";
             this.circularButton7.Size = new System.Drawing.Size(100, 70);
             this.circularButton7.TabIndex = 13;
-            this.circularButton7.Text = "circularButton7";
+            this.circularButton7.Text = "Counter 4";
             this.circularButton7.UseVisualStyleBackColor = false;
             // 
             // circularButton8
@@ -328,7 +328,7 @@
             this.circularButton8.Name = "circularButton8";
             this.circularButton8.Size = new System.Drawing.Size(100, 70);
             this.circularButton8.TabIndex = 12;
-            this.circularButton8.Text = "circularButton8";
+            this.circularButton8.Text = "Counter 3";
             this.circularButton8.UseVisualStyleBackColor = false;
             // 
             // circularButton9
@@ -342,8 +342,9 @@
             this.circularButton9.Name = "circularButton9";
             this.circularButton9.Size = new System.Drawing.Size(100, 70);
             this.circularButton9.TabIndex = 11;
-            this.circularButton9.Text = "circularButton9";
+            this.circularButton9.Text = "Counter 2";
             this.circularButton9.UseVisualStyleBackColor = false;
+            this.circularButton9.Click += new System.EventHandler(this.circularButton9_Click);
             // 
             // circularButton10
             // 

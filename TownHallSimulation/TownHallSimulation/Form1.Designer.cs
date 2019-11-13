@@ -51,6 +51,7 @@
             this.circularButton8 = new TownHallSimulation.CircularButton();
             this.circularButton9 = new TownHallSimulation.CircularButton();
             this.circularButton10 = new TownHallSimulation.CircularButton();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -70,7 +71,7 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1124, 61);
             this.panel1.TabIndex = 3;
@@ -82,7 +83,7 @@
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(1061, 9);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(55, 44);
             this.btnExit.TabIndex = 2;
@@ -106,7 +107,7 @@
             // 
             this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
             this.pictureBox1.Location = new System.Drawing.Point(-3, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(173, 62);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,7 +124,7 @@
             this.panel2.Controls.Add(this.btnStop);
             this.panel2.Controls.Add(this.btnStart);
             this.panel2.Location = new System.Drawing.Point(37, 66);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(129, 460);
             this.panel2.TabIndex = 20;
@@ -135,7 +136,7 @@
             this.btnStatistics.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnStatistics.Location = new System.Drawing.Point(4, 380);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(132, 81);
             this.btnStatistics.TabIndex = 21;
@@ -149,7 +150,7 @@
             this.btnResume.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResume.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnResume.Location = new System.Drawing.Point(4, 292);
-            this.btnResume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResume.Margin = new System.Windows.Forms.Padding(4);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(129, 81);
             this.btnResume.TabIndex = 6;
@@ -163,7 +164,7 @@
             this.btnPause.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnPause.Location = new System.Drawing.Point(4, 203);
-            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(4);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(129, 81);
             this.btnPause.TabIndex = 5;
@@ -177,7 +178,7 @@
             this.btnStop.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnStop.Location = new System.Drawing.Point(4, 114);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(129, 81);
             this.btnStop.TabIndex = 4;
@@ -192,7 +193,7 @@
             this.btnStart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnStart.Location = new System.Drawing.Point(4, 26);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(129, 81);
             this.btnStart.TabIndex = 3;
@@ -203,8 +204,8 @@
             // roundButton
             // 
             this.roundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton.Location = new System.Drawing.Point(560, 477);
-            this.roundButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundButton.Location = new System.Drawing.Point(549, 340);
+            this.roundButton.Margin = new System.Windows.Forms.Padding(4);
             this.roundButton.Name = "roundButton";
             this.roundButton.Size = new System.Drawing.Size(201, 26);
             this.roundButton.TabIndex = 21;
@@ -220,7 +221,7 @@
             this.circularButton1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton1.ForeColor = System.Drawing.Color.White;
             this.circularButton1.Location = new System.Drawing.Point(908, 201);
-            this.circularButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton1.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton1.Name = "circularButton1";
             this.circularButton1.Size = new System.Drawing.Size(105, 70);
             this.circularButton1.TabIndex = 19;
@@ -236,7 +237,7 @@
             this.circularButton2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton2.ForeColor = System.Drawing.Color.White;
             this.circularButton2.Location = new System.Drawing.Point(908, 92);
-            this.circularButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton2.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton2.Name = "circularButton2";
             this.circularButton2.Size = new System.Drawing.Size(100, 70);
             this.circularButton2.TabIndex = 18;
@@ -251,7 +252,7 @@
             this.circularButton3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton3.ForeColor = System.Drawing.Color.White;
             this.circularButton3.Location = new System.Drawing.Point(908, 340);
-            this.circularButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton3.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton3.Name = "circularButton3";
             this.circularButton3.Size = new System.Drawing.Size(100, 70);
             this.circularButton3.TabIndex = 17;
@@ -266,7 +267,7 @@
             this.circularButton4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton4.ForeColor = System.Drawing.Color.White;
             this.circularButton4.Location = new System.Drawing.Point(269, 340);
-            this.circularButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton4.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton4.Name = "circularButton4";
             this.circularButton4.Size = new System.Drawing.Size(100, 70);
             this.circularButton4.TabIndex = 16;
@@ -281,7 +282,7 @@
             this.circularButton5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton5.ForeColor = System.Drawing.Color.White;
             this.circularButton5.Location = new System.Drawing.Point(269, 213);
-            this.circularButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton5.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton5.Name = "circularButton5";
             this.circularButton5.Size = new System.Drawing.Size(100, 70);
             this.circularButton5.TabIndex = 15;
@@ -295,7 +296,7 @@
             this.circularButton6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton6.ForeColor = System.Drawing.Color.White;
             this.circularButton6.Location = new System.Drawing.Point(787, 92);
-            this.circularButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton6.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton6.Name = "circularButton6";
             this.circularButton6.Size = new System.Drawing.Size(100, 70);
             this.circularButton6.TabIndex = 14;
@@ -309,7 +310,7 @@
             this.circularButton7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton7.ForeColor = System.Drawing.Color.White;
             this.circularButton7.Location = new System.Drawing.Point(661, 92);
-            this.circularButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton7.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton7.Name = "circularButton7";
             this.circularButton7.Size = new System.Drawing.Size(100, 70);
             this.circularButton7.TabIndex = 13;
@@ -323,7 +324,7 @@
             this.circularButton8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton8.ForeColor = System.Drawing.Color.White;
             this.circularButton8.Location = new System.Drawing.Point(532, 92);
-            this.circularButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton8.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton8.Name = "circularButton8";
             this.circularButton8.Size = new System.Drawing.Size(100, 70);
             this.circularButton8.TabIndex = 12;
@@ -337,7 +338,7 @@
             this.circularButton9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton9.ForeColor = System.Drawing.Color.White;
             this.circularButton9.Location = new System.Drawing.Point(404, 92);
-            this.circularButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton9.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton9.Name = "circularButton9";
             this.circularButton9.Size = new System.Drawing.Size(100, 70);
             this.circularButton9.TabIndex = 11;
@@ -351,11 +352,11 @@
             this.circularButton10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.circularButton10.ForeColor = System.Drawing.Color.White;
             this.circularButton10.Location = new System.Drawing.Point(269, 92);
-            this.circularButton10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circularButton10.Margin = new System.Windows.Forms.Padding(4);
             this.circularButton10.Name = "circularButton10";
             this.circularButton10.Size = new System.Drawing.Size(100, 70);
             this.circularButton10.TabIndex = 10;
-            this.circularButton10.Text = "circularButton10";
+            this.circularButton10.Text = "Counter 1";
             this.circularButton10.UseVisualStyleBackColor = false;
             // 
             // Form1
@@ -379,7 +380,7 @@
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -416,6 +417,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Button roundButton;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 

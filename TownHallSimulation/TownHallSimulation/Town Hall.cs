@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TownHallSimulation
@@ -9,17 +10,19 @@ namespace TownHallSimulation
     class Town_Hall
     {
         public String name = "Town Hall Eindhoven";
-        private Simulator sim;
+        public Simulator sim;
         //Used for generating random number of people each x amount of time.
         private Random random = new Random();
         private Statistics statistics;
         public int Time { get; private set; }
-        public Town_Hall()
+        Form1 form;
+        public Town_Hall(Form1 f1)
         {
             //intiliaze vars
-            sim = new Simulator();
+            sim = new Simulator(f1);
             statistics = new Statistics(sim);
             Time = 9;
+            form = f1;
         }
 
         //Different number of people are created, added to a list and then it is returned.
@@ -46,8 +49,16 @@ namespace TownHallSimulation
         public void Process()
         {
             Person p = new Person(Appointment.AddressChange);
+            form.lbLog.Items.Add("Person created for changing address appointment");
+            Thread.Sleep(1000);
             sim.PeopleList.Add(p);
             sim.ProcessAndRemove(p);
         }
+        public void GetForm(Form1 f1)
+        {
+            sim.getForm(f1);
+        }
+
+
     }
 }

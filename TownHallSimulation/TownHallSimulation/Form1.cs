@@ -16,7 +16,7 @@ namespace TownHallSimulation
         public Form1()
         {
             InitializeComponent();
-            TheHall = new Town_Hall();
+            TheHall = new Town_Hall(this);
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
@@ -24,13 +24,21 @@ namespace TownHallSimulation
         {
             foreach ( Person p in TheHall.RandomSpawnPersons())
             {
-                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
+                lbLog.Items.Add($"The type of appointment is: {p.GetAppointment} + ID: {p.GetPersonId()}");
+
+              
             }
         }
+       
         //Test button for processig requests.
         private void button1_Click(object sender, EventArgs e)
         {
             TheHall.Process();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

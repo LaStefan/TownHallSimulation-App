@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Timers;
 using System.Drawing;
-using System.Windows.Forms.VisualStyles;
 
 namespace TownHallSimulation
 {
+  
     class Counter
     { // fields and properties of the class
         private int id;
@@ -12,16 +12,18 @@ namespace TownHallSimulation
         public bool isOpened { get; set; }
         public bool isOccupied { get; set; }
         private string currentAppointment { get; set; }
+        private string status;
+        Form1 form;
 
         private Timer t;
         // class constructor 
-        public Counter(int id, Point loc)
+        public Counter(int id, Point loc, Form1 f1)
         {
             this.id = id;
             location = loc;
             isOccupied = false;
             t = new Timer();
-            t.Elapsed += OnTick;
+            this.form = f1;
         }
         // methods of the class
         public void OpenCounter()
@@ -48,6 +50,8 @@ namespace TownHallSimulation
         public void ProcessAppointment(Person p)
         {
             Appointment current = p.GetAppointment;
+            this.UpdateStatus();
+            form.lbLog.Items.Add($"Counter {id} is now occupied with {current}");
             if (current == Appointment.AddressChange)
             {
                 currentAppointment = "Address Change";
@@ -63,21 +67,29 @@ namespace TownHallSimulation
                 currentAppointment = "Property Sale";
                 t.Interval = 8000;
             }
-            this.UpdateStatus();
-            Console.WriteLine("Counter {0} is now occupied with {1}", id, current);
             SetTimer();
         }
 
         public void SetTimer()
         {
+            t.Elapsed += OnTick;
             t.AutoReset = false;
             t.Enabled = true;
         }
-
+        
+        public string GetInfo()
+        {
+            return status;
+        }
         public void OnTick(Object source, ElapsedEventArgs e)
         {
             UpdateStatus();
-            Console.WriteLine("Counter {0} isOccupied: {1}. Task finished: {2} for {3}ms", id, isOccupied, currentAppointment, t.Interval);
+            GetInfo();
+
+
         }
+        
+
+        
     }
 }

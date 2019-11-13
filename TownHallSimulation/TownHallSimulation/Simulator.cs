@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace TownHallSimulation
@@ -12,14 +13,16 @@ namespace TownHallSimulation
         public List<Person> PeopleList;
         public List<Counter> CounterList;
         //counter for test
-        private Counter c;
+        public Counter c;
         private Random random = new Random();
+        Form1 form;
 
-        public Simulator()
+        public Simulator(Form1 f2)
         {
             PeopleList = new List<Person>();
             CounterList = new List<Counter>();
-            c = new Counter(2, Point.Empty);
+            c = new Counter(2, Point.Empty,f2);
+            form = f2;
         }
 
         //Creates an instantce of Person with a random Appointment value each time and adds to the list.
@@ -34,16 +37,20 @@ namespace TownHallSimulation
         //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
         public void ProcessAndRemove(Person p)
         {
-            if (!c.isOccupied)
+            if (!c.isOccupied && PeopleList.Contains(p))
             {
                 c.ProcessAppointment(p);
                 PeopleList.Remove(p);
+                form.lbLog.Items.Add("Person p removed.");
             }
         }
-
         public void MakeCounter()
         {
             //...
+        }
+        public void getForm(Form1 f2)
+        {
+            f2.lbLog.Items.Add(c.GetInfo());
         }
     }
 }

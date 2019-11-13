@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -20,7 +22,6 @@ namespace TownHallSimulation
             InitializeComponent();
             TheHall = new Town_Hall();
             image = TownHallSimulation.Properties.Resources.d;
-           // rect = new Rectangle(560, 477, 70, 70);
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
@@ -30,9 +31,23 @@ namespace TownHallSimulation
             {
                 Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
             }
-            rect.X += 3;
-            rect.Y -= 3;
-            Invalidate();
+            
+            
+            if (rect.Y > 130)
+            {
+                if (rect.Y > 305 && rect.Y < 310)
+                {
+                    SpawnTimer.Stop();
+
+                    Thread.Sleep(1000);
+
+                    SpawnTimer.Start();
+                }
+                rect.X += 0;
+                rect.Y -= 3;
+
+                Invalidate();
+            }
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -55,8 +70,7 @@ namespace TownHallSimulation
         {
             // Create pen.
             Pen blackPen = new Pen(Color.DarkCyan, 10);
-            // Create rectangle.
-            Rectangle rect = new Rectangle(560, 477, 200, 200);
+          
             // Draw rectangle to screen.
             e.Graphics.DrawRectangle(blackPen, rect);
         }
@@ -76,7 +90,7 @@ namespace TownHallSimulation
         private void BtnStart_Click(object sender, EventArgs e)
         {
             image = TownHallSimulation.Properties.Resources.d;
-            rect = new Rectangle(560, 350, 50, 50);
+            rect = new Rectangle(520, 350, 20, 20);
             SpawnTimer.Start();
         }
 

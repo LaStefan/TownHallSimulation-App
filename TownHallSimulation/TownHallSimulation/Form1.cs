@@ -20,7 +20,7 @@ namespace TownHallSimulation
             InitializeComponent();
             TheHall = new Town_Hall();
             image = TownHallSimulation.Properties.Resources.d;
-            rect = new Rectangle(20, 20, 70, 70);
+           // rect = new Rectangle(560, 477, 70, 70);
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
@@ -31,7 +31,7 @@ namespace TownHallSimulation
                 Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
             }
             rect.X += 3;
-            rect.Y += 3;
+            rect.Y -= 3;
             Invalidate();
         }
 
@@ -56,7 +56,7 @@ namespace TownHallSimulation
             // Create pen.
             Pen blackPen = new Pen(Color.DarkCyan, 10);
             // Create rectangle.
-            Rectangle rect = new Rectangle(0, 0, 200, 200);
+            Rectangle rect = new Rectangle(560, 477, 200, 200);
             // Draw rectangle to screen.
             e.Graphics.DrawRectangle(blackPen, rect);
         }
@@ -76,7 +76,7 @@ namespace TownHallSimulation
         private void BtnStart_Click(object sender, EventArgs e)
         {
             image = TownHallSimulation.Properties.Resources.d;
-            rect = new Rectangle(20, 20, 70, 70);
+            rect = new Rectangle(560, 350, 50, 50);
             SpawnTimer.Start();
         }
 

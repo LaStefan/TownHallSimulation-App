@@ -41,6 +41,7 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.roundButton = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.circularButton1 = new TownHallSimulation.CircularButton();
             this.circularButton2 = new TownHallSimulation.CircularButton();
             this.circularButton3 = new TownHallSimulation.CircularButton();
@@ -51,7 +52,6 @@
             this.circularButton8 = new TownHallSimulation.CircularButton();
             this.circularButton9 = new TownHallSimulation.CircularButton();
             this.circularButton10 = new TownHallSimulation.CircularButton();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -156,6 +156,7 @@
             this.btnResume.TabIndex = 6;
             this.btnResume.Text = "Resume";
             this.btnResume.UseVisualStyleBackColor = false;
+            this.btnResume.Click += new System.EventHandler(this.btnResume_Click);
             // 
             // btnPause
             // 
@@ -170,6 +171,7 @@
             this.btnPause.TabIndex = 5;
             this.btnPause.Text = "Pause";
             this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnStop
             // 

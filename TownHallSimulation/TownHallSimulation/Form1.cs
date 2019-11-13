@@ -17,6 +17,7 @@ namespace TownHallSimulation
         private Town_Hall TheHall;
         Image image;
         Rectangle rect;
+        bool state = false;
         public Form1()
         {
             InitializeComponent();
@@ -92,6 +93,7 @@ namespace TownHallSimulation
             image = TownHallSimulation.Properties.Resources.d;
             rect = new Rectangle(520, 350, 20, 20);
             SpawnTimer.Start();
+            btnStart.Enabled = false;
         }
 
         private void BtnStop_Click(object sender, EventArgs e)
@@ -102,6 +104,16 @@ namespace TownHallSimulation
         private void circularButton9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            SpawnTimer.Stop();
+        }
+
+        private void btnResume_Click(object sender, EventArgs e)
+        {
+            SpawnTimer.Start();
         }
     }
 }

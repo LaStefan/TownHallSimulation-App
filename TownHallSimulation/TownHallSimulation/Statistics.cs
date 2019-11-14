@@ -22,7 +22,7 @@ namespace TownHallSimulation
             TotalNrOfCounters = 9;
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return "";
         }

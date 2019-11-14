@@ -15,14 +15,12 @@ namespace TownHallSimulation
         //counter for test
         public Counter c;
         private Random random = new Random();
-        Form1 form;
 
         public Simulator(Form1 f2)
         {
             PeopleList = new List<Person>();
             CounterList = new List<Counter>();
             c = new Counter(2, Point.Empty,f2);
-            form = f2;
         }
 
         //Creates an instantce of Person with a random Appointment value each time and adds to the list.
@@ -40,17 +38,11 @@ namespace TownHallSimulation
             if (!c.isOccupied && PeopleList.Contains(p))
             {
                 c.ProcessAppointment(p);
-                PeopleList.Remove(p);
-                form.lbLog.Items.Add("Person p removed.");
             }
         }
         public void MakeCounter()
         {
             //...
-        }
-        public void getForm(Form1 f2)
-        {
-            f2.lbLog.Items.Add(c.GetInfo());
         }
     }
 }

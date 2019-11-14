@@ -15,14 +15,12 @@ namespace TownHallSimulation
         private Random random = new Random();
         private Statistics statistics;
         public int Time { get; private set; }
-        Form1 form;
         public Town_Hall(Form1 f1)
         {
             //intiliaze vars
             sim = new Simulator(f1);
             statistics = new Statistics(sim);
             Time = 9;
-            form = f1;
         }
 
         //Different number of people are created, added to a list and then it is returned.
@@ -48,17 +46,9 @@ namespace TownHallSimulation
         //Will happen when a visitor reaches the counter. Removes visitor from list upon completion. Parameter is for testing purposes atm.
         public void Process()
         {
-            Person p = new Person(Appointment.AddressChange);
-            form.lbLog.Items.Add("Person created for changing address appointment");
-            Thread.Sleep(1000);
+            Person p = new Person(Appointment.PropertySale);
             sim.PeopleList.Add(p);
             sim.ProcessAndRemove(p);
         }
-        public void GetForm(Form1 f1)
-        {
-            sim.getForm(f1);
-        }
-
-
     }
 }

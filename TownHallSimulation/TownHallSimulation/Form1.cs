@@ -25,8 +25,6 @@ namespace TownHallSimulation
             foreach ( Person p in TheHall.RandomSpawnPersons())
             {
                 lbLog.Items.Add($"The type of appointment is: {p.GetAppointment} + ID: {p.GetPersonId()}");
-
-              
             }
         }
        
@@ -34,11 +32,6 @@ namespace TownHallSimulation
         private void button1_Click(object sender, EventArgs e)
         {
             TheHall.Process();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

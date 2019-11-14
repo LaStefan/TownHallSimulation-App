@@ -42,10 +42,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(464, 122);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(348, 99);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
@@ -54,30 +53,29 @@
             // lbLog
             // 
             this.lbLog.FormattingEnabled = true;
-            this.lbLog.ItemHeight = 16;
-            this.lbLog.Location = new System.Drawing.Point(12, 241);
+            this.lbLog.Location = new System.Drawing.Point(9, 196);
+            this.lbLog.Margin = new System.Windows.Forms.Padding(2);
             this.lbLog.Name = "lbLog";
-            this.lbLog.Size = new System.Drawing.Size(779, 148);
+            this.lbLog.Size = new System.Drawing.Size(585, 121);
             this.lbLog.TabIndex = 1;
             // 
             // lBStatistics
             // 
             this.lBStatistics.FormattingEnabled = true;
-            this.lBStatistics.ItemHeight = 16;
-            this.lBStatistics.Location = new System.Drawing.Point(12, 12);
+            this.lBStatistics.Location = new System.Drawing.Point(9, 10);
+            this.lBStatistics.Margin = new System.Windows.Forms.Padding(2);
             this.lBStatistics.Name = "lBStatistics";
-            this.lBStatistics.Size = new System.Drawing.Size(367, 180);
+            this.lBStatistics.Size = new System.Drawing.Size(276, 147);
             this.lBStatistics.TabIndex = 2;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 492);
+            this.ClientSize = new System.Drawing.Size(602, 400);
             this.Controls.Add(this.lBStatistics);
             this.Controls.Add(this.lbLog);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

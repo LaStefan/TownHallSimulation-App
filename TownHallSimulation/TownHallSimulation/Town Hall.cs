@@ -13,7 +13,7 @@ namespace TownHallSimulation
         public Simulator sim;
         //Used for generating random number of people each x amount of time.
         private Random random = new Random();
-        private Statistics statistics;
+        public Statistics statistics;
         public int Time { get; private set; }
         public Town_Hall(Form1 f1)
         {
@@ -46,9 +46,17 @@ namespace TownHallSimulation
         //Will happen when a visitor reaches the counter. Removes visitor from list upon completion. Parameter is for testing purposes atm.
         public void Process()
         {
+<<<<<<< Updated upstream
             Person p = new Person(Appointment.PropertySale);
+=======
+            Person p = new Person(Appointment.AddressChange);
+            form.lbLog.Items.Add("Person created for changing address appointment");
+            Thread.Sleep(1000);
+            
+>>>>>>> Stashed changes
             sim.PeopleList.Add(p);
             sim.ProcessAndRemove(p);
+            //statistics.UpdateTotalNrOfPeople(1);
         }
     }
 }

@@ -32,6 +32,24 @@ namespace TownHallSimulation
         private void button1_Click(object sender, EventArgs e)
         {
             TheHall.Process();
+            showStats();
         }
+<<<<<<< Updated upstream
+=======
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void showStats()
+        {
+            lBStatistics.Items.Add($"The total number of free counters are: {TheHall.statistics.GetTotalNrOfCountersFree()}");
+            lBStatistics.Items.Add($"The total number of occupied counters are: {TheHall.statistics.GetTotalNrOfCountersOccupied()}");
+            lBStatistics.Items.Add($"The total number of open counters are: {TheHall.statistics.GetTotalNrOfCountersOpened()}");
+            lBStatistics.Items.Add($"The total number of poeple waiting counters are: {TheHall.statistics.GetTotalNrOfPeopleWaiting()}");
+            lBStatistics.Items.Add($"The total number of people curently at the city hall is: {TheHall.statistics.TotalNrPeople}");
+
+        }
+>>>>>>> Stashed changes
     }
 }

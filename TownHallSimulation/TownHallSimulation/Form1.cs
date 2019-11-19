@@ -21,7 +21,7 @@ namespace TownHallSimulation
         public Form1()
         {
             InitializeComponent();
-            TheHall = new Town_Hall();
+            TheHall = new Town_Hall(this);
             image = TownHallSimulation.Properties.Resources.d;
         }
 

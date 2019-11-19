@@ -47,8 +47,6 @@ namespace TownHallSimulation
         public void Process()
         {
             Person p = new Person(Appointment.PropertySale);
-            Person p = new Person(Appointment.AddressChange);
-            form.lbLog.Items.Add("Person created for changing address appointment");
             Thread.Sleep(1000);
             
             sim.PeopleList.Add(p);

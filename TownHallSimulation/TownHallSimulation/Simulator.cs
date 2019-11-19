@@ -21,7 +21,7 @@ namespace TownHallSimulation
             PeopleList = new List<Person>();
             CounterList = new List<Counter>();
             c = new Counter(2, Point.Empty,f2);
-            form = f2;
+            //form = f2;
             CounterList.Add(c);
         }
 

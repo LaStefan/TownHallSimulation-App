@@ -55,15 +55,15 @@ namespace TownHallSimulation
             {
                 case Appointment.AddressChange:
                     t.Interval = 3000;
-                    form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
+                   // form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
                     break;
                 case Appointment.PermitRequest:
                     t.Interval = 5000;
-                    form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
+                  //  form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
                     break;
                 default:
                     t.Interval = 7000;
-                    form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
+                  //  form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
                     break;
             }
             SetTimer();
@@ -80,8 +80,8 @@ namespace TownHallSimulation
             UpdateStatus();
             form.Invoke(new MethodInvoker(delegate
             {
-                form.lbLog.Items.Add(
-                    $"Counter {id} has finished processing after {t.Interval} ms.");
+              //  form.lbLog.Items.Add(
+            //$"Counter {id} has finished processing after {t.Interval} ms.");
             }));
             t.Elapsed -= OnTick;
         }

@@ -15,12 +15,16 @@ namespace TownHallSimulation
         PermitRequest
     }
 
+    public enum Position
+    {
+        UP, LEFT, RIGHT
+    }
 
     //Class Person
     public class Person
     {   //Fields and Properties
-        private static int counter = 0;
         private int id;
+        private static int counter = 0;
         public Point Location { get; private set; }
         public Point[] PathToFollow { get; private set; }
         public Bitmap Image { get; private set; }
@@ -52,10 +56,15 @@ namespace TownHallSimulation
             gr.DrawImage(Image, Location);
         }
 
-        // public bool GoToCounter()
+        //public bool GoToCounter()
         //{
+        //    if (Location == Counter.location)
+        //    {
+        //        return true;
+        //    }
 
-        // }
+        //    Point pathStarting = PathToFollow[0];
+        //}
 
 
 

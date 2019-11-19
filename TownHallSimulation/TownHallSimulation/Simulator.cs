@@ -13,7 +13,7 @@ namespace TownHallSimulation
         public List<Person> PeopleList;
         public List<Counter> CounterList;
         //counter for test
-        public Counter c;
+        private Counter c;
         private Random random = new Random();
 
         public Simulator(Form1 f2)
@@ -21,11 +21,8 @@ namespace TownHallSimulation
             PeopleList = new List<Person>();
             CounterList = new List<Counter>();
             c = new Counter(2, Point.Empty,f2);
-<<<<<<< Updated upstream
-=======
             form = f2;
             CounterList.Add(c);
->>>>>>> Stashed changes
         }
 
         //Creates an instantce of Person with a random Appointment value each time and adds to the list.

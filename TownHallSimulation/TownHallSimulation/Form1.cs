@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -13,10 +15,14 @@ namespace TownHallSimulation
     public partial class Form1 : Form
     {
         private Town_Hall TheHall;
+        Image image;
+        Rectangle rect;
+        bool state = false;
         public Form1()
         {
             InitializeComponent();
-            TheHall = new Town_Hall(this);
+            TheHall = new Town_Hall();
+            image = TownHallSimulation.Properties.Resources.d;
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
@@ -24,32 +30,90 @@ namespace TownHallSimulation
         {
             foreach ( Person p in TheHall.RandomSpawnPersons())
             {
-                lbLog.Items.Add($"The type of appointment is: {p.GetAppointment} + ID: {p.GetPersonId()}");
+                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
+            }
+            
+            
+            if (rect.Y > 130)
+            {
+                if (rect.Y > 305 && rect.Y < 310)
+                {
+                    SpawnTimer.Stop();
+
+                    Thread.Sleep(1000);
+
+                    SpawnTimer.Start();
+                }
+                rect.X += 0;
+                rect.Y -= 3;
+
+                Invalidate();
             }
         }
-       
-        //Test button for processig requests.
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TheHall.Process();
-            showStats();
-        }
-<<<<<<< Updated upstream
-=======
 
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
-        private void showStats()
+
+        private void Counter6_Click(object sender, EventArgs e)
         {
-            lBStatistics.Items.Add($"The total number of free counters are: {TheHall.statistics.GetTotalNrOfCountersFree()}");
-            lBStatistics.Items.Add($"The total number of occupied counters are: {TheHall.statistics.GetTotalNrOfCountersOccupied()}");
-            lBStatistics.Items.Add($"The total number of open counters are: {TheHall.statistics.GetTotalNrOfCountersOpened()}");
-            lBStatistics.Items.Add($"The total number of poeple waiting counters are: {TheHall.statistics.GetTotalNrOfPeopleWaiting()}");
-            lBStatistics.Items.Add($"The total number of people curently at the city hall is: {TheHall.statistics.TotalNrPeople}");
+            this.Enabled = true;
+            this.BackColor = Color.DarkCyan;
+        }
+
+        private void RoundButton_Click(object sender, EventArgs e)
+        {
 
         }
->>>>>>> Stashed changes
+
+        private void RoundButton_Paint(object sender, PaintEventArgs e)
+        {
+            // Create pen.
+            Pen blackPen = new Pen(Color.DarkCyan, 10);
+          
+            // Draw rectangle to screen.
+            e.Graphics.DrawRectangle(blackPen, rect);
+        }
+
+        private void CircularButton1_Click(object sender, EventArgs e)
+        {
+            this.Enabled = true;
+            this.BackColor = Color.DarkCyan; 
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.DrawImage(image, rect);
+        }
+
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+            image = TownHallSimulation.Properties.Resources.d;
+            rect = new Rectangle(520, 350, 20, 20);
+            SpawnTimer.Start();
+            btnStart.Enabled = false;
+        }
+
+        private void BtnStop_Click(object sender, EventArgs e)
+        {
+            SpawnTimer.Stop();
+        }
+
+        private void circularButton9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            SpawnTimer.Stop();
+        }
+
+        private void btnResume_Click(object sender, EventArgs e)
+        {
+            SpawnTimer.Start();
+        }
     }
 }

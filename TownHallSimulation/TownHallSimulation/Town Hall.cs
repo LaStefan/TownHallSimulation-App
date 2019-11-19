@@ -46,14 +46,11 @@ namespace TownHallSimulation
         //Will happen when a visitor reaches the counter. Removes visitor from list upon completion. Parameter is for testing purposes atm.
         public void Process()
         {
-<<<<<<< Updated upstream
             Person p = new Person(Appointment.PropertySale);
-=======
             Person p = new Person(Appointment.AddressChange);
             form.lbLog.Items.Add("Person created for changing address appointment");
             Thread.Sleep(1000);
             
->>>>>>> Stashed changes
             sim.PeopleList.Add(p);
             sim.ProcessAndRemove(p);
             //statistics.UpdateTotalNrOfPeople(1);

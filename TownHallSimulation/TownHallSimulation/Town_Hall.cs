@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,6 +15,7 @@ namespace TownHallSimulation
         //Used for generating random number of people each x amount of time.
         private Random random = new Random();
         public Statistics statistics;
+        public Bitmap image;
         public int Time { get; private set; }
         public Town_Hall(Form1 f1)
         {
@@ -21,6 +23,7 @@ namespace TownHallSimulation
             sim = new Simulator(f1);
             statistics = new Statistics(sim);
             Time = 9;
+            image = TownHallSimulation.Properties.Resources.d;
         }
 
         //Different number of people are created, added to a list and then it is returned.
@@ -44,11 +47,11 @@ namespace TownHallSimulation
         }
 
         //Will happen when a visitor reaches the counter. Removes visitor from list upon completion. Parameter is for testing purposes atm.
-        public void Process()
+        public void Process(Counter c)
         {
             Person p = new Person(Appointment.PropertySale);
             Thread.Sleep(1000);
-            
+            sim.AssignCounter(p, c);
             sim.PeopleList.Add(p);
             sim.ProcessAndRemove(p);
             //statistics.UpdateTotalNrOfPeople(1);

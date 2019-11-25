@@ -21,22 +21,26 @@ namespace TownHallSimulation
         System.Drawing.Image image;
         System.Drawing.Rectangle rect;
         bool state = false;
+        Counter counter7;
         public Form1()
         {
             InitializeComponent();
             TheHall = new Town_Hall(this);
             image = TownHallSimulation.Properties.Resources.d;
+            counter7 = new Counter(7, new Point(908, 225), this, Appointment.AddressChange);
+            lblCounter7.Text = "0 people \n waiting";
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
         {
-            foreach ( Person p in TheHall.RandomSpawnPersons())
+            foreach (Person p in TheHall.RandomSpawnPersons())
             {
                 Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
             }
-            
-            
+
+            lblCounter7.Text = counter7.peopleWaiting + " people \n waiting";
+
             if (rect.Y > 130)
             {
                 if (rect.Y > 305 && rect.Y < 310)
@@ -97,6 +101,7 @@ namespace TownHallSimulation
             rect = new System.Drawing.Rectangle(520, 350, 20, 20);
             SpawnTimer.Start();
             btnStart.Enabled = false;
+            TheHall.Process(counter7);
         }
 
         private void BtnStop_Click(object sender, EventArgs e)

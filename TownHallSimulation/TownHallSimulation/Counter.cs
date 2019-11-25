@@ -14,16 +14,20 @@ namespace TownHallSimulation
         public Point location { get; set; }
         public bool isOpened { get; set; }
         public bool isOccupied { get; set; }
+        public Appointment appointmentType { get; set; }
+        public int peopleWaiting { get; set; }
         private Timer t;
         Form1 form;
         // class constructor 
-        public Counter(int id, Point loc, Form1 f1)
+        public Counter(int id, Point loc, Form1 f1, Appointment appointmentType)
         {
             this.id = id;
             location = loc;
             isOccupied = false;
+            this.appointmentType = appointmentType;
             this.form = f1;
             t = new Timer();
+            peopleWaiting = 0;
         }
         // methods of the class
         public void OpenCounter()

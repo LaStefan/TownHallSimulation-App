@@ -27,7 +27,8 @@ namespace TownHallSimulation
         private static int counter = 0;
         public Point Location { get; private set; }
         public Point[] PathToFollow { get; private set; }
-        public Bitmap Image { get; private set; }
+        public Bitmap Image { get;  private set; }
+        public int assignedCounter { get; set; }
         //Constructor 1
         public Person(Appointment appointment, Point location, Bitmap image)
         {

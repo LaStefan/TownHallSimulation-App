@@ -12,6 +12,7 @@ namespace TownHallSimulation
     {
         public List<Person> PeopleList;
         public List<Counter> CounterList;
+        public Bitmap image;
         //counter for test
         private Counter c;
         private Random random = new Random();
@@ -20,9 +21,10 @@ namespace TownHallSimulation
         {
             PeopleList = new List<Person>();
             CounterList = new List<Counter>();
-            c = new Counter(2, Point.Empty,f2);
+            c = new Counter(2, Point.Empty,f2, Appointment.AddressChange);
             //form = f2;
             CounterList.Add(c);
+            image = TownHallSimulation.Properties.Resources.d;
         }
 
         //Creates an instantce of Person with a random Appointment value each time and adds to the list.
@@ -45,6 +47,12 @@ namespace TownHallSimulation
         public void MakeCounter()
         {
             //...
+        }
+
+        public void AssignCounter(Person p, Counter assignCounter)
+        {
+            p.assignedCounter = 7;
+            assignCounter.peopleWaiting++;
         }
     }
 }

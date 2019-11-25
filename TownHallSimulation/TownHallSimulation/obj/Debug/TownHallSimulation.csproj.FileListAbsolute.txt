@@ -8,6 +8,19 @@ C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHal
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CoreCompileInputs.cache
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.exe
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.pdb
+<<<<<<< HEAD
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\itextsharp.dll
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\itextsharp.xml
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CopyComplete
+=======
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe.config
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.exe
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\TownHallSimulation.pdb
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csprojResolveAssemblyReference.cache
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.Form1.resources
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.Properties.Resources.resources
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.GenerateResource.Cache
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CoreCompileInputs.cache
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.exe
+C:\Users\gebruiker\Documents\FONTYS\GIT\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.pdb
+>>>>>>> development

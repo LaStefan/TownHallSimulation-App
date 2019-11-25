@@ -372,6 +372,16 @@
             this.ClientSize = new System.Drawing.Size(1195, 741);
             this.Controls.Add(this.roundButton);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnCounter7);
+            this.Controls.Add(this.btnCounter6);
+            this.Controls.Add(this.btnCounter8);
+            this.Controls.Add(this.btnCounter9);
+            this.Controls.Add(this.btnCounter10);
+            this.Controls.Add(this.btnCounter5);
+            this.Controls.Add(this.btnCounter4);
+            this.Controls.Add(this.btnCounter3);
+            this.Controls.Add(this.btnCounter2);
+            this.Controls.Add(this.btnCounter1);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

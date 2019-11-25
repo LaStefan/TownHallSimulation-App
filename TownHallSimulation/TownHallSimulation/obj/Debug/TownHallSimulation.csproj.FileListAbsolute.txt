@@ -8,3 +8,6 @@ C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHal
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CoreCompileInputs.cache
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.exe
 C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.pdb
+C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\itextsharp.dll
+C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\bin\Debug\itextsharp.xml
+C:\Users\Jean_Destine\Desktop\Repository\procp-smarty\TownHallSimulation\TownHallSimulation\obj\Debug\TownHallSimulation.csproj.CopyComplete

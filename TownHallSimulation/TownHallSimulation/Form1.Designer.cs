@@ -35,6 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnStatistics = new System.Windows.Forms.Button();
             this.btnResume = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.btnCounter3 = new TownHallSimulation.CircularButton();
             this.btnCounter2 = new TownHallSimulation.CircularButton();
             this.btnCounter1 = new TownHallSimulation.CircularButton();
-            this.btnStatistics = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -129,6 +129,21 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(135, 460);
             this.panel2.TabIndex = 20;
+            // 
+            // btnStatistics
+            // 
+            this.btnStatistics.BackColor = System.Drawing.Color.White;
+            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatistics.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatistics.ForeColor = System.Drawing.Color.DarkCyan;
+            this.btnStatistics.Location = new System.Drawing.Point(2, 371);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStatistics.Name = "btnStatistics";
+            this.btnStatistics.Size = new System.Drawing.Size(132, 81);
+            this.btnStatistics.TabIndex = 21;
+            this.btnStatistics.Text = "Statistics";
+            this.btnStatistics.UseVisualStyleBackColor = false;
+            this.btnStatistics.Click += new System.EventHandler(this.btnStatistics_Click);
             // 
             // btnResume
             // 
@@ -349,20 +364,6 @@
             this.btnCounter1.Text = "Counter 1";
             this.btnCounter1.UseVisualStyleBackColor = false;
             // 
-            // btnStatistics
-            // 
-            this.btnStatistics.BackColor = System.Drawing.Color.White;
-            this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistics.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistics.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnStatistics.Location = new System.Drawing.Point(2, 371);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(132, 81);
-            this.btnStatistics.TabIndex = 21;
-            this.btnStatistics.Text = "Statistics";
-            this.btnStatistics.UseVisualStyleBackColor = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -371,16 +372,6 @@
             this.ClientSize = new System.Drawing.Size(1195, 741);
             this.Controls.Add(this.roundButton);
             this.Controls.Add(this.panel2);
-////            this.Controls.Add(this.btnCounter7);
-//            this.Controls.Add(this.btnCounter6);
-//            this.Controls.Add(this.btnCounter8);
-//            this.Controls.Add(this.btnCounter9);
-//            this.Controls.Add(this.btnCounter10);
-//            this.Controls.Add(this.btnCounter5);
-//            this.Controls.Add(this.btnCounter4);
-//            this.Controls.Add(this.btnCounter3);
-//            this.Controls.Add(this.btnCounter2);
-//            this.Controls.Add(this.btnCounter1);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

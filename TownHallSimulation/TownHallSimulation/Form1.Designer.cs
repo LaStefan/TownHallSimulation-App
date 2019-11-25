@@ -42,6 +42,8 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.roundButton = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.lblCounter7 = new System.Windows.Forms.Label();
+            this.MovingTimer = new System.Windows.Forms.Timer(this.components);
             this.btnCounter7 = new TownHallSimulation.CircularButton();
             this.btnCounter6 = new TownHallSimulation.CircularButton();
             this.btnCounter8 = new TownHallSimulation.CircularButton();
@@ -52,7 +54,6 @@
             this.btnCounter3 = new TownHallSimulation.CircularButton();
             this.btnCounter2 = new TownHallSimulation.CircularButton();
             this.btnCounter1 = new TownHallSimulation.CircularButton();
-            this.lblCounter7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -60,7 +61,7 @@
             // 
             // SpawnTimer
             // 
-            this.SpawnTimer.Interval = 5000;
+            this.SpawnTimer.Interval = 3000;
             this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel1
@@ -217,6 +218,19 @@
             this.roundButton.Click += new System.EventHandler(this.RoundButton_Click);
             this.roundButton.Paint += new System.Windows.Forms.PaintEventHandler(this.RoundButton_Paint);
             // 
+            // lblCounter7
+            // 
+            this.lblCounter7.AutoSize = true;
+            this.lblCounter7.Location = new System.Drawing.Point(807, 253);
+            this.lblCounter7.Name = "lblCounter7";
+            this.lblCounter7.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter7.TabIndex = 22;
+            this.lblCounter7.Text = "lblCounter7";
+            // 
+            // MovingTimer
+            // 
+            this.MovingTimer.Tick += new System.EventHandler(this.MovingTimer_Tick);
+            // 
             // btnCounter7
             // 
             this.btnCounter7.BackColor = System.Drawing.Color.DarkSlateGray;
@@ -364,15 +378,6 @@
             this.btnCounter1.Text = "Counter 1";
             this.btnCounter1.UseVisualStyleBackColor = false;
             // 
-            // lblCounter7
-            // 
-            this.lblCounter7.AutoSize = true;
-            this.lblCounter7.Location = new System.Drawing.Point(807, 253);
-            this.lblCounter7.Name = "lblCounter7";
-            this.lblCounter7.Size = new System.Drawing.Size(80, 17);
-            this.lblCounter7.TabIndex = 22;
-            this.lblCounter7.Text = "lblCounter7";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,7 +385,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1195, 741);
             this.Controls.Add(this.lblCounter7);
-            this.Controls.Add(this.roundButton);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCounter7);
             this.Controls.Add(this.btnCounter6);
@@ -393,6 +397,7 @@
             this.Controls.Add(this.btnCounter2);
             this.Controls.Add(this.btnCounter1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.roundButton);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -435,6 +440,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Label lblCounter7;
+        private System.Windows.Forms.Timer MovingTimer;
     }
 }
 

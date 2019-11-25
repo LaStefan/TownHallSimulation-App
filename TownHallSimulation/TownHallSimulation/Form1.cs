@@ -21,6 +21,7 @@ namespace TownHallSimulation
         System.Drawing.Image image;
         System.Drawing.Rectangle rect;
         bool state = false;
+        bool visitedCenter = false;
         Counter counter7;
         public Form1()
         {
@@ -41,21 +42,6 @@ namespace TownHallSimulation
 
             lblCounter7.Text = counter7.peopleWaiting + " people \n waiting";
 
-            if (rect.Y > 130)
-            {
-                if (rect.Y > 305 && rect.Y < 310)
-                {
-                    SpawnTimer.Stop();
-
-                    Thread.Sleep(1000);
-
-                    SpawnTimer.Start();
-                }
-                rect.X += 0;
-                rect.Y -= 3;
-
-                Invalidate();
-            }
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -99,6 +85,7 @@ namespace TownHallSimulation
         {
             image = TownHallSimulation.Properties.Resources.d;
             rect = new System.Drawing.Rectangle(520, 350, 20, 20);
+            MovingTimer.Start();
             SpawnTimer.Start();
             btnStart.Enabled = false;
             TheHall.Process(counter7);
@@ -154,6 +141,40 @@ namespace TownHallSimulation
                     }
                 }
             }
+        }
+
+        private void MovingTimer_Tick(object sender, EventArgs e)
+        {
+            if (rect.Y > 130)
+            {
+                if (visitedCenter)
+                {
+                    rect.X -= Convert.ToInt32(1.35);
+                    rect.Y -= 3;
+                }
+                else
+                {
+                    rect.X += 0;
+                    rect.Y -= 3;
+                }
+               
+                if (rect.Y > 305 && rect.Y < 310)
+                {
+                    MovingTimer.Stop();
+
+                    Thread.Sleep(1000);
+
+                    MovingTimer.Start();
+                    visitedCenter=true;
+                    
+                }
+                
+
+                Invalidate();
+            }
+
+
+
         }
     }
 }

@@ -47,11 +47,11 @@ namespace TownHallSimulation
         }
 
         //Will happen when a visitor reaches the counter. Removes visitor from list upon completion. Parameter is for testing purposes atm.
-        public void Process(Counter c)
+        public void Process(List<Counter> theCounters)
         {
             Person p = new Person(Appointment.PropertySale);
             Thread.Sleep(1000);
-            sim.AssignCounter(p, c);
+            sim.AssignCounter(p, theCounters);
             sim.PeopleList.Add(p);
             sim.ProcessAndRemove(p);
             //statistics.UpdateTotalNrOfPeople(1);

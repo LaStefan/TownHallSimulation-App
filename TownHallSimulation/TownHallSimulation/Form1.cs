@@ -22,14 +22,14 @@ namespace TownHallSimulation
         System.Drawing.Rectangle rect;
         bool state = false;
         bool visitedCenter = false;
-        Counter counter7;
+        Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
+        List<Counter> theCounters = new List<Counter>();
         public Form1()
         {
             InitializeComponent();
             TheHall = new Town_Hall(this);
             image = TownHallSimulation.Properties.Resources.d;
-            counter7 = new Counter(7, new Point(908, 225), this, Appointment.AddressChange);
-            lblCounter7.Text = "0 people \n waiting";
+            setCounters();
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
@@ -39,8 +39,6 @@ namespace TownHallSimulation
             {
                 Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
             }
-
-            lblCounter7.Text = counter7.peopleWaiting + " people \n waiting";
 
         }
 
@@ -88,7 +86,7 @@ namespace TownHallSimulation
             MovingTimer.Start();
             SpawnTimer.Start();
             btnStart.Enabled = false;
-            TheHall.Process(counter7);
+            TheHall.Process(theCounters);
         }
 
         private void BtnStop_Click(object sender, EventArgs e)
@@ -151,6 +149,7 @@ namespace TownHallSimulation
                 {
                     rect.X -= Convert.ToInt32(1.35);
                     rect.Y -= 3;
+                    updateLabels();
                 }
                 else
                 {
@@ -172,9 +171,60 @@ namespace TownHallSimulation
 
                 Invalidate();
             }
+        }
 
+        public void setCounters()
+        {
+            counter1 = new Counter(1, new Point(269, 92), this, Appointment.AddressChange);
+            theCounters.Add(counter1);
+            counter1.OpenCounter();
+            lblCounter1.Text = "0 people \n waiting";
+            counter2 = new Counter(2, new Point(404, 92), this, Appointment.PermitRequest);
+            theCounters.Add(counter2);
+            counter2.OpenCounter();
+            lblCounter2.Text = "0 people \n waiting";
+            counter3 = new Counter(3, new Point(532, 92), this, Appointment.PropertySale);
+            theCounters.Add(counter3);
+            counter3.OpenCounter();
+            lblCounter3.Text = "0 people \n waiting";
+            counter4 = new Counter(4, new Point(661, 92), this, Appointment.AddressChange);
+            theCounters.Add(counter4);
+            counter4.OpenCounter();
+            lblCounter4.Text = "0 people \n waiting";
+            counter5 = new Counter(5, new Point(787, 92), this, Appointment.PermitRequest);
+            theCounters.Add(counter5);
+            counter5.OpenCounter();
+            lblCounter5.Text = "0 people \n waiting";
+            counter6 = new Counter(6, new Point(908, 92), this, Appointment.PropertySale);
+            theCounters.Add(counter6);
+            //counter6.OpenCounter();
+            lblCounter6.Text = "0 people \n waiting";
+            counter7 = new Counter(7, new Point(908, 225), this, Appointment.AddressChange);
+            theCounters.Add(counter7);
+            lblCounter7.Text = "0 people \n waiting";
+            counter8 = new Counter(8, new Point(908, 340), this, Appointment.PermitRequest);
+            theCounters.Add(counter8);
+            lblCounter8.Text = "0 people \n waiting";
+            counter9 = new Counter(9, new Point(269, 340), this, Appointment.PropertySale);
+            theCounters.Add(counter9);
+            lblCounter9.Text = "0 people \n waiting";
+            counter10 = new Counter(10, new Point(269, 213), this, Appointment.AddressChange);
+            theCounters.Add(counter10);
+            lblCounter10.Text = "0 people \n waiting";
+        }
 
-
+        public void updateLabels()
+        {
+            lblCounter1.Text = counter1.peopleWaiting + " people \n waiting";
+            lblCounter2.Text = counter2.peopleWaiting + " people \n waiting";
+            lblCounter3.Text = counter3.peopleWaiting + " people \n waiting";
+            lblCounter4.Text = counter4.peopleWaiting + " people \n waiting";
+            lblCounter5.Text = counter5.peopleWaiting + " people \n waiting";
+            lblCounter6.Text = counter6.peopleWaiting + " people \n waiting";
+            lblCounter7.Text = counter7.peopleWaiting + " people \n waiting";
+            lblCounter8.Text = counter8.peopleWaiting + " people \n waiting";
+            lblCounter9.Text = counter9.peopleWaiting + " people \n waiting";
+            lblCounter10.Text = counter10.peopleWaiting + " people \n waiting";
         }
     }
 }

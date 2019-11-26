@@ -10,7 +10,7 @@ namespace TownHallSimulation
 
     class Counter
     { // fields and properties of the class
-        private int id;
+        public int id;
         public Point location { get; set; }
         public bool isOpened { get; set; }
         public bool isOccupied { get; set; }

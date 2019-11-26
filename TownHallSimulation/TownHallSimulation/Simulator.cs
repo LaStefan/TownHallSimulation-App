@@ -49,10 +49,20 @@ namespace TownHallSimulation
             //...
         }
 
-        public void AssignCounter(Person p, Counter assignCounter)
+        public void AssignCounter(Person p, List<Counter> theCounters)
         {
-            p.assignedCounter = 7;
-            assignCounter.peopleWaiting++;
+            foreach (Counter c in theCounters)
+            {
+                if (c.appointmentType == p.GetAppointment && c.isOpened)
+                {//assigns the person to the counter that is open and has the same appointment type
+                    p.assignedCounter = c.id;
+                    c.peopleWaiting++;
+                }
+                else
+                {
+                    //nothing happens
+                }
+            }
         }
     }
 }

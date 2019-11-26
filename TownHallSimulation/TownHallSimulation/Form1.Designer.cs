@@ -54,6 +54,15 @@
             this.btnCounter3 = new TownHallSimulation.CircularButton();
             this.btnCounter2 = new TownHallSimulation.CircularButton();
             this.btnCounter1 = new TownHallSimulation.CircularButton();
+            this.lblCounter8 = new System.Windows.Forms.Label();
+            this.lblCounter9 = new System.Windows.Forms.Label();
+            this.lblCounter10 = new System.Windows.Forms.Label();
+            this.lblCounter1 = new System.Windows.Forms.Label();
+            this.lblCounter2 = new System.Windows.Forms.Label();
+            this.lblCounter3 = new System.Windows.Forms.Label();
+            this.lblCounter4 = new System.Windows.Forms.Label();
+            this.lblCounter5 = new System.Windows.Forms.Label();
+            this.lblCounter6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -378,12 +387,102 @@
             this.btnCounter1.Text = "Counter 1";
             this.btnCounter1.UseVisualStyleBackColor = false;
             // 
+            // lblCounter8
+            // 
+            this.lblCounter8.AutoSize = true;
+            this.lblCounter8.Location = new System.Drawing.Point(807, 368);
+            this.lblCounter8.Name = "lblCounter8";
+            this.lblCounter8.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter8.TabIndex = 23;
+            this.lblCounter8.Text = "lblCounter8";
+            // 
+            // lblCounter9
+            // 
+            this.lblCounter9.AutoSize = true;
+            this.lblCounter9.Location = new System.Drawing.Point(401, 368);
+            this.lblCounter9.Name = "lblCounter9";
+            this.lblCounter9.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter9.TabIndex = 24;
+            this.lblCounter9.Text = "lblCounter9";
+            // 
+            // lblCounter10
+            // 
+            this.lblCounter10.AutoSize = true;
+            this.lblCounter10.Location = new System.Drawing.Point(401, 241);
+            this.lblCounter10.Name = "lblCounter10";
+            this.lblCounter10.Size = new System.Drawing.Size(88, 17);
+            this.lblCounter10.TabIndex = 25;
+            this.lblCounter10.Text = "lblCounter10";
+            // 
+            // lblCounter1
+            // 
+            this.lblCounter1.AutoSize = true;
+            this.lblCounter1.Location = new System.Drawing.Point(280, 170);
+            this.lblCounter1.Name = "lblCounter1";
+            this.lblCounter1.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter1.TabIndex = 26;
+            this.lblCounter1.Text = "lblCounter1";
+            // 
+            // lblCounter2
+            // 
+            this.lblCounter2.AutoSize = true;
+            this.lblCounter2.Location = new System.Drawing.Point(409, 170);
+            this.lblCounter2.Name = "lblCounter2";
+            this.lblCounter2.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter2.TabIndex = 27;
+            this.lblCounter2.Text = "lblCounter2";
+            // 
+            // lblCounter3
+            // 
+            this.lblCounter3.AutoSize = true;
+            this.lblCounter3.Location = new System.Drawing.Point(546, 170);
+            this.lblCounter3.Name = "lblCounter3";
+            this.lblCounter3.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter3.TabIndex = 28;
+            this.lblCounter3.Text = "lblCounter3";
+            // 
+            // lblCounter4
+            // 
+            this.lblCounter4.AutoSize = true;
+            this.lblCounter4.Location = new System.Drawing.Point(670, 170);
+            this.lblCounter4.Name = "lblCounter4";
+            this.lblCounter4.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter4.TabIndex = 29;
+            this.lblCounter4.Text = "lblCounter4";
+            // 
+            // lblCounter5
+            // 
+            this.lblCounter5.AutoSize = true;
+            this.lblCounter5.Location = new System.Drawing.Point(807, 170);
+            this.lblCounter5.Name = "lblCounter5";
+            this.lblCounter5.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter5.TabIndex = 30;
+            this.lblCounter5.Text = "lblCounter5";
+            // 
+            // lblCounter6
+            // 
+            this.lblCounter6.AutoSize = true;
+            this.lblCounter6.Location = new System.Drawing.Point(928, 170);
+            this.lblCounter6.Name = "lblCounter6";
+            this.lblCounter6.Size = new System.Drawing.Size(80, 17);
+            this.lblCounter6.TabIndex = 31;
+            this.lblCounter6.Text = "lblCounter6";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1195, 741);
+            this.Controls.Add(this.lblCounter6);
+            this.Controls.Add(this.lblCounter5);
+            this.Controls.Add(this.lblCounter4);
+            this.Controls.Add(this.lblCounter3);
+            this.Controls.Add(this.lblCounter2);
+            this.Controls.Add(this.lblCounter1);
+            this.Controls.Add(this.lblCounter10);
+            this.Controls.Add(this.lblCounter9);
+            this.Controls.Add(this.lblCounter8);
             this.Controls.Add(this.lblCounter7);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnCounter7);
@@ -441,6 +540,15 @@
         private System.Windows.Forms.Button btnStatistics;
         private System.Windows.Forms.Label lblCounter7;
         private System.Windows.Forms.Timer MovingTimer;
+        private System.Windows.Forms.Label lblCounter8;
+        private System.Windows.Forms.Label lblCounter9;
+        private System.Windows.Forms.Label lblCounter10;
+        private System.Windows.Forms.Label lblCounter1;
+        private System.Windows.Forms.Label lblCounter2;
+        private System.Windows.Forms.Label lblCounter3;
+        private System.Windows.Forms.Label lblCounter4;
+        private System.Windows.Forms.Label lblCounter5;
+        private System.Windows.Forms.Label lblCounter6;
     }
 }
 

@@ -42,7 +42,7 @@ namespace TownHallSimulation
         public int GetTotalNrOfCountersOpened()
         {
             int num = 0;
-            foreach (Counter C in sim.CounterList)
+            foreach (Counter C in sim.CountersList)
             {
                 if (C.isOpened)
                 {
@@ -55,7 +55,7 @@ namespace TownHallSimulation
         public int GetTotalNrOfCountersOccupied()
         {
             int num = 0;
-            foreach (Counter C in sim.CounterList)
+            foreach (Counter C in sim.CountersList)
             {
                 if (C.isOccupied)
                 {
@@ -68,7 +68,7 @@ namespace TownHallSimulation
         public int GetTotalNrOfCountersFree()
         {
             int num = 0;
-            foreach (Counter C in sim.CounterList)
+            foreach (Counter C in sim.CountersList)
             {
                 if (!C.isOccupied && C.isOpened)
                 {

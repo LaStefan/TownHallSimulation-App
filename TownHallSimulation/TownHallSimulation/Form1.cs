@@ -17,7 +17,6 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
-        private Town_Hall TheHall;
         System.Drawing.Image image;
         System.Drawing.Rectangle rect;
         bool state = false;
@@ -27,7 +26,6 @@ namespace TownHallSimulation
         public Form1()
         {
             InitializeComponent();
-            TheHall = new Town_Hall(this);
             image = TownHallSimulation.Properties.Resources.d;
             setCounters();
         }
@@ -35,11 +33,6 @@ namespace TownHallSimulation
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
         {
-            foreach (Person p in TheHall.RandomSpawnPersons())
-            {
-                Console.WriteLine("The type of appointment is: {0} + ID: {1}", p.GetAppointment, p.GetPersonId());
-            }
-
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -81,12 +74,11 @@ namespace TownHallSimulation
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            image = TownHallSimulation.Properties.Resources.d;
+            image = Properties.Resources.d;
             rect = new System.Drawing.Rectangle(520, 350, 20, 20);
             MovingTimer.Start();
             SpawnTimer.Start();
             btnStart.Enabled = false;
-            TheHall.Process(theCounters);
         }
 
         private void BtnStop_Click(object sender, EventArgs e)

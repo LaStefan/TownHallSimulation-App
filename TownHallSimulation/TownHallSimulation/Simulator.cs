@@ -7,13 +7,18 @@ namespace TownHallSimulation
     public class Simulator
     {
         public List<Person> TotalPeopleList;
-        public List<Counter> CountersList;
+        public List<Counter> AddressChangeCountersList;
+        public List<Counter> PropertySaleCountersList;
+        public List<Counter> PermitRequestCountersList;
         private Random AppointmentRandom = new Random();
+        private Statistics stats;
 
         public Simulator()
         {
             TotalPeopleList = new List<Person>();
-            CountersList = new List<Counter>();
+            AddressChangeCountersList = new List<Counter>();
+            PropertySaleCountersList = new List<Counter>();
+            PermitRequestCountersList = new List<Counter>();
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
@@ -29,7 +34,11 @@ namespace TownHallSimulation
         public void ProcessAndRemove(Person p)
         {
         }
-
+        
+        public void MakeStats()
+        {
+            
+        }
         public void MakeCounter()
         {
             List<Counter> NotSortedCounters = new List<Counter>();

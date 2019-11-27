@@ -43,44 +43,44 @@ namespace TownHallSimulation
             return TotalNrPeople - TotalNrOfPeopleWaiting;
         }
 
-        public int GetTotalNrOfCountersOpened()
-        {
-            int num = 0;
-            foreach (Counter C in sim.CountersList)
-            {
-                if (C.IsOpened)
-                {
-                    num++;
-                }
-            }
-            return num;
-        }
+        //public int GetTotalNrOfCountersOpened()
+        //{
+        //    int num = 0;
+        //    foreach (Counter C in sim.CountersList)
+        //    {
+        //        if (C.IsOpened)
+        //        {
+        //            num++;
+        //        }
+        //    }
+        //    return num;
+        //}
 
-        public int GetTotalNrOfCountersOccupied()
-        {
-            int num = 0;
-            foreach (Counter C in sim.CountersList)
-            {
-                if (C.IsOccupied)
-                {
-                    num++;
-                }
-            }
-            return num;
-        }
+        //public int GetTotalNrOfCountersOccupied()
+        //{
+        //    //int num = 0;
+        //    //foreach (Counter C in sim.CountersList)
+        //    //{
+        //    //    if (C.IsOccupied)
+        //    //    {
+        //    //        num++;
+        //    //    }
+        //    //}
+        //    //return num;
+        //}
 
-        public int GetTotalNrOfCountersFree()
-        {
-            int num = 0;
-            foreach (Counter C in sim.CountersList)
-            {
-                if (!C.IsOccupied && C.IsOpened)
-                {
-                    num++;
-                }
-            }
-            return num;
-        }
+        //public int GetTotalNrOfCountersFree()
+        //{
+        //    //int num = 0;
+        //    //foreach (Counter C in sim.CountersList)
+        //    //{
+        //    //    if (!C.IsOccupied && C.IsOpened)
+        //    //    {
+        //    //        num++;
+        //    //    }
+        //    //}
+        //    //return num;
+        //}
         
         public bool PrintStats()
         {

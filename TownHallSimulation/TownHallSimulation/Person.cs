@@ -25,8 +25,6 @@ namespace TownHallSimulation
     public class Person
     {   //Fields and Properties
         private int id;
-
-        public const int SIZE = 5;
         private static int counter = 0;
         private Point initialPoint, destinationPoint;
         private Timer personMove;

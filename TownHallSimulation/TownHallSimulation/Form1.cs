@@ -113,34 +113,10 @@ namespace TownHallSimulation
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            using(SaveFileDialog sfd = new SaveFileDialog() { Filter="PDF file|*.pdf", ValidateNames = true })
+            if (!TheHall.statistics.PrintStats())
             {
-                if (sfd.ShowDialog()==DialogResult.OK)
-                {
-                    iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
-                    try
-                    {
-                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
-                        doc.Open();
-                        doc.Add(new iTextSharp.text.Paragraph("CASE Management of Technology The PEOPLES Bank(A bank for all the people”) is one of the smaller banks of the Netherlands, but a bank with a rich history. The bank is now facing some new challenges, especially for the IT department.The bank uses a legacy system on a mainframe, which is actually a mix of legacy systems due to a" +
-                            "merger with 2 other banks 10 years ago.The system is used for the customer administration on " +
-                            "the loans, payment and savings accounts that the bank offers. All transaction of customers are processed real" +
-                            " - time as far as possible.This includes transaction of customers at the bank’s ATM, credit card and transactions and " +
-                            "updates done by the desk clerk when"))   ;
-
-
-                    }
-                    catch (Exception ex)
-                    {
-
-                        MessageBox.Show(ex.Message,"Message",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        doc.Close();
-                    }
-                }
-            }
+                MessageBox.Show("Unable to save properly", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
         }
 
         private void MovingTimer_Tick(object sender, EventArgs e)

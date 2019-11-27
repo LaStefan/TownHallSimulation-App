@@ -7,93 +7,59 @@ namespace TownHallSimulation
 {
     public class Counter
     { // fields and properties of the class
-        private int id;
+        private static int _id;
         public Point Location { get; set; }
-        public bool isOpened { get; set; }
-        public bool isOccupied { get; set; }
-        private string currentAppointment { get; set; }
-
+        public bool IsOpened { get; set; }
+        public bool IsOccupied { get; set; }
+        private Appointment _appointmentToProcess;
         public Position CounterPosition;
-        public Appointment appointment;
-        public const double SIZE = 50;
-        public List<Person> AllPeople { get; private set; }
-        public List<Person> CurrentPerson { get; private set; }
-        public bool selected { get; set; }
-
+        public List<Person> QueueList { get; private set; }
         private Timer t;
 
         // class constructor 
-        public Counter(int id)
+        public Counter(Point location, Appointment appointmentToProcess)
         {
-            this.id = id;
-            isOccupied = false;
+            _id++;
+            Location = location;
+            IsOccupied = false;
+            _appointmentToProcess = appointmentToProcess;
             t = new Timer();
         }
 
-
-        //Constructor 2 for testing front end
-        public Counter(Point location, Appointment app, Position position)
-        {
-            this.Location = location;
-            this.appointment = app;
-            CounterPosition = position;
-            AllPeople = new List<Person>();
-            CurrentPerson = new List<Person>();
-        }
         // methods of the class
-        public void OpenCounter()
+        public void UpdateIsOpened()
         {
-            isOpened = true;
+            IsOpened = !IsOpened;
         }
 
-        public Counter GetFreeCounter()
-        {
-            return null;
-        }
-        public void CloseCounter()
-        {
-            isOpened = false;
-        }
         public void UpdateStatus()
         {
-            if (isOccupied == false)
-            {
-                isOccupied = true;
-            }
-            else
-            {
-                isOccupied = false;
-            }
-        }
-
-        public void AddPersontoList(Person p)
-        {
-            AllPeople.Add(p);
-            CurrentPerson.Add(p);
+            IsOccupied = !IsOccupied;
         }
 
         //Processes the appointment of the person with this assigned counter. Will be called when person reaches assigned counter.
-        public void ProcessAppointment(Person p)
+        public void ProcessAppointment()
         {
+            Person p = QueueList[0];
             Appointment current = p.GetAppointment;
             this.UpdateStatus();
-            Console.WriteLine("Counter {0} is now occupied with {1}", id, current);
             if (current == Appointment.AddressChange)
             {
-                currentAppointment = "Address Change";
                 t.Interval = 3000;
             }
             else if (current == Appointment.PermitRequest)
             {
-                currentAppointment = "Permit Request";
                 t.Interval = 5000;
             }
             else
             {
-                currentAppointment = "Property Sale";
                 t.Interval = 8000;
             }
             SetTimer();
+        }
+        private void FIFO()
+        {
+            QueueList.Remove(QueueList[0]);
         }
 
         public void SetTimer()
@@ -106,7 +72,7 @@ namespace TownHallSimulation
         public void OnTick(Object source, ElapsedEventArgs e)
         {
             UpdateStatus();
-            Console.WriteLine("Counter {0} isOccupied: {1}. Task finished: {2} for {3}ms", id, isOccupied, currentAppointment, t.Interval);
+            FIFO();
         }
 
 

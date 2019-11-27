@@ -48,7 +48,7 @@ namespace TownHallSimulation
             int num = 0;
             foreach (Counter C in sim.CountersList)
             {
-                if (C.isOpened)
+                if (C.IsOpened)
                 {
                     num++;
                 }
@@ -61,7 +61,7 @@ namespace TownHallSimulation
             int num = 0;
             foreach (Counter C in sim.CountersList)
             {
-                if (C.isOccupied)
+                if (C.IsOccupied)
                 {
                     num++;
                 }
@@ -74,7 +74,7 @@ namespace TownHallSimulation
             int num = 0;
             foreach (Counter C in sim.CountersList)
             {
-                if (!C.isOccupied && C.isOpened)
+                if (!C.IsOccupied && C.IsOpened)
                 {
                     num++;
                 }

@@ -26,7 +26,6 @@ namespace TownHallSimulation
         public Counter(int id)
         {
             this.id = id;
-            Location = loc;
             isOccupied = false;
             t = new Timer();
         }

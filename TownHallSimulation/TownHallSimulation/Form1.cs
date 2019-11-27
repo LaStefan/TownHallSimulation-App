@@ -175,40 +175,40 @@ namespace TownHallSimulation
 
         public void setCounters()
         {
-            counter1 = new Counter(1, new Point(269, 92), this, Appointment.AddressChange);
+            counter1 = new Counter(1);
             theCounters.Add(counter1);
             counter1.OpenCounter();
             lblCounter1.Text = "0 people \n waiting";
-            counter2 = new Counter(2, new Point(404, 92), this, Appointment.PermitRequest);
+            counter2 = new Counter(2);
             theCounters.Add(counter2);
             counter2.OpenCounter();
             lblCounter2.Text = "0 people \n waiting";
-            counter3 = new Counter(3, new Point(532, 92), this, Appointment.PropertySale);
+            counter3 = new Counter(3);
             theCounters.Add(counter3);
             counter3.OpenCounter();
             lblCounter3.Text = "0 people \n waiting";
-            counter4 = new Counter(4, new Point(661, 92), this, Appointment.AddressChange);
+            counter4 = new Counter(4);
             theCounters.Add(counter4);
             counter4.OpenCounter();
             lblCounter4.Text = "0 people \n waiting";
-            counter5 = new Counter(5, new Point(787, 92), this, Appointment.PermitRequest);
+            counter5 = new Counter(5);
             theCounters.Add(counter5);
             counter5.OpenCounter();
             lblCounter5.Text = "0 people \n waiting";
-            counter6 = new Counter(6, new Point(908, 92), this, Appointment.PropertySale);
+            counter6 = new Counter(6);
             theCounters.Add(counter6);
             //counter6.OpenCounter();
             lblCounter6.Text = "0 people \n waiting";
-            counter7 = new Counter(7, new Point(908, 225), this, Appointment.AddressChange);
+            counter7 = new Counter(7);
             theCounters.Add(counter7);
             lblCounter7.Text = "0 people \n waiting";
-            counter8 = new Counter(8, new Point(908, 340), this, Appointment.PermitRequest);
+            counter8 = new Counter(8);
             theCounters.Add(counter8);
             lblCounter8.Text = "0 people \n waiting";
-            counter9 = new Counter(9, new Point(269, 340), this, Appointment.PropertySale);
+            counter9 = new Counter(9);
             theCounters.Add(counter9);
             lblCounter9.Text = "0 people \n waiting";
-            counter10 = new Counter(10, new Point(269, 213), this, Appointment.AddressChange);
+            counter10 = new Counter(10);
             theCounters.Add(counter10);
             lblCounter10.Text = "0 people \n waiting";
         }

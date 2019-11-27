@@ -24,17 +24,17 @@ namespace TownHallSimulation
     //Class Person
     public class Person
     {   //Fields and Properties
-        private int id;
+        public int id;
         private static int counter = 0;
-        private Point initialPoint, destinationPoint;
-        private Timer personMove;
+        public Point initialPoint, destinationPoint;
+        public Timer personMove;
         private Timer personStop;
-        private List<Point> destinations;
-        private List<int> destintationsNumbers;
+        public List<Point> destinations;
+        public List<int> destintationsNumbers;
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
-        public Point Location { get; private set; }
+        public Point Location { get; set; }
         public Point[] PathToFollow { get; set; }
         public bool Discharged { get; set; }
         public bool Critical { get; set; }
@@ -59,6 +59,7 @@ namespace TownHallSimulation
             counter++;
             id = counter;
             GetAppointment = appointment;
+            personMove = new Timer();//for unit test
         }
         public Appointment GetAppointment { get; }
 

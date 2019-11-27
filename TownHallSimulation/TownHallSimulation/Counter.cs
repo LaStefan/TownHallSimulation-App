@@ -14,7 +14,7 @@ namespace TownHallSimulation
         private Appointment _appointmentToProcess;
         public Position CounterPosition;
         public List<Person> QueueList { get; private set; }
-        private Timer t;
+        public Timer t;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess)
@@ -24,6 +24,7 @@ namespace TownHallSimulation
             IsOccupied = false;
             _appointmentToProcess = appointmentToProcess;
             t = new Timer();
+            QueueList = new List<Person>();//for unit test
         }
 
         // methods of the class
@@ -57,7 +58,8 @@ namespace TownHallSimulation
             }
             SetTimer();
         }
-        private void FIFO()
+        //I make it to be public only for unit test
+        public void FIFO()
         {
             QueueList.Remove(QueueList[0]);
         }

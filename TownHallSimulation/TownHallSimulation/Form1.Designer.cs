@@ -208,7 +208,7 @@
             // roundButton
             // 
             this.roundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton.Location = new System.Drawing.Point(483, 354);
+            this.roundButton.Location = new System.Drawing.Point(479, 368);
             this.roundButton.Name = "roundButton";
             this.roundButton.Size = new System.Drawing.Size(151, 21);
             this.roundButton.TabIndex = 21;

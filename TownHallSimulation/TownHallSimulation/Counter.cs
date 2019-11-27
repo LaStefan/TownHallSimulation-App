@@ -1,38 +1,55 @@
 ﻿using System;
-using System.Drawing;
-using System.Threading;
 using System.Timers;
-using System.Windows.Forms;
-using Timer = System.Timers.Timer;
+using System.Drawing;
+using System.Collections.Generic;
 
 namespace TownHallSimulation
 {
-
     public class Counter
     { // fields and properties of the class
-        public int id;
-        public Point location { get; set; }
+        private int id;
+        public Point Location { get; set; }
         public bool isOpened { get; set; }
         public bool isOccupied { get; set; }
-        public Appointment appointmentType { get; set; }
-        public int peopleWaiting { get; set; }
+        private string currentAppointment { get; set; }
+
+        public Position CounterPosition;
+        public Appointment appointment;
+        public const double SIZE = 50;
+        public List<Person> AllPeople { get; private set; }
+        public List<Person> CurrentPerson { get; private set; }
+        public bool selected { get; set; }
+
         private Timer t;
-        Form1 form;
+
         // class constructor 
-        public Counter(int id, Point loc, Form1 f1, Appointment appointmentType)
+        public Counter(int id)
         {
             this.id = id;
-            location = loc;
+            Location = loc;
             isOccupied = false;
-            this.appointmentType = appointmentType;
-            this.form = f1;
             t = new Timer();
-            peopleWaiting = 0;
+        }
+
+
+        //Constructor 2 for testing front end
+        public Counter(Point location, Appointment app, Position position)
+        {
+            this.Location = location;
+            this.appointment = app;
+            CounterPosition = position;
+            AllPeople = new List<Person>();
+            CurrentPerson = new List<Person>();
         }
         // methods of the class
         public void OpenCounter()
         {
             isOpened = true;
+        }
+
+        public Counter GetFreeCounter()
+        {
+            return null;
         }
         public void CloseCounter()
         {
@@ -50,25 +67,32 @@ namespace TownHallSimulation
             }
         }
 
+        public void AddPersontoList(Person p)
+        {
+            AllPeople.Add(p);
+            CurrentPerson.Add(p);
+        }
+
         //Processes the appointment of the person with this assigned counter. Will be called when person reaches assigned counter.
         public void ProcessAppointment(Person p)
         {
-            var current = p.GetAppointment;
+            Appointment current = p.GetAppointment;
             this.UpdateStatus();
-            switch (current)
+            Console.WriteLine("Counter {0} is now occupied with {1}", id, current);
+            if (current == Appointment.AddressChange)
             {
-                case Appointment.AddressChange:
-                    t.Interval = 3000;
-                   // form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
-                    break;
-                case Appointment.PermitRequest:
-                    t.Interval = 5000;
-                  //  form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
-                    break;
-                default:
-                    t.Interval = 7000;
-                  //  form.lbLog.Items.Add($"Counter {id} is now occupied with {p.GetAppointment}");
-                    break;
+                currentAppointment = "Address Change";
+                t.Interval = 3000;
+            }
+            else if (current == Appointment.PermitRequest)
+            {
+                currentAppointment = "Permit Request";
+                t.Interval = 5000;
+            }
+            else
+            {
+                currentAppointment = "Property Sale";
+                t.Interval = 8000;
             }
             SetTimer();
         }
@@ -79,15 +103,13 @@ namespace TownHallSimulation
             t.AutoReset = false;
             t.Enabled = true;
         }
+
         public void OnTick(Object source, ElapsedEventArgs e)
         {
             UpdateStatus();
-            form.Invoke(new MethodInvoker(delegate
-            {
-              //  form.lbLog.Items.Add(
-            //$"Counter {id} has finished processing after {t.Interval} ms.");
-            }));
-            t.Elapsed -= OnTick;
+            Console.WriteLine("Counter {0} isOccupied: {1}. Task finished: {2} for {3}ms", id, isOccupied, currentAppointment, t.Interval);
         }
+
+
     }
 }

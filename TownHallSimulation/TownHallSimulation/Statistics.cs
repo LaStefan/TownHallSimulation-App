@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace TownHallSimulation
 {
-    class Statistics
+    public class Statistics
     {
         public int TotalNrPeople { get; private set; }
         public int TotalNrOfPeopleWaiting { get; private set; }
@@ -46,7 +46,7 @@ namespace TownHallSimulation
         public int GetTotalNrOfCountersOpened()
         {
             int num = 0;
-            foreach (Counter C in sim.CounterList)
+            foreach (Counter C in sim.CountersList)
             {
                 if (C.isOpened)
                 {
@@ -59,7 +59,7 @@ namespace TownHallSimulation
         public int GetTotalNrOfCountersOccupied()
         {
             int num = 0;
-            foreach (Counter C in sim.CounterList)
+            foreach (Counter C in sim.CountersList)
             {
                 if (C.isOccupied)
                 {
@@ -72,7 +72,7 @@ namespace TownHallSimulation
         public int GetTotalNrOfCountersFree()
         {
             int num = 0;
-            foreach (Counter C in sim.CounterList)
+            foreach (Counter C in sim.CountersList)
             {
                 if (!C.isOccupied && C.isOpened)
                 {

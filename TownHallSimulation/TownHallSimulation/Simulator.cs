@@ -8,23 +8,16 @@ using System.Threading.Tasks;
 
 namespace TownHallSimulation
 {
-    class Simulator
+    public class Simulator
     {
-        public List<Person> PeopleList;
-        public List<Counter> CounterList;
-        public Bitmap image;
-        //counter for test
-        private Counter c;
-        private Random random = new Random();
+        public List<Person> TotalPeopleList;
+        public List<Counter> CountersList;
+        private readonly Random NumberToSpawnRandom = new Random();
 
-        public Simulator(Form1 f2)
+        public Simulator()
         {
-            PeopleList = new List<Person>();
-            CounterList = new List<Counter>();
-            c = new Counter(2, Point.Empty,f2, Appointment.AddressChange);
-            //form = f2;
-            CounterList.Add(c);
-            image = TownHallSimulation.Properties.Resources.d;
+            TotalPeopleList = new List<Person>();
+            CountersList = new List<Counter>();
         }
 
         //Creates an instantce of Person with a random Appointment value each time and adds to the list.
@@ -32,27 +25,33 @@ namespace TownHallSimulation
         public void CreatePerson()
         {
             var types = Enum.GetValues(typeof(Appointment));
-            Appointment currentType = (Appointment)types.GetValue(random.Next(types.Length));
+            Appointment currentType = (Appointment)types.GetValue(NumberToSpawnRandom.Next(types.Length));
             Person anotherOne = new Person(currentType);
-            PeopleList.Add(anotherOne);
+            TotalPeopleList.Add(anotherOne);
         }
         //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
         public void ProcessAndRemove(Person p)
         {
-            if (!c.isOccupied && PeopleList.Contains(p))
-            {
-                c.ProcessAppointment(p);
-            }
         }
         public void MakeCounter()
         {
             //...
         }
 
-        public void AssignCounter(Person p, Counter assignCounter)
+        public void AssignCounter(Person p, List<Counter> theCounters)
         {
-            p.assignedCounter = 7;
-            assignCounter.peopleWaiting++;
+            foreach (Counter c in theCounters)
+            {
+                if (c.appointmentType == p.GetAppointment && c.isOpened)
+                {//assigns the person to the counter that is open and has the same appointment type
+                    p.assignedCounter = c.id;
+                    c.peopleWaiting++;
+                }
+                else
+                {
+                    //nothing happens
+                }
+            }
         }
     }
 }

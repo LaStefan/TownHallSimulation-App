@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TownHallSimulation
 {
-    class Simulator
+    public class Simulator
     {
         public List<Person> PeopleList;
         public List<Counter> CounterList;

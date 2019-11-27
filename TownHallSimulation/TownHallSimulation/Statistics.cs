@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TownHallSimulation
 {
-    class Statistics
+    public class Statistics
     {
         public int TotalNrPeople { get; private set; }
         public int TotalNrOfPeopleWaiting { get; private set; }

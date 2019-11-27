@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TownHallSimulation
 {
-    class Town_Hall
+    public class Town_Hall
     {
         public String name = "Town Hall Eindhoven";
         public Simulator sim;

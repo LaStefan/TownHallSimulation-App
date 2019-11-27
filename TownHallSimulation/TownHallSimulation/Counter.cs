@@ -8,7 +8,7 @@ using Timer = System.Timers.Timer;
 namespace TownHallSimulation
 {
 
-    class Counter
+    public class Counter
     { // fields and properties of the class
         public int id;
         public Point location { get; set; }

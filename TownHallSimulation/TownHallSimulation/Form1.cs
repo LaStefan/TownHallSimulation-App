@@ -20,15 +20,18 @@ namespace TownHallSimulation
         System.Drawing.Image image;
         System.Drawing.Rectangle rect;
         private bool visitedCenter;
+        private Simulator sim;
         public Form1()
         {
             InitializeComponent();
             image = TownHallSimulation.Properties.Resources.d;
+            sim = new Simulator();
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
         {
+            sim.SpawnPeople();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

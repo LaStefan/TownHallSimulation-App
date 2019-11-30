@@ -70,6 +70,7 @@
             // 
             // SpawnTimer
             // 
+            this.SpawnTimer.Enabled = true;
             this.SpawnTimer.Interval = 3000;
             this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 

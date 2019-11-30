@@ -39,29 +39,28 @@ namespace TownHallSimulation
         public bool Discharged { get; set; }
         public bool Critical { get; set; }
         public Counter Counta { get; set; }
-
         public bool Managed { get; set; }
-
         public DateTime StartNavigate { get; set; }
+        public Appointment TypeOfAppointment { get; set; }
 
         //Constructor 1
-        public Person(Point location, Bitmap image)
+        public Person(Appointment type)
         {
             counter++;
-            Location = location;
+            Location = new Point(744, 550);
             Image = new Bitmap(TownHallSimulation.Properties.Resources.d);
             personMove = new Timer();
             personStop = new Timer();
+            TypeOfAppointment = type;
         }
         //Constructor 2, Used in simulator to create objects before location and image are used.
-        public Person(Appointment appointment)
-        {
-            counter++;
-            id = counter;
-            GetAppointment = appointment;
-            personMove = new Timer();//for unit test
-        }
-        public Appointment GetAppointment { get; }
+        //public Person(Appointment appointment)
+        //{
+        //    counter++;
+        //    id = counter;
+        //    TypeOfAppointment = appointment;
+        //    personMove = new Timer();//for unit test
+        //}
 
         //Methods of the class 
         public int GetPersonId()
@@ -155,6 +154,5 @@ namespace TownHallSimulation
         {
             return Location.Y;
         }
-
     }
 }

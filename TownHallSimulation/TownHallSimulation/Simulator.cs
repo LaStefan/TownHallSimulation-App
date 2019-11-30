@@ -10,7 +10,8 @@ namespace TownHallSimulation
         public List<Counter> AddressChangeCountersList;
         public List<Counter> PropertySaleCountersList;
         public List<Counter> PermitRequestCountersList;
-        private Random AppointmentRandom = new Random();
+        private double time;
+        private Random spawnRandom = new Random();
         private Statistics stats;
 
         public Simulator()
@@ -19,46 +20,37 @@ namespace TownHallSimulation
             AddressChangeCountersList = new List<Counter>();
             PropertySaleCountersList = new List<Counter>();
             PermitRequestCountersList = new List<Counter>();
+            time = 8;
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
-        //Used by Spawn method in town hall class.
-        public void CreatePerson()
+        public void SpawnPeople()
         {
-            var types = Enum.GetValues(typeof(Appointment));
-            Appointment currentType = (Appointment)types.GetValue(AppointmentRandom.Next(types.Length));
-            Person anotherOne = new Person(currentType);
-            TotalPeopleList.Add(anotherOne);
+            if (time < 18)
+            {
+                time += 0.25;
+                var numberToSpawn = time >= 12 && time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 2);
+                var types = Enum.GetValues(typeof(Appointment));
+                for (int i = 0; i <= numberToSpawn; i++)
+                {
+                    Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
+                    TotalPeopleList.Add(new Person(currentType));
+                }
+            }
         }
+
         //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
         public void ProcessAndRemove(Person p)
         {
         }
-        
+
         public void MakeStats()
         {
-            
-        }
-        public void MakeCounter()
-        {
-            List<Counter> NotSortedCounters = new List<Counter>();
-            Counter addressCounter1 = new Counter(new Point(300, 177), Appointment.AddressChange);
 
-            //public void AssignCounter(Person p
-            //{
-            //    foreach (Counter c in theCounters)
-            //    {
-            //        if (c.appointmentType == p.GetAppointment && c.isOpened)
-            //        {//assigns the person to the counter that is open and has the same appointment type
-            //            p.assignedCounter = c.id;
-            //            c.peopleWaiting++;
-            //        }
-            //        else
-            //        {
-            //            //nothing happens
-            //        }
-            //    }
-            //}
+        }
+        public void InitializeCounters()
+        {
+
         }
     }
 }

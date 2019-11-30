@@ -42,7 +42,7 @@ namespace TownHallSimulation
         public void ProcessAppointment()
         {
             Person p = QueueList[0];
-            Appointment current = p.GetAppointment;
+            Appointment current = p.TypeOfAppointment;
             this.UpdateStatus();
             if (current == Appointment.AddressChange)
             {

@@ -25,7 +25,8 @@ namespace TownHallSimulation
         {
             InitializeComponent();
             image = TownHallSimulation.Properties.Resources.d;
-            sim = new Simulator();
+            sim = new Simulator(this);
+            //sim.CreateOne(); // to test if it assigns to shortest queue
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
@@ -110,6 +111,7 @@ namespace TownHallSimulation
 
         private void MovingTimer_Tick(object sender, EventArgs e)
         {
+            sim.UpdateLabels();
             if (rect.Y > 130)
             {
                 if (visitedCenter)
@@ -131,7 +133,7 @@ namespace TownHallSimulation
 
                     MovingTimer.Start();
                     visitedCenter=true;
-                    
+                    sim.AssignCounter(sim.TotalPeopleList);
                 }
                 
 

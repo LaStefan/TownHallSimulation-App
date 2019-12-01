@@ -527,17 +527,17 @@
         private System.Windows.Forms.Button roundButton;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button btnStatistics;
-        private System.Windows.Forms.Label lblCounter7;
+        public System.Windows.Forms.Label lblCounter7;
         private System.Windows.Forms.Timer MovingTimer;
-        private System.Windows.Forms.Label lblCounter8;
-        private System.Windows.Forms.Label lblCounter9;
-        private System.Windows.Forms.Label lblCounter10;
-        private System.Windows.Forms.Label lblCounter1;
-        private System.Windows.Forms.Label lblCounter2;
-        private System.Windows.Forms.Label lblCounter3;
-        private System.Windows.Forms.Label lblCounter4;
-        private System.Windows.Forms.Label lblCounter5;
-        private System.Windows.Forms.Label lblCounter6;
+        public System.Windows.Forms.Label lblCounter8;
+        public System.Windows.Forms.Label lblCounter9;
+        public System.Windows.Forms.Label lblCounter10;
+        public System.Windows.Forms.Label lblCounter1;
+        public System.Windows.Forms.Label lblCounter2;
+        public System.Windows.Forms.Label lblCounter3;
+        public System.Windows.Forms.Label lblCounter4;
+        public System.Windows.Forms.Label lblCounter5;
+        public System.Windows.Forms.Label lblCounter6;
     }
 }
 

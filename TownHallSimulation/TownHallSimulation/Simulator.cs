@@ -26,6 +26,7 @@ namespace TownHallSimulation
             time = 8;
             this.form = f1;
             InitializeCounters();
+            //counter1.OnCounterReach(); //to test the processing
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
@@ -57,7 +58,7 @@ namespace TownHallSimulation
         {
             counter1 = new Counter(new Point(260, 187), Appointment.AddressChange); counter1.IsOpened = true;
             // to check if it assigns to shortest queue
-            counter1.IsOpened = true; counter1.QueueList.Add(new Person(Appointment.AddressChange)); counter1.QueueList.Add(new Person(Appointment.AddressChange));
+            counter1.IsOpened = true; counter1.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter1.QueueList.Enqueue(new Person(Appointment.AddressChange));
             counter2 = new Counter(new Point(413, 92), Appointment.PermitRequest); counter2.IsOpened = true;
             counter3 = new Counter(new Point(620, 92), Appointment.PropertySale); counter3.IsOpened = true;
             counter4 = new Counter(new Point(803, 92), Appointment.AddressChange);
@@ -68,7 +69,7 @@ namespace TownHallSimulation
             counter6 = new Counter(new Point(1103, 187), Appointment.PropertySale); 
             counter7 = new Counter(new Point(1103, 293), Appointment.AddressChange);
             // to check if it assigns to shortest queue
-            counter7.IsOpened = true; counter7.QueueList.Add(new Person(Appointment.AddressChange)); counter7.QueueList.Add(new Person(Appointment.AddressChange));
+            counter7.IsOpened = true; counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
             counter8 = new Counter(new Point(1103, 404), Appointment.PermitRequest);
             counter9 = new Counter(new Point(260, 404), Appointment.PropertySale); 
             counter10 = new Counter(new Point(260, 297), Appointment.AddressChange);
@@ -93,7 +94,7 @@ namespace TownHallSimulation
                             if (c.IsOpened && c.QueueList.Count == shortestQueueAC) //this is used to assign the people to the shortest queue
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
-                                c.QueueList.Add(p);
+                                c.QueueList.Enqueue(p);
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -106,7 +107,7 @@ namespace TownHallSimulation
                             if (c.IsOpened && c.QueueList.Count == shortestQueuePS)
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
-                                c.QueueList.Add(p);
+                                c.QueueList.Enqueue(p);
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -119,7 +120,7 @@ namespace TownHallSimulation
                             if (c.IsOpened && c.QueueList.Count == shortestQueuePR) 
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
-                                c.QueueList.Add(p);
+                                c.QueueList.Enqueue(p);
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }

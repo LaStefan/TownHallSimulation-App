@@ -13,7 +13,7 @@ namespace TownHallSimulation
         public bool IsOccupied { get; set; }
         private Appointment _appointmentToProcess;
         public Position CounterPosition;
-        public List<Person> QueueList { get; private set; }
+        public Queue<Person> QueueList { get; private set; }
         public Timer t;
 
         // class constructor 
@@ -24,7 +24,8 @@ namespace TownHallSimulation
             IsOccupied = false;
             _appointmentToProcess = appointmentToProcess;
             t = new Timer();
-            QueueList = new List<Person>();//for unit test
+            SetInterval();
+            QueueList = new Queue<Person>();//for unit test
         }
 
         // methods of the class
@@ -38,30 +39,11 @@ namespace TownHallSimulation
             IsOccupied = !IsOccupied;
         }
 
-        //Processes the appointment of the person with this assigned counter. Will be called when person reaches assigned counter.
-        public void ProcessAppointment()
-        {
-            Person p = QueueList[0];
-            Appointment current = p.TypeOfAppointment;
-            this.UpdateStatus();
-            if (current == Appointment.AddressChange)
-            {
-                t.Interval = 3000;
-            }
-            else if (current == Appointment.PermitRequest)
-            {
-                t.Interval = 5000;
-            }
-            else
-            {
-                t.Interval = 8000;
-            }
-            SetTimer();
-        }
         //I make it to be public only for unit test
         public void FIFO()
         {
-            QueueList.Remove(QueueList[0]);
+            QueueList.Dequeue();
+            UpdateStatus();
         }
 
         public void SetTimer()
@@ -73,10 +55,40 @@ namespace TownHallSimulation
 
         public void OnTick(Object source, ElapsedEventArgs e)
         {
-            UpdateStatus();
             FIFO();
         }
 
+        public void SetInterval()
+        {
+            if (_appointmentToProcess == Appointment.AddressChange)
+            {
+                t.Interval = 3000;
+            }
+            else if (_appointmentToProcess == Appointment.PermitRequest)
+            {
+                t.Interval = 5000;
+            }
+            else
+            {
+                t.Interval = 8000;
+            }
+        }
 
+        public void OnCounterReach()
+        {
+            if (QueueList.Count == 1 )
+            {
+                SetTimer();
+            }
+            else if(QueueList.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                t.AutoReset = true;
+                t.Enabled = true;
+            }
+        }
     }
 }

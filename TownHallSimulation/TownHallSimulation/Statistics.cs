@@ -14,6 +14,7 @@ namespace TownHallSimulation
     {
         public int TotalNrPeople { get; private set; }
         public int TotalNrOfCounters { get; private set; }
+        public int TotalNrOfCountersOpened { get; private set; }
         private Simulator sim;
 
 
@@ -23,6 +24,7 @@ namespace TownHallSimulation
          //   TotalNrOfPeopleWaiting = 0;
             sim = simulator;
             TotalNrOfCounters = 9;
+            TotalNrOfCountersOpened = GetTotalNrOfCountersOpened();
         }
 
         public override string ToString()
@@ -91,4 +93,7 @@ namespace TownHallSimulation
        
         }
     }
-}
+
+
+
+

@@ -17,7 +17,7 @@ namespace TownHallSimulation
         public List<Counter> PermitRequestCountersList;
         private double time;
         private Random spawnRandom = new Random();
-        private Statistics stats;
+        private List<Statistics> stats ;
         Form1 form;
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
 
@@ -27,6 +27,7 @@ namespace TownHallSimulation
             AddressChangeCountersList = new List<Counter>();
             PropertySaleCountersList = new List<Counter>();
             PermitRequestCountersList = new List<Counter>();
+            stats = new List<Statistics>();
             time = 8;
             this.form = f1;
             InitializeCounters();
@@ -45,6 +46,14 @@ namespace TownHallSimulation
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
                     TotalPeopleList.Add(new Person(currentType));
                 }
+                if (time % 1 == 0)
+                {
+                    stats.Add(new Statistics(this));
+                }
+            }
+            else
+            {
+                PrintStats();
             }
         }
 
@@ -63,11 +72,13 @@ namespace TownHallSimulation
                     {
                         PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
                         doc.Open();
-                        doc.Add(new iTextSharp.text.Paragraph("CASE Management of Technology The PEOPLES Bank(A bank for all the people”) is one of the smaller banks of the Netherlands, but a bank with a rich history. The bank is now facing some new challenges, especially for the IT department.The bank uses a legacy system on a mainframe, which is actually a mix of legacy systems due to a" +
-                            "merger with 2 other banks 10 years ago.The system is used for the customer administration on " +
-                            "the loans, payment and savings accounts that the bank offers. All transaction of customers are processed real" +
-                            " - time as far as possible.This includes transaction of customers at the bank’s ATM, credit card and transactions and " +
-                            "updates done by the desk clerk when"));
+                        foreach (Statistics item in stats)
+                        {
+                            doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
+                                $"                                  Total number of counters opern: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}"));
+                                                                    
+                        }
+                       
                         return true;
 
                     }

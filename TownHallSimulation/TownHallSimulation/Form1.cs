@@ -74,6 +74,7 @@ namespace TownHallSimulation
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
+
             image = Properties.Resources.d;
             rect = new System.Drawing.Rectangle(520, 350, 20, 20);
             MovingTimer.Start();

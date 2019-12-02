@@ -24,7 +24,7 @@ namespace TownHallSimulation
         public Form1()
         {
             InitializeComponent();
-            image = TownHallSimulation.Properties.Resources.d;
+            image = TownHallSimulation.Properties.Resources.AddressChange;
             sim = new Simulator(this);
             //sim.CreateOne(); // to test if it assigns to shortest queue
         }
@@ -74,7 +74,7 @@ namespace TownHallSimulation
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            image = Properties.Resources.d;
+            image = Properties.Resources.AddressChange;
             rect = new System.Drawing.Rectangle(520, 350, 20, 20);
             MovingTimer.Start();
             SpawnTimer.Start();

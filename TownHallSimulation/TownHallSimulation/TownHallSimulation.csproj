@@ -104,5 +104,12 @@
   <ItemGroup>
     <None Include="Resources\d.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PropertySale.png" />
+    <None Include="Resources\PermitRequest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\AddressChange.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Threading;
+using TownHallSimulation.Properties;
 
 namespace TownHallSimulation
 {
@@ -17,6 +19,16 @@ namespace TownHallSimulation
         Form1 form;
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
 
+        //for front end 
+        private Object allPersonLock;
+       // private Object counterPersonLock;
+        private Object personToNavigateLock;
+
+        //Lis of people for the different appointments 
+        public List<Person> PersonAddressChange { get; private set; }
+        public List<Person> PersonPropertySale { get; private set; }
+        public List<Person> PersonPermitRequuest { get; private set; }
+
         public Simulator(Form1 f1)
         {
             TotalPeopleList = new List<Person>();
@@ -26,12 +38,14 @@ namespace TownHallSimulation
             time = 8;
             this.form = f1;
             InitializeCounters();
-            //counter1.OnCounterReach(); //to test the processing
+            personToNavigateLock = new object();
+            allPersonLock = new object();
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
+
             if (time < 18)
             {
                 time += 0.25;
@@ -150,6 +164,31 @@ namespace TownHallSimulation
         {
             Person p = new Person(Appointment.AddressChange);
             TotalPeopleList.Add(p);
+        }
+
+        public void NavigatePerson()
+        {
+            lock (personToNavigateLock)
+            {
+                foreach (Person p in TotalPeopleList)
+                {
+                    if (p.GoToCounter())
+                    {
+                        p.StartNavigate = DateTime.Now;
+                    }
+                }
+            }
+        }
+
+        public void Draw(Graphics gr)
+        {
+            lock (allPersonLock)
+            {
+                foreach (Person p in TotalPeopleList)
+                {
+                    p.DrawPerson(gr);
+                }
+            }
         }
         //return the list of people
         public List<Person> GetListofSpawnedPeople()

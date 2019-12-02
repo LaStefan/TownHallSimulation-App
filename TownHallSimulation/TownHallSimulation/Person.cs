@@ -40,7 +40,7 @@ namespace TownHallSimulation
         public Point[] PathToFollow { get; set; }
         public bool Discharged { get; set; }
         public bool Critical { get; set; }
-        public Counter Counta { get; set; }
+        public Counter Counta;
         public bool Managed { get; set; }
         public DateTime StartNavigate { get; set; }
         public Appointment TypeOfAppointment { get; set; }
@@ -50,7 +50,7 @@ namespace TownHallSimulation
         {
             counter++;
             Location = new Point(744, 550);
-            Image = new Bitmap(TownHallSimulation.Properties.Resources.d);
+            //Image = new Bitmap(TownHallSimulation.Properties.Resources.d);
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
@@ -77,12 +77,12 @@ namespace TownHallSimulation
 
         public bool GoToCounter()
         {
-            if (Location == Counta.Location)
+            if (Location == destinationPoint)
             {
                 return true;
             }
 
-            Point pathStarting = PathToFollow[0];
+           // Point pathStarting = PathToFollow[0];
 
             if (Location.X == Counta.Location.X)
             {

@@ -12,12 +12,16 @@ namespace TownHallSimulation
 {
     public class Statistics
     {
+        //storing total nr of people in the town hall
         public int TotalNrPeople { get; private set; }
+        //storing total nr of people waiting to be processed 
         public int TotalNrOfPeopleWaiting { get; private set; }
+        //storing total number of counters
         public int TotalNrOfCounters { get; private set; }
+        //storing variable of simulator class to use in the statistics class
         private Simulator sim;
 
-
+        // constructor of the class
         public Statistics(Simulator simulator)
         {
             TotalNrPeople = 0;
@@ -25,19 +29,19 @@ namespace TownHallSimulation
             sim = simulator;
             TotalNrOfCounters = 9;
         }
-
+        //???????????
         public override string ToString()
         {
             return "";
         }
-
+        // method for storing the number of people
         public void UpdateTotalNrOfPeople(int total)
         {
             TotalNrPeople += total;
 
 
         }
-        
+        //method to return total number of people waiting 
         public int GetTotalNrOfPeopleWaiting()
         {
             return TotalNrPeople - TotalNrOfPeopleWaiting;
@@ -82,6 +86,7 @@ namespace TownHallSimulation
         //    //return num;
         //}
         
+            // method to print out pdf file of the statistics 
         public bool PrintStats()
         {
             using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })

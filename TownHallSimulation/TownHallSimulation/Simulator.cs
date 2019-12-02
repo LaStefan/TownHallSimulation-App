@@ -54,6 +54,7 @@ namespace TownHallSimulation
         {
 
         }
+        //make the counters
         public void InitializeCounters()
         {
             counter1 = new Counter(new Point(260, 187), Appointment.AddressChange); counter1.IsOpened = true;
@@ -80,6 +81,7 @@ namespace TownHallSimulation
             PermitRequestCountersList.AddRange(new Counter[] { counter2, counter5, counter8 });
             PropertySaleCountersList.AddRange(new Counter[] { counter3, counter6, counter9 });
         }
+        //matching the counter with the person
         public void AssignCounter(List<Person> people)
         {
             foreach (Person p in people)
@@ -148,6 +150,12 @@ namespace TownHallSimulation
         {
             Person p = new Person(Appointment.AddressChange);
             TotalPeopleList.Add(p);
+        }
+        //return the list of people
+        public List<Person> GetListofSpawnedPeople()
+        {
+            return TotalPeopleList;
+
         }
     }
 }

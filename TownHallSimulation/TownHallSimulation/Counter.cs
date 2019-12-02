@@ -8,10 +8,13 @@ namespace TownHallSimulation
     public class Counter
     { // fields and properties of the class
         private static int _id;
+        //we use the location of the counter so the person can know where to go
         public Point Location { get; set; }
+        //checking if the counters are opened and occupied 
         public bool IsOpened { get; set; }
         public bool IsOccupied { get; set; }
         private Appointment _appointmentToProcess;
+        //checking if the person is on the position of the counter
         public Position CounterPosition;
         public List<Person> QueueList { get; private set; }
         public Timer t;
@@ -32,13 +35,14 @@ namespace TownHallSimulation
         {
             IsOpened = !IsOpened;
         }
-
+        //method of the class to check if the counter is busy
         public void UpdateStatus()
         {
             IsOccupied = !IsOccupied;
         }
 
-        //Processes the appointment of the person with this assigned counter. Will be called when person reaches assigned counter.
+        //Processes the appointment of the person with this assigned counter. 
+        //Will be called when person reaches assigned counter.
         public void ProcessAppointment()
         {
             Person p = QueueList[0];
@@ -63,14 +67,14 @@ namespace TownHallSimulation
         {
             QueueList.Remove(QueueList[0]);
         }
-
+        //What is used for??
         public void SetTimer()
         {
             t.Elapsed += OnTick;
             t.AutoReset = false;
             t.Enabled = true;
         }
-
+        //Jean explain the method what is used for???
         public void OnTick(Object source, ElapsedEventArgs e)
         {
             UpdateStatus();

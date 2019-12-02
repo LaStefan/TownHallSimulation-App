@@ -15,7 +15,7 @@ namespace TownHallSimulation
         PropertySale,
         PermitRequest
     }
-
+    //Position of the counter and person
     public enum Position
     {
         UP, LEFT, RIGHT
@@ -34,7 +34,9 @@ namespace TownHallSimulation
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
+        //location of the person
         public Point Location { get; set; }
+        //path the person should follow
         public Point[] PathToFollow { get; set; }
         public bool Discharged { get; set; }
         public bool Critical { get; set; }

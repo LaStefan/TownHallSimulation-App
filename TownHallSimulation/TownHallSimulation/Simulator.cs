@@ -150,5 +150,11 @@ namespace TownHallSimulation
             Person p = new Person(Appointment.AddressChange);
             TotalPeopleList.Add(p);
         }
+        //return the list of people
+        public List<Person> GetListofSpawnedPeople()
+        {
+            return TotalPeopleList;
+
+        }
     }
 }

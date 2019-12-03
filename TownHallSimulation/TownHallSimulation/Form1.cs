@@ -104,10 +104,7 @@ namespace TownHallSimulation
 
         private void btnStatistics_Click(object sender, EventArgs e)
         {
-            //if (!TheHall.statistics.PrintStats())
-            //{
-            //    MessageBox.Show("Unable to save properly", "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //} 
+            sim.ShowStats();
         }
 
         private void MovingTimer_Tick(object sender, EventArgs e)

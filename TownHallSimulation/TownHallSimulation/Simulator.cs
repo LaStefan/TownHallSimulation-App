@@ -75,7 +75,8 @@ namespace TownHallSimulation
                         foreach (Statistics item in stats)
                         {
                             doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
-                                $"                                  Total number of counters opern: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}"));
+                                $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
+                                $"                                           Average waiting time: {item.AverageWaitingTime}"));
                                                                     
                         }
                        
@@ -97,9 +98,22 @@ namespace TownHallSimulation
             return false;
         }
 
+        public void ShowStats()
+        {
+            string text = "";
+            
+                        foreach (Statistics item in stats)
+                        {
+                           text+=($"\n Total number of people: {item.TotalNrPeople} \n " +
+                                $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
+                                $"                                           Average waiting time: {item.AverageWaitingTime}"));
 
+                        }
 
-            public void MakeStats()
+            MessageBox.Show(text);
+        }
+
+        public void MakeStats()
         {
 
         }

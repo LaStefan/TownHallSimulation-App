@@ -15,6 +15,7 @@ namespace TownHallSimulation
         public int TotalNrPeople { get; private set; }
         public int TotalNrOfCounters { get; private set; }
         public int TotalNrOfCountersOpened { get; private set; }
+        public double AverageWaitingTime { get; private set; }
         private Simulator sim;
 
 
@@ -25,6 +26,7 @@ namespace TownHallSimulation
             sim = simulator;
             TotalNrOfCounters = 9;
             TotalNrOfCountersOpened = GetTotalNrOfCountersOpened();
+            AverageWaitingTime = GetAverageWaitingTime();
         }
 
         public override string ToString()
@@ -62,6 +64,10 @@ namespace TownHallSimulation
                 }
             }
             return num;
+        }
+        public double GetAverageWaitingTime()
+        {
+            return 2.3;
         }
 
         //public int GetTotalNrOfCountersOccupied()

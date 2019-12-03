@@ -124,4 +124,13 @@
   <data name="Screenshot3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PermitRequest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PermitRequest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PropertySale" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PropertySale.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddressChange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddressChange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -83,8 +83,9 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(977, 50);
+            this.panel1.Size = new System.Drawing.Size(1466, 75);
             this.panel1.TabIndex = 3;
             // 
             // btnExit
@@ -93,9 +94,10 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(929, 3);
+            this.btnExit.Location = new System.Drawing.Point(1394, 5);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(41, 36);
+            this.btnExit.Size = new System.Drawing.Size(62, 55);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "x";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -106,18 +108,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label1.Location = new System.Drawing.Point(252, 7);
+            this.label1.Location = new System.Drawing.Point(378, 11);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(348, 36);
+            this.label1.Size = new System.Drawing.Size(530, 51);
             this.label1.TabIndex = 1;
             this.label1.Text = "TOWN HALL SIMULATION";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(-3, -2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(130, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(195, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -131,9 +135,10 @@
             this.panel2.Controls.Add(this.btnPause);
             this.panel2.Controls.Add(this.btnStop);
             this.panel2.Controls.Add(this.btnStart);
-            this.panel2.Location = new System.Drawing.Point(28, 54);
+            this.panel2.Location = new System.Drawing.Point(42, 82);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(101, 363);
+            this.panel2.Size = new System.Drawing.Size(152, 559);
             this.panel2.TabIndex = 20;
             // 
             // btnStatistics
@@ -142,9 +147,10 @@
             this.btnStatistics.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStatistics.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnStatistics.Location = new System.Drawing.Point(7, 300);
+            this.btnStatistics.Location = new System.Drawing.Point(10, 461);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStatistics.Name = "btnStatistics";
-            this.btnStatistics.Size = new System.Drawing.Size(99, 66);
+            this.btnStatistics.Size = new System.Drawing.Size(148, 101);
             this.btnStatistics.TabIndex = 21;
             this.btnStatistics.Text = "Statistics";
             this.btnStatistics.UseVisualStyleBackColor = false;
@@ -156,9 +162,10 @@
             this.btnResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResume.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResume.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnResume.Location = new System.Drawing.Point(7, 228);
+            this.btnResume.Location = new System.Drawing.Point(10, 351);
+            this.btnResume.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnResume.Name = "btnResume";
-            this.btnResume.Size = new System.Drawing.Size(97, 66);
+            this.btnResume.Size = new System.Drawing.Size(145, 101);
             this.btnResume.TabIndex = 6;
             this.btnResume.Text = "Resume";
             this.btnResume.UseVisualStyleBackColor = false;
@@ -170,9 +177,10 @@
             this.btnPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPause.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnPause.Location = new System.Drawing.Point(7, 156);
+            this.btnPause.Location = new System.Drawing.Point(10, 240);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(97, 66);
+            this.btnPause.Size = new System.Drawing.Size(145, 101);
             this.btnPause.TabIndex = 5;
             this.btnPause.Text = "Pause";
             this.btnPause.UseVisualStyleBackColor = false;
@@ -184,9 +192,10 @@
             this.btnStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStop.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnStop.Location = new System.Drawing.Point(7, 84);
+            this.btnStop.Location = new System.Drawing.Point(10, 129);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(97, 66);
+            this.btnStop.Size = new System.Drawing.Size(145, 101);
             this.btnStop.TabIndex = 4;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = false;
@@ -198,9 +207,10 @@
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.DarkCyan;
-            this.btnStart.Location = new System.Drawing.Point(7, 12);
+            this.btnStart.Location = new System.Drawing.Point(10, 19);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(97, 66);
+            this.btnStart.Size = new System.Drawing.Size(145, 101);
             this.btnStart.TabIndex = 3;
             this.btnStart.Text = "Start";
             this.btnStart.UseVisualStyleBackColor = false;
@@ -209,9 +219,10 @@
             // roundButton
             // 
             this.roundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton.Location = new System.Drawing.Point(479, 368);
+            this.roundButton.Location = new System.Drawing.Point(719, 566);
+            this.roundButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.roundButton.Name = "roundButton";
-            this.roundButton.Size = new System.Drawing.Size(151, 21);
+            this.roundButton.Size = new System.Drawing.Size(226, 32);
             this.roundButton.TabIndex = 21;
             this.roundButton.UseVisualStyleBackColor = true;
             this.roundButton.Click += new System.EventHandler(this.RoundButton_Click);
@@ -220,10 +231,9 @@
             // lblCounter7
             // 
             this.lblCounter7.AutoSize = true;
-            this.lblCounter7.Location = new System.Drawing.Point(897, 282);
-            this.lblCounter7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter7.Location = new System.Drawing.Point(1346, 434);
             this.lblCounter7.Name = "lblCounter7";
-            this.lblCounter7.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter7.Size = new System.Drawing.Size(90, 20);
             this.lblCounter7.TabIndex = 22;
             this.lblCounter7.Text = "lblCounter7";
             // 
@@ -234,90 +244,81 @@
             // lblCounter8
             // 
             this.lblCounter8.AutoSize = true;
-            this.lblCounter8.Location = new System.Drawing.Point(897, 372);
-            this.lblCounter8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter8.Location = new System.Drawing.Point(1346, 572);
             this.lblCounter8.Name = "lblCounter8";
-            this.lblCounter8.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter8.Size = new System.Drawing.Size(90, 20);
             this.lblCounter8.TabIndex = 23;
             this.lblCounter8.Text = "lblCounter8";
             // 
             // lblCounter9
             // 
             this.lblCounter9.AutoSize = true;
-            this.lblCounter9.Location = new System.Drawing.Point(257, 384);
-            this.lblCounter9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter9.Location = new System.Drawing.Point(386, 591);
             this.lblCounter9.Name = "lblCounter9";
-            this.lblCounter9.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter9.Size = new System.Drawing.Size(90, 20);
             this.lblCounter9.TabIndex = 24;
             this.lblCounter9.Text = "lblCounter9";
             // 
             // lblCounter10
             // 
             this.lblCounter10.AutoSize = true;
-            this.lblCounter10.Location = new System.Drawing.Point(257, 301);
-            this.lblCounter10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter10.Location = new System.Drawing.Point(386, 462);
             this.lblCounter10.Name = "lblCounter10";
-            this.lblCounter10.Size = new System.Drawing.Size(66, 13);
+            this.lblCounter10.Size = new System.Drawing.Size(99, 20);
             this.lblCounter10.TabIndex = 25;
             this.lblCounter10.Text = "lblCounter10";
             // 
             // lblCounter1
             // 
             this.lblCounter1.AutoSize = true;
-            this.lblCounter1.Location = new System.Drawing.Point(257, 210);
-            this.lblCounter1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter1.Location = new System.Drawing.Point(386, 322);
             this.lblCounter1.Name = "lblCounter1";
-            this.lblCounter1.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter1.Size = new System.Drawing.Size(90, 20);
             this.lblCounter1.TabIndex = 26;
             this.lblCounter1.Text = "lblCounter1";
             // 
             // lblCounter2
             // 
             this.lblCounter2.AutoSize = true;
-            this.lblCounter2.Location = new System.Drawing.Point(257, 66);
-            this.lblCounter2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter2.Location = new System.Drawing.Point(386, 101);
             this.lblCounter2.Name = "lblCounter2";
-            this.lblCounter2.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter2.Size = new System.Drawing.Size(90, 20);
             this.lblCounter2.TabIndex = 27;
             this.lblCounter2.Text = "lblCounter2";
             // 
             // lblCounter3
             // 
             this.lblCounter3.AutoSize = true;
-            this.lblCounter3.Location = new System.Drawing.Point(419, 59);
-            this.lblCounter3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter3.Location = new System.Drawing.Point(629, 91);
             this.lblCounter3.Name = "lblCounter3";
-            this.lblCounter3.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter3.Size = new System.Drawing.Size(90, 20);
             this.lblCounter3.TabIndex = 28;
             this.lblCounter3.Text = "lblCounter3";
             // 
             // lblCounter4
             // 
             this.lblCounter4.AutoSize = true;
-            this.lblCounter4.Location = new System.Drawing.Point(556, 59);
-            this.lblCounter4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter4.Location = new System.Drawing.Point(834, 91);
             this.lblCounter4.Name = "lblCounter4";
-            this.lblCounter4.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter4.Size = new System.Drawing.Size(90, 20);
             this.lblCounter4.TabIndex = 29;
             this.lblCounter4.Text = "lblCounter4";
             // 
             // lblCounter5
             // 
             this.lblCounter5.AutoSize = true;
-            this.lblCounter5.Location = new System.Drawing.Point(792, 59);
-            this.lblCounter5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter5.Location = new System.Drawing.Point(1188, 91);
             this.lblCounter5.Name = "lblCounter5";
-            this.lblCounter5.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter5.Size = new System.Drawing.Size(90, 20);
             this.lblCounter5.TabIndex = 30;
             this.lblCounter5.Text = "lblCounter5";
             // 
             // lblCounter6
             // 
             this.lblCounter6.AutoSize = true;
-            this.lblCounter6.Location = new System.Drawing.Point(888, 210);
-            this.lblCounter6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCounter6.Location = new System.Drawing.Point(1332, 322);
             this.lblCounter6.Name = "lblCounter6";
-            this.lblCounter6.Size = new System.Drawing.Size(60, 13);
+            this.lblCounter6.Size = new System.Drawing.Size(90, 20);
             this.lblCounter6.TabIndex = 31;
             this.lblCounter6.Text = "lblCounter6";
             // 
@@ -328,9 +329,10 @@
             this.btnCounter7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter7.ForeColor = System.Drawing.Color.White;
-            this.btnCounter7.Location = new System.Drawing.Point(827, 238);
+            this.btnCounter7.Location = new System.Drawing.Point(1241, 366);
+            this.btnCounter7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter7.Name = "btnCounter7";
-            this.btnCounter7.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter7.Size = new System.Drawing.Size(112, 88);
             this.btnCounter7.TabIndex = 19;
             this.btnCounter7.Text = "Counter 7";
             this.btnCounter7.UseVisualStyleBackColor = false;
@@ -343,9 +345,10 @@
             this.btnCounter6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter6.ForeColor = System.Drawing.Color.White;
-            this.btnCounter6.Location = new System.Drawing.Point(827, 152);
+            this.btnCounter6.Location = new System.Drawing.Point(1241, 234);
+            this.btnCounter6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter6.Name = "btnCounter6";
-            this.btnCounter6.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter6.Size = new System.Drawing.Size(112, 88);
             this.btnCounter6.TabIndex = 18;
             this.btnCounter6.Text = "Counter 6";
             this.btnCounter6.UseVisualStyleBackColor = false;
@@ -357,9 +360,10 @@
             this.btnCounter8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter8.ForeColor = System.Drawing.Color.White;
-            this.btnCounter8.Location = new System.Drawing.Point(827, 328);
+            this.btnCounter8.Location = new System.Drawing.Point(1241, 505);
+            this.btnCounter8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter8.Name = "btnCounter8";
-            this.btnCounter8.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter8.Size = new System.Drawing.Size(112, 88);
             this.btnCounter8.TabIndex = 17;
             this.btnCounter8.Text = "Counter 8";
             this.btnCounter8.UseVisualStyleBackColor = false;
@@ -371,9 +375,10 @@
             this.btnCounter9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter9.ForeColor = System.Drawing.Color.White;
-            this.btnCounter9.Location = new System.Drawing.Point(195, 328);
+            this.btnCounter9.Location = new System.Drawing.Point(292, 505);
+            this.btnCounter9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter9.Name = "btnCounter9";
-            this.btnCounter9.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter9.Size = new System.Drawing.Size(112, 88);
             this.btnCounter9.TabIndex = 16;
             this.btnCounter9.Text = "Counter 9";
             this.btnCounter9.UseVisualStyleBackColor = false;
@@ -385,9 +390,10 @@
             this.btnCounter10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter10.ForeColor = System.Drawing.Color.White;
-            this.btnCounter10.Location = new System.Drawing.Point(195, 241);
+            this.btnCounter10.Location = new System.Drawing.Point(292, 371);
+            this.btnCounter10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter10.Name = "btnCounter10";
-            this.btnCounter10.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter10.Size = new System.Drawing.Size(112, 88);
             this.btnCounter10.TabIndex = 15;
             this.btnCounter10.Text = "Counter 10";
             this.btnCounter10.UseVisualStyleBackColor = false;
@@ -398,9 +404,10 @@
             this.btnCounter5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter5.ForeColor = System.Drawing.Color.White;
-            this.btnCounter5.Location = new System.Drawing.Point(728, 75);
+            this.btnCounter5.Location = new System.Drawing.Point(1092, 115);
+            this.btnCounter5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter5.Name = "btnCounter5";
-            this.btnCounter5.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter5.Size = new System.Drawing.Size(112, 88);
             this.btnCounter5.TabIndex = 14;
             this.btnCounter5.Text = "Counter 5";
             this.btnCounter5.UseVisualStyleBackColor = false;
@@ -411,9 +418,10 @@
             this.btnCounter4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter4.ForeColor = System.Drawing.Color.White;
-            this.btnCounter4.Location = new System.Drawing.Point(602, 75);
+            this.btnCounter4.Location = new System.Drawing.Point(903, 115);
+            this.btnCounter4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter4.Name = "btnCounter4";
-            this.btnCounter4.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter4.Size = new System.Drawing.Size(112, 88);
             this.btnCounter4.TabIndex = 13;
             this.btnCounter4.Text = "Counter 4";
             this.btnCounter4.UseVisualStyleBackColor = false;
@@ -424,9 +432,10 @@
             this.btnCounter3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter3.ForeColor = System.Drawing.Color.White;
-            this.btnCounter3.Location = new System.Drawing.Point(465, 75);
+            this.btnCounter3.Location = new System.Drawing.Point(698, 115);
+            this.btnCounter3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter3.Name = "btnCounter3";
-            this.btnCounter3.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter3.Size = new System.Drawing.Size(112, 88);
             this.btnCounter3.TabIndex = 12;
             this.btnCounter3.Text = "Counter 3";
             this.btnCounter3.UseVisualStyleBackColor = false;
@@ -437,9 +446,10 @@
             this.btnCounter2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter2.ForeColor = System.Drawing.Color.White;
-            this.btnCounter2.Location = new System.Drawing.Point(310, 75);
+            this.btnCounter2.Location = new System.Drawing.Point(465, 115);
+            this.btnCounter2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter2.Name = "btnCounter2";
-            this.btnCounter2.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter2.Size = new System.Drawing.Size(112, 88);
             this.btnCounter2.TabIndex = 11;
             this.btnCounter2.Text = "Counter 2";
             this.btnCounter2.UseVisualStyleBackColor = false;
@@ -451,19 +461,20 @@
             this.btnCounter1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter1.ForeColor = System.Drawing.Color.White;
-            this.btnCounter1.Location = new System.Drawing.Point(195, 152);
+            this.btnCounter1.Location = new System.Drawing.Point(292, 234);
+            this.btnCounter1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCounter1.Name = "btnCounter1";
-            this.btnCounter1.Size = new System.Drawing.Size(75, 57);
+            this.btnCounter1.Size = new System.Drawing.Size(112, 88);
             this.btnCounter1.TabIndex = 10;
             this.btnCounter1.Text = "Counter 1";
             this.btnCounter1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(977, 485);
+            this.ClientSize = new System.Drawing.Size(1466, 746);
             this.Controls.Add(this.lblCounter6);
             this.Controls.Add(this.lblCounter5);
             this.Controls.Add(this.lblCounter4);
@@ -489,9 +500,11 @@
             this.Controls.Add(this.roundButton);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

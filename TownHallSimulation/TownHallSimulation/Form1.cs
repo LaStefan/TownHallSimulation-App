@@ -68,8 +68,10 @@ namespace TownHallSimulation
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            g.DrawImage(image, rect);
+            //Graphics g = e.Graphics;
+            //g.DrawImage(image, rect);
+           
+            sim.Draw(e.Graphics);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
@@ -137,6 +139,11 @@ namespace TownHallSimulation
 
                 Invalidate();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

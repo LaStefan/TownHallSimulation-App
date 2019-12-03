@@ -15,7 +15,7 @@ namespace TownHallSimulation
         PropertySale,
         PermitRequest
     }
-
+    //Position of the counter and person
     public enum Position
     {
         UP, LEFT, RIGHT
@@ -34,11 +34,13 @@ namespace TownHallSimulation
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
+        //location of the person
         public Point Location { get; set; }
+        //path the person should follow
         public Point[] PathToFollow { get; set; }
         public bool Discharged { get; set; }
         public bool Critical { get; set; }
-        public Counter Counta { get; set; }
+        public Counter Counta;
         public bool Managed { get; set; }
         public DateTime StartNavigate { get; set; }
         public Appointment TypeOfAppointment { get; set; }
@@ -48,7 +50,7 @@ namespace TownHallSimulation
         {
             counter++;
             Location = new Point(744, 550);
-            Image = new Bitmap(TownHallSimulation.Properties.Resources.d);
+            //Image = new Bitmap(TownHallSimulation.Properties.Resources.d);
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
@@ -75,12 +77,12 @@ namespace TownHallSimulation
 
         public bool GoToCounter()
         {
-            if (Location == Counta.Location)
+            if (Location == destinationPoint)
             {
                 return true;
             }
 
-            Point pathStarting = PathToFollow[0];
+           // Point pathStarting = PathToFollow[0];
 
             if (Location.X == Counta.Location.X)
             {

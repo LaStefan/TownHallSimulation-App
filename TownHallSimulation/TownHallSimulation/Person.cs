@@ -82,7 +82,7 @@ namespace TownHallSimulation
                 return true;
             }
 
-           // Point pathStarting = PathToFollow[0];
+            // Point pathStarting = PathToFollow[0];
 
             if (Location.X == Counta.Location.X)
             {

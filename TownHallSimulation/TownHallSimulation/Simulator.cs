@@ -121,7 +121,7 @@ namespace TownHallSimulation
                         {
                            text+=($"\n Total number of people: {item.TotalNrPeople} \n " +
                                 $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"                                           Average waiting time: {item.AverageWaitingTime}"));
+                                $"                                           Average waiting time: {item.AverageWaitingTime}");
 
                         }
 
@@ -236,10 +236,10 @@ namespace TownHallSimulation
             {
                 foreach (Person p in TotalPeopleList)
                 {
-                    if (p.GoToCounter())
-                    {
-                        p.StartNavigate = DateTime.Now;
-                    }
+                    //if (p.GoToCounter())
+                    //{
+                    //    p.StartNavigate = DateTime.Now;
+                    //}
                 }
             }
         }

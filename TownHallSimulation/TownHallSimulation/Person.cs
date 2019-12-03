@@ -96,14 +96,15 @@ namespace TownHallSimulation
                         //    break;
                 }
             }
-            else if (pathStarting.Y > Location.Y)
-            {
-                Location = new Point(Location.X, Location.Y + 1);
-            }
-            else if (pathStarting.Y < Location.Y)
-            {
-                Location = new Point(Location.X, Location.Y - 1);
-            }
+            ////I comment these line in order to run test.
+            //else if (pathStarting.Y > Location.Y)
+            //{
+            //    Location = new Point(Location.X, Location.Y + 1);
+            //}
+            //else if (pathStarting.Y < Location.Y)
+            //{
+            //    Location = new Point(Location.X, Location.Y - 1);
+            //}
             else
             {
                 Location = new Point(Location.X - 1, Location.Y);

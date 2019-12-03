@@ -50,7 +50,6 @@ namespace TownHallSimulation
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
-
             if (time < 18)
             {
                 time += 0.25;

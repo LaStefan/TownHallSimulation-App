@@ -124,7 +124,6 @@ namespace TownHallSimulation
                     rect.X += 0;
                     rect.Y -= 3;
                 }
-               
                 if (rect.Y > 305 && rect.Y < 310)
                 {
                     MovingTimer.Stop();
@@ -133,7 +132,7 @@ namespace TownHallSimulation
 
                     MovingTimer.Start();
                     visitedCenter=true;
-                    sim.AssignCounter(sim.TotalPeopleList);
+                    //sim.AssignCounter(sim.TotalPeopleList);
                 }
                 
 

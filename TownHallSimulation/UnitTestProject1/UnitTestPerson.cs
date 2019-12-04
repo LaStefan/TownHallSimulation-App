@@ -18,7 +18,7 @@ namespace UnitTestProject1
             Assert.AreEqual(id,result);
         }
 
-        //need to fix later
+        //person class did not done, need to fix later
         //[TestMethod]
         //public void TestMethodGoToCounter()
         //{

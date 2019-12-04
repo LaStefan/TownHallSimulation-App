@@ -46,17 +46,19 @@ namespace TownHallSimulation
         //I make it to be public only for unit test
         public void FIFO()
         {
+            if (QueueList.Count >= 1)
+            {
+                QueueList.Dequeue();
+            }
             QueueList.Peek().sw.Stop();
             queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
-            QueueList.Dequeue();
-           
             UpdateStatus();
         }
         //What is used for??
         public void SetTimer()
         {
             t.Elapsed += OnTick;
-            t.AutoReset = false;
+            t.AutoReset = true;
             t.Enabled = true;
         }
         //Jean explain the method what is used for???

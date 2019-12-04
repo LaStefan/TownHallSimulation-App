@@ -99,6 +99,7 @@ namespace TownHallSimulation
                         //    break;
                 }
             }
+            ////I comment these line in order to run test.
             //else if (pathStarting.Y > Location.Y)
             //{
             //    Location = new Point(Location.X, Location.Y + 1);
@@ -107,10 +108,10 @@ namespace TownHallSimulation
             //{
             //    Location = new Point(Location.X, Location.Y - 1);
             //}
-            //else
-            //{
-            //    Location = new Point(Location.X - 1, Location.Y);
-            //}
+            else
+            {
+                Location = new Point(Location.X - 1, Location.Y);
+            }
 
             return false;
         }

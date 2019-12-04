@@ -62,7 +62,9 @@ namespace TownHallSimulation
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    TotalPeopleList.Add(new Person(currentType));
+                    Person p = new Person(currentType);
+                    TotalPeopleList.Add(p);
+                    AssignCounter(p);//assigns person to a counter on spawning
                 }
                 if (time % 1 == 0)
                 {
@@ -163,16 +165,15 @@ namespace TownHallSimulation
             counter10 = new Counter(new Point(260, 297), Appointment.AddressChange);
             //to check if it assigns to shortest queue
             counter10.IsOpened = true;
-            counter8 = new Counter(new Point(1103, 404), Appointment.PermitRequest);
             AddressChangeCountersList.AddRange(new Counter[] { counter1, counter4, counter7, counter10 });
             PermitRequestCountersList.AddRange(new Counter[] { counter2, counter5, counter8 });
             PropertySaleCountersList.AddRange(new Counter[] { counter3, counter6, counter9 });
         }
         //matching the counter with the person
-        public void AssignCounter(List<Person> people)
+        public void AssignCounter(Person p) //List<People> people
         {
-            foreach (Person p in people)
-            {
+            //foreach (Person p in people)
+           //{
                 switch (p.TypeOfAppointment.ToString())
                 {
                     case "AddressChange":
@@ -210,7 +211,7 @@ namespace TownHallSimulation
                         int shortestQueuePR = PropertySaleCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
                         foreach (Counter c in PermitRequestCountersList)
                         {
-                            if (c.IsOpened && c.QueueList.Count == shortestQueuePR) 
+                            if (c.IsOpened && c.QueueList.Count == shortestQueuePR)
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
@@ -221,7 +222,7 @@ namespace TownHallSimulation
                         }
                         break;
                 }
-            }
+            //}
         }
 
         public void UpdateLabels()

@@ -59,7 +59,9 @@ namespace TownHallSimulation
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    TotalPeopleList.Add(new Person(currentType));
+                    Person p = new Person(currentType);
+                    TotalPeopleList.Add(p);
+                    AssignCounter(p);//assigns person to a counter on spawning
                 }
                 if (time % 1 == 0)
                 {
@@ -159,10 +161,10 @@ namespace TownHallSimulation
             PropertySaleCountersList.AddRange(new Counter[] { counter3, counter6, counter9 });
         }
         //matching the counter with the person
-        public void AssignCounter(List<Person> people)
+        public void AssignCounter(Person p) //List<People> people
         {
-            foreach (Person p in people)
-            {
+            //foreach (Person p in people)
+           //{
                 switch (p.TypeOfAppointment.ToString())
                 {
                     case "AddressChange":
@@ -196,7 +198,7 @@ namespace TownHallSimulation
                         int shortestQueuePR = PropertySaleCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
                         foreach (Counter c in PermitRequestCountersList)
                         {
-                            if (c.IsOpened && c.QueueList.Count == shortestQueuePR) 
+                            if (c.IsOpened && c.QueueList.Count == shortestQueuePR)
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
@@ -205,7 +207,7 @@ namespace TownHallSimulation
                         }
                         break;
                 }
-            }
+            //}
         }
 
         public void UpdateLabels()

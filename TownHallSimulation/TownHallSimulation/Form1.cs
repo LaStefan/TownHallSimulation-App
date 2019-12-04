@@ -132,7 +132,7 @@ namespace TownHallSimulation
 
                     MovingTimer.Start();
                     visitedCenter=true;
-                    sim.AssignCounter(sim.TotalPeopleList);
+                    //sim.AssignCounter(sim.TotalPeopleList);
                 }
                 
 

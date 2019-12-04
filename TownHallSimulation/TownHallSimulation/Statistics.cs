@@ -16,6 +16,7 @@ namespace TownHallSimulation
         public int TotalNrOfCounters { get; private set; }
         public int TotalNrOfCountersOpened { get; private set; }
         public double AverageWaitingTime { get; private set; }
+        public double time { get; set; }
         private Simulator sim;
 
 
@@ -27,6 +28,47 @@ namespace TownHallSimulation
             TotalNrOfCounters = 9;
             TotalNrOfCountersOpened = GetTotalNrOfCountersOpened();
             AverageWaitingTime = GetAverageWaitingTime();
+            time = simulator.time;
+        }
+        public double CalculateAvgWaitingTime()
+        {
+            double totalWaitingTIme =0;
+            int totalNum = 0;
+            foreach (Counter C in sim.AddressChangeCountersList)
+            {
+
+                foreach (double item in C.queueTime)
+                {
+                    totalWaitingTIme+=item;
+                    totalNum++;
+                }
+               
+            }
+            foreach (Counter b in sim.PermitRequestCountersList)
+            {
+
+                foreach (double item in b.queueTime)
+                {
+                    totalWaitingTIme += item;
+                    totalNum++;
+                }
+            }
+            foreach (Counter c in sim.PropertySaleCountersList)
+            {
+
+                foreach (double item in c.queueTime)
+                {
+                    totalWaitingTIme += item;
+                    totalNum++;
+                }
+            }
+
+
+
+            AverageWaitingTime = totalWaitingTIme / totalNum;
+
+
+            return AverageWaitingTime;
         }
 
         public override string ToString()
@@ -68,6 +110,11 @@ namespace TownHallSimulation
         public double GetAverageWaitingTime()
         {
             return 2.3;
+        }
+
+        public void UpdateTotalNumPeopl(int n)
+        {
+            TotalNrPeople = n;
         }
 
         //public int GetTotalNrOfCountersOccupied()

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace TownHallSimulation
 {
@@ -43,6 +44,7 @@ namespace TownHallSimulation
         public Counter Counta;
         public bool Managed { get; set; }
         public DateTime StartNavigate { get; set; }
+        public Stopwatch sw { get; set; }
         public Appointment TypeOfAppointment { get; set; }
 
         //Constructor 1
@@ -54,6 +56,7 @@ namespace TownHallSimulation
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
+            sw = new Stopwatch();
         }
         //Constructor 2, Used in simulator to create objects before location and image are used.
         //public Person(Appointment appointment)
@@ -72,7 +75,7 @@ namespace TownHallSimulation
 
         public void DrawPerson(Graphics gr)
         {
-            gr.DrawImage(Image, Location);
+         //   gr.DrawImage(Image, Location);
         }
 
         public bool GoToCounter()
@@ -96,18 +99,18 @@ namespace TownHallSimulation
                         //    break;
                 }
             }
-            else if (pathStarting.Y > Location.Y)
-            {
-                Location = new Point(Location.X, Location.Y + 1);
-            }
-            else if (pathStarting.Y < Location.Y)
-            {
-                Location = new Point(Location.X, Location.Y - 1);
-            }
-            else
-            {
-                Location = new Point(Location.X - 1, Location.Y);
-            }
+            //else if (pathStarting.Y > Location.Y)
+            //{
+            //    Location = new Point(Location.X, Location.Y + 1);
+            //}
+            //else if (pathStarting.Y < Location.Y)
+            //{
+            //    Location = new Point(Location.X, Location.Y - 1);
+            //}
+            //else
+            //{
+            //    Location = new Point(Location.X - 1, Location.Y);
+            //}
 
             return false;
         }

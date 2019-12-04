@@ -17,7 +17,8 @@ namespace TownHallSimulation
         public List<Counter> AddressChangeCountersList;
         public List<Counter> PropertySaleCountersList;
         public List<Counter> PermitRequestCountersList;
-        private double time;
+        public double time { get; private set; }
+        bool printed;
         private Random spawnRandom = new Random();
         private List<Statistics> stats ;
         Form1 form;
@@ -45,16 +46,18 @@ namespace TownHallSimulation
             InitializeCounters();
             personToNavigateLock = new object();
             allPersonLock = new object();
+            printed = false;
+            counter4.OnCounterReach();
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
-
+           
             if (time < 18)
             {
                 time += 0.25;
-                var numberToSpawn = time >= 12 && time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 2);
+                var numberToSpawn = time >= 12 && time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 5);
                 var types = Enum.GetValues(typeof(Appointment));
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
@@ -63,12 +66,16 @@ namespace TownHallSimulation
                 }
                 if (time % 1 == 0)
                 {
-                    stats.Add(new Statistics(this));
+                    Statistics st = new Statistics(this);
+                    st.UpdateTotalNumPeopl(numberToSpawn);
+                    stats.Add(st);
+                   
                 }
             }
-            else
+            else if(!printed)
             {
                 PrintStats();
+                printed = true;
             }
         }
 
@@ -91,7 +98,7 @@ namespace TownHallSimulation
                         {
                             doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
                                 $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"                                           Average waiting time: {item.AverageWaitingTime}"));
+                                $"                                           Average waiting time: {item.CalculateAvgWaitingTime()}"));
                                                                     
                         }
                        
@@ -119,9 +126,11 @@ namespace TownHallSimulation
             
                         foreach (Statistics item in stats)
                         {
-                           text+=($"\n Total number of people: {item.TotalNrPeople} \n " +
-                                $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"                                           Average waiting time: {item.AverageWaitingTime}");
+                           text+=($"Time:{item.time}\n " +
+                                 $"Total number of people: {item.TotalNrPeople} \n " +
+                                $"Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
+                                $"\nAverage waiting time: {item.CalculateAvgWaitingTime()}" +
+                                $"\n_____________________________________________________________________________");
 
                         }
 
@@ -175,6 +184,8 @@ namespace TownHallSimulation
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
+                                //starts the stop watch to get total process time
+                                p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -188,6 +199,8 @@ namespace TownHallSimulation
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
+                                //starts the stop watch to get total process time
+                                p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -201,6 +214,8 @@ namespace TownHallSimulation
                             {
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
+                                //starts the stop watch to get total process time
+                                p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -211,6 +226,7 @@ namespace TownHallSimulation
 
         public void UpdateLabels()
         {
+            form.label2.Text = time.ToString();
             form.lblCounter1.Text = "People waiting: \n" + counter1.QueueList.Count;
             form.lblCounter2.Text = "People waiting: \n" + counter2.QueueList.Count;
             form.lblCounter3.Text = "People waiting: \n" + counter3.QueueList.Count;
@@ -227,6 +243,7 @@ namespace TownHallSimulation
         public void CreateOne()
         {
             Person p = new Person(Appointment.AddressChange);
+            p.sw.Start();
             TotalPeopleList.Add(p);
         }
 
@@ -236,10 +253,10 @@ namespace TownHallSimulation
             {
                 foreach (Person p in TotalPeopleList)
                 {
-                    //if (p.GoToCounter())
-                    //{
-                    //    p.StartNavigate = DateTime.Now;
-                    //}
+                    if (p.GoToCounter())
+                    {
+                        p.StartNavigate = DateTime.Now;
+                    }
                 }
             }
         }
@@ -260,5 +277,6 @@ namespace TownHallSimulation
             return TotalPeopleList;
 
         }
+        
     }
 }

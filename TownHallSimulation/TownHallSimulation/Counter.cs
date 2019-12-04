@@ -17,6 +17,7 @@ namespace TownHallSimulation
         //checking if the person is on the position of the counter
         public Position CounterPosition;
         public Queue<Person> QueueList { get; private set; }
+        public List<double> queueTime = new List<double>();
         public Timer t;
 
         // class constructor 
@@ -45,7 +46,10 @@ namespace TownHallSimulation
         //I make it to be public only for unit test
         public void FIFO()
         {
+            QueueList.Peek().sw.Stop();
+            queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
             QueueList.Dequeue();
+           
             UpdateStatus();
         }
         //What is used for??
@@ -116,7 +120,7 @@ namespace TownHallSimulation
 
         public void OnCounterReach()
         {
-            if (QueueList.Count == 1 )
+            if (QueueList.Count >= 1 )
             {
                 SetTimer();
             }

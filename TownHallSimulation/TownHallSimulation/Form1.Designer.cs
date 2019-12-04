@@ -1,4 +1,4 @@
-﻿namespace TownHallSimulation
+namespace TownHallSimulation
 {
     partial class Form1
     {

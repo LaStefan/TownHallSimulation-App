@@ -120,7 +120,6 @@ namespace TownHallSimulation
         {
             personMove.Enabled = true;
             personMove.Interval = 30;
-
         }
 
         public void StopMoving()

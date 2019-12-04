@@ -26,7 +26,7 @@ namespace TownHallSimulation
             InitializeComponent();
             image = TownHallSimulation.Properties.Resources.d;
             sim = new Simulator(this);
-            sim.CreateOne(); // to test if it assigns to shortest queue
+            //sim.CreateOne(); // to test if it assigns to shortest queue
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.

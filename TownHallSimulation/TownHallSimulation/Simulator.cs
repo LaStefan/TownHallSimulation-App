@@ -47,7 +47,7 @@ namespace TownHallSimulation
             personToNavigateLock = new object();
             allPersonLock = new object();
             printed = false;
-            counter4.OnCounterReach();
+            counter1.OnCounterReach();
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
@@ -65,6 +65,7 @@ namespace TownHallSimulation
                     Person p = new Person(currentType);
                     TotalPeopleList.Add(p);
                     AssignCounter(p);//assigns person to a counter on spawning
+                    //counter4.OnCounterReach();
                 }
                 if (time % 1 == 0)
                 {
@@ -186,7 +187,7 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                p.sw.Start();
+                                //p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -201,7 +202,7 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                p.sw.Start();
+                                //p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -216,7 +217,7 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                p.sw.Start();
+                                //p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -246,6 +247,8 @@ namespace TownHallSimulation
             Person p = new Person(Appointment.AddressChange);
             p.sw.Start();
             TotalPeopleList.Add(p);
+            //AssignCounter(p);//assigns person to a counter on spawning
+            //counter4.OnCounterReach();
         }
 
         public void NavigatePerson()

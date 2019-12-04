@@ -72,7 +72,7 @@ namespace TownHallSimulation
 
         public void DrawPerson(Graphics gr)
         {
-            gr.DrawImage(Image, Location);
+            //gr.DrawImage(Image, Location);
         }
 
         public bool GoToCounter()

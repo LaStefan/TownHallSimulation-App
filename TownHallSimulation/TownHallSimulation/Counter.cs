@@ -49,9 +49,9 @@ namespace TownHallSimulation
             if (QueueList.Count >= 1)
             {
                 QueueList.Dequeue();
+                QueueList.Peek().sw.Stop();
+                queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
             }
-            QueueList.Peek().sw.Stop();
-            queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
             UpdateStatus();
         }
         //What is used for??

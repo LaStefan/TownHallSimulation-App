@@ -36,13 +36,11 @@ namespace TownHallSimulation
             int totalNum = 0;
             foreach (Counter C in sim.AddressChangeCountersList)
             {
-
                 foreach (double item in C.queueTime)
                 {
                     totalWaitingTIme+=item;
                     totalNum++;
-                }
-               
+                }  
             }
             foreach (Counter b in sim.PermitRequestCountersList)
             {
@@ -62,12 +60,7 @@ namespace TownHallSimulation
                     totalNum++;
                 }
             }
-
-
-
             AverageWaitingTime = totalWaitingTIme / totalNum;
-
-
             return AverageWaitingTime;
         }
 

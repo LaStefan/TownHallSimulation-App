@@ -8,6 +8,7 @@ namespace UnitTestProject1
     [TestClass]
     public class UnitTestSimulator
     {
+        //how to create an object with form parameter?
         //need to ask what it exactly for
         [TestMethod]
         public void TestMethodSpawnPeople()

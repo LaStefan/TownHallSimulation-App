@@ -47,9 +47,9 @@ namespace UnitTestProject1
             p.Location = new Point(20, 20);
             p.Counta.CounterPosition = Position.UP;
             bool result = p.GoToCounter();
-            Point exceptlocation = new Point(20,19);
+            Point expectlocation = new Point(20,19);
             Point resultlocation = p.Location;
-            Assert.AreEqual(exceptlocation, resultlocation);
+            Assert.AreEqual(expectlocation, resultlocation);
         }
 
         [TestMethod]
@@ -72,9 +72,9 @@ namespace UnitTestProject1
         //    p.Location = new Point(20, 20);
         //    p.Counta.CounterPosition = Position.LEFT;
         //    bool result = p.GoToCounter();
-        //    Point exceptlocation = new Point(19, 20);
+        //    Point expectlocation = new Point(19, 20);
         //    Point resultlocation = p.Location;
-        //    Assert.AreEqual(exceptlocation, resultlocation);
+        //    Assert.AreEqual(expectlocation, resultlocation);
         //}
 
         [TestMethod]
@@ -94,9 +94,9 @@ namespace UnitTestProject1
             p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
             p.Location = new Point(30, 20);
             bool result = p.GoToCounter();
-            Point exceptlocation = new Point(29, 20);
+            Point expectlocation = new Point(29, 20);
             Point resultlocation = p.Location;
-            Assert.AreEqual(exceptlocation, resultlocation);
+            Assert.AreEqual(expectlocation, resultlocation);
         }
 
         [TestMethod]

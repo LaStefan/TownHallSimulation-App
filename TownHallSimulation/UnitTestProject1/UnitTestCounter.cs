@@ -12,10 +12,10 @@ namespace UnitTestProject1
         public void TestMethodUpdateIsOpened()
         {
             Counter c = new Counter(new Point(20,20),Appointment.AddressChange);
-            bool before = c.IsOpened;
+            bool expect = c.IsOpened;
             c.UpdateIsOpened();
-            bool after = c.IsOpened;
-            Assert.AreEqual(!before,after);
+            bool result = c.IsOpened;
+            Assert.AreEqual(!expect, result);
         }
 
         [TestMethod]
@@ -82,8 +82,8 @@ namespace UnitTestProject1
         {
             Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
             Point expect = new Point(260, 187);
-            Point actual = c.GetCounterLocation();
-            Assert.AreEqual(expect, actual);
+            Point result = c.GetCounterLocation();
+            Assert.AreEqual(expect, result);
         }
 
         [TestMethod]
@@ -98,16 +98,16 @@ namespace UnitTestProject1
         public void TestMethodSetInterval_CheckPermitRequest()
         {
             Counter c1 = new Counter(new Point(20, 20), Appointment.PermitRequest);
-            double tem = 5000;
-            Assert.AreEqual(tem, c1.t.Interval);
+            double temp = 5000;
+            Assert.AreEqual(temp, c1.t.Interval);
         }
 
         [TestMethod]
         public void TestMethodSetInterval_CheckPropertySale()
         {
             Counter c2 = new Counter(new Point(20, 20), Appointment.PropertySale);
-            double te = 8000;
-            Assert.AreEqual(te, c2.t.Interval);
+            double temp = 8000;
+            Assert.AreEqual(temp, c2.t.Interval);
         }
 
         [TestMethod]
@@ -161,5 +161,6 @@ namespace UnitTestProject1
         //    bool enabl = c.t.Enabled;
         //    Assert.AreEqual(true, enabl);
         //}
+
     }
 }

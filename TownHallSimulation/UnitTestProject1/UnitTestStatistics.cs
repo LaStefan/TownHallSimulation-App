@@ -13,9 +13,9 @@ namespace UnitTestProject1
         {
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
-            string except = "";
+            string expect = "";
             string result = s.ToString();
-            Assert.AreEqual(except, result);
+            Assert.AreEqual(expect, result);
         }
 
         [TestMethod]
@@ -23,9 +23,9 @@ namespace UnitTestProject1
         {
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
-            string except = "";
+            string expect = "";
             string result = s.ToString();
-            Assert.AreEqual(except,result);
+            Assert.AreEqual(expect, result);
         }
 
         //class simulator did not finished so cannot fully testing
@@ -94,9 +94,9 @@ namespace UnitTestProject1
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
             s.UpdateTotalNumPeopl(50);
-            int except = 50;
+            int expect = 50;
             int result = s.TotalNrPeople;
-            Assert.AreEqual(except, result);
+            Assert.AreEqual(expect, result);
         }
     }
 }

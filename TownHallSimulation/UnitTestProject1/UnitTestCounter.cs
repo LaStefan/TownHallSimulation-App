@@ -78,15 +78,6 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestMethodGetCounterLocation()
-        {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
-            Point expect = new Point(260, 187);
-            Point result = c.GetCounterLocation();
-            Assert.AreEqual(expect, result);
-        }
-
-        [TestMethod]
         public void TestMethodSetInterval_CheckAddressChange()
         {
             Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);

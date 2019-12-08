@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class UnitTestMoveDetails
+    class UnitTestDetails
     {
         [TestMethod]
         public void TestMethod()

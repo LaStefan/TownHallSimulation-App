@@ -1,4 +1,4 @@
-﻿using iTextSharp.text;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
@@ -17,22 +17,29 @@ namespace TownHallSimulation
         public List<Counter> AddressChangeCountersList;
         public List<Counter> PropertySaleCountersList;
         public List<Counter> PermitRequestCountersList;
+
+        public List<Thread> Threads { get; private set; }
+        Thread managePersonThread;
+
         public double time { get; private set; }
         bool printed;
         private Random spawnRandom = new Random();
         private List<Statistics> stats ;
         Form1 form;
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
+        Random rnd;
 
         //for front end 
         private Object allPersonLock;
-       // private Object counterPersonLock;
+        // private Object counterPersonLock;
         private Object personToNavigateLock;
 
         //Lis of people for the different appointments 
         public List<Person> PersonAddressChange { get; private set; }
         public List<Person> PersonPropertySale { get; private set; }
         public List<Person> PersonPermitRequuest { get; private set; }
+
+        public List<Person> PersonToNavigate { get; private set; }
 
         public Simulator(Form1 f1)
         {
@@ -47,12 +54,20 @@ namespace TownHallSimulation
             personToNavigateLock = new object();
             allPersonLock = new object();
             printed = false;
+            counter4.OnCounterReach();
+            rnd = new Random();
+            Threads = new List<Thread>();
         }
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
-           
+            //Point first = new Point(476, 368);
+            int x = rnd.Next(350, 595);
+            int y = rnd.Next(437, 457);
+            Point point = new Point(x, y);
+            Bitmap image = Resources.PermitRequest;
+
             if (time < 18)
             {
                 time += 0.25;
@@ -61,7 +76,8 @@ namespace TownHallSimulation
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    Person p = new Person(currentType);
+                    //Person p = new Person(currentType);
+                    Person p = new Person(point, image, currentType);
                     TotalPeopleList.Add(p);
                     AssignCounter(p);//assigns person to a counter on spawning
                 }
@@ -200,9 +216,7 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                p.sw.Start();
-                            //for testing purposes
-                            c.OnCounterReach();
+                                //p.sw.Start();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -247,7 +261,6 @@ namespace TownHallSimulation
 
         public void UpdateLabels()
         {
-            form.label2.Text = time.ToString();
             form.lblCounter1.Text = "People waiting: \n" + counter1.QueueList.Count;
             form.lblCounter2.Text = "People waiting: \n" + counter2.QueueList.Count;
             form.lblCounter3.Text = "People waiting: \n" + counter3.QueueList.Count;
@@ -264,8 +277,30 @@ namespace TownHallSimulation
         public void CreateOne()
         {
             Person p = new Person(Appointment.AddressChange);
-            p.sw.Start();
             TotalPeopleList.Add(p);
+        }
+
+        public void ManagePerson()
+        {
+                foreach (Person p in TotalPeopleList)
+                {
+                    GivePersonAPath(p);
+                    lock (personToNavigateLock)
+                    {
+                        PersonToNavigate.Add(p);
+                    }
+                }
+            
+            Thread.Sleep(5000);//sleep 5 seconds
+        }
+
+        public void Start()
+        {
+            managePersonThread = new Thread(ManagePerson);
+        }
+        private void GivePersonAPath(Person p)
+        {
+            p.PathToFollow = Details.pathAB;
         }
 
         public void NavigatePerson()
@@ -274,10 +309,10 @@ namespace TownHallSimulation
             {
                 foreach (Person p in TotalPeopleList)
                 {
-                    if (p.GoToCounter())
-                    {
-                        p.StartNavigate = DateTime.Now;
-                    }
+                    //if (p.GoToCounter())
+                    //{
+                    //    p.StartNavigate = DateTime.Now;
+                    //}
                 }
             }
         }
@@ -292,12 +327,13 @@ namespace TownHallSimulation
                 }
             }
         }
+
         //return the list of people
         public List<Person> GetListofSpawnedPeople()
         {
             return TotalPeopleList;
 
         }
-        
+
     }
 }

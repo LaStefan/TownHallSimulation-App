@@ -17,14 +17,12 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
-        System.Drawing.Image image;
         System.Drawing.Rectangle rect;
         private bool visitedCenter;
         private Simulator sim;
         public Form1()
         {
             InitializeComponent();
-            image = TownHallSimulation.Properties.Resources.d;
             sim = new Simulator(this);
             sim.CreateOne(); // to test if it assigns to shortest queue
         }
@@ -33,6 +31,7 @@ namespace TownHallSimulation
         private void timer1_Tick(object sender, EventArgs e)
         {
             sim.SpawnPeople();
+            Invalidate();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -55,7 +54,6 @@ namespace TownHallSimulation
         {
             // Create pen.
             Pen blackPen = new Pen(Color.DarkCyan, 10);
-          
             // Draw rectangle to screen.
             e.Graphics.DrawRectangle(blackPen, rect);
         }
@@ -68,20 +66,14 @@ namespace TownHallSimulation
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            //Graphics g = e.Graphics;
-            //g.DrawImage(image, rect);
-           
+            sim.NavigatePerson();
             sim.Draw(e.Graphics);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-
-            image = Properties.Resources.d;
-            rect = new System.Drawing.Rectangle(520, 350, 20, 20);
-            MovingTimer.Start();
             SpawnTimer.Start();
-            btnStart.Enabled = false;
+            sim.Start();
         }
 
         private void BtnStop_Click(object sender, EventArgs e)
@@ -109,36 +101,38 @@ namespace TownHallSimulation
             sim.ShowStats();
         }
 
-        private void MovingTimer_Tick(object sender, EventArgs e)
-        {
-            sim.UpdateLabels();
-            if (rect.Y > 130)
-            {
-                if (visitedCenter)
-                {
-                    rect.X -= Convert.ToInt32(1.35);
-                    rect.Y -= 3;
-                }
-                else
-                {
-                    rect.X += 0;
-                    rect.Y -= 3;
-                }
-                if (rect.Y > 305 && rect.Y < 310)
-                {
-                    MovingTimer.Stop();
+        //private void MovingTimer_Tick(object sender, EventArgs e)
+        //{
+        //    sim.UpdateLabels();
+        //    if (rect.Y > 130)
+        //    {
+        //        if (visitedCenter)
+        //        {
+        //            rect.X -= Convert.ToInt32(1.35);
+        //            rect.Y -= 3;
+        //        }
+        //        else
+        //        {
+        //            rect.X += 0;
+        //            rect.Y -= 3;
+        //        }
+        //        if (rect.Y > 305 && rect.Y < 310)
+        //        {
+        //            MovingTimer.Stop();
 
-                    Thread.Sleep(1000);
+        //            Thread.Sleep(1000);
 
-                    MovingTimer.Start();
-                    visitedCenter=true;
-                    //sim.AssignCounter(sim.TotalPeopleList);
-                }
+        //            MovingTimer.Start();
+        //            visitedCenter=true;
+        //            //sim.AssignCounter(sim.TotalPeopleList);
+        //        }
                 
 
-                Invalidate();
-            }
-        }
+        //        Invalidate();
+        //    }
+            
+        //    Invalidate();
+        //}
 
         private void Form1_Load(object sender, EventArgs e)
         {

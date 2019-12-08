@@ -48,9 +48,10 @@ namespace TownHallSimulation
         {
             if (QueueList.Count >= 1)
             {
-                QueueList.Dequeue();
                 QueueList.Peek().sw.Stop();
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
+                QueueList.Dequeue();
+
             }
             UpdateStatus();
         }
@@ -58,7 +59,7 @@ namespace TownHallSimulation
         public void SetTimer()
         {
             t.Elapsed += OnTick;
-            t.AutoReset = true;
+            t.AutoReset = false;
             t.Enabled = true;
         }
         //Jean explain the method what is used for???

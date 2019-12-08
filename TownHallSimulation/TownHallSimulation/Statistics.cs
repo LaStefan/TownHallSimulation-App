@@ -30,7 +30,7 @@ namespace TownHallSimulation
             AverageWaitingTime = GetAverageWaitingTime();
             time = simulator.time;
         }
-        public double CalculateAvgWaitingTime()
+        public void CalculateAvgWaitingTime()
         {
             double totalWaitingTIme =0;
             int totalNum = 0;
@@ -68,7 +68,7 @@ namespace TownHallSimulation
             AverageWaitingTime = totalWaitingTIme / totalNum;
 
 
-            return AverageWaitingTime;
+          
         }
 
         public override string ToString()

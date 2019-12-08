@@ -86,14 +86,29 @@ namespace TownHallSimulation
                 {
                     Statistics st = new Statistics(this);
                     st.UpdateTotalNumPeopl(numberToSpawn);
+                    st.CalculateAvgWaitingTime();
                     stats.Add(st);
-                   
+                    foreach (Counter item in AddressChangeCountersList)
+                    {
+                        item.queueTime.Clear();
+                    }
+                    foreach (Counter item in PermitRequestCountersList)
+                    {
+                        item.queueTime.Clear();
+                    }
+                    foreach (Counter item in PropertySaleCountersList)
+                    {
+                        item.queueTime.Clear();
+                    }
+
+
                 }
             }
             else if(!printed)
             {
-                PrintStats();
                 printed = true;
+                PrintStats();
+                
             }
         }
 
@@ -116,7 +131,7 @@ namespace TownHallSimulation
                         {
                             doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
                                 $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"                                           Average waiting time: {item.CalculateAvgWaitingTime()}"));
+                                $"                                           Average waiting time: {item.AverageWaitingTime}"));
                                                                     
                         }
                        
@@ -147,8 +162,8 @@ namespace TownHallSimulation
                            text+=($"Time:{item.time}\n " +
                                  $"Total number of people: {item.TotalNrPeople} \n " +
                                 $"Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"\nAverage waiting time: {item.CalculateAvgWaitingTime()}" +
-                                $"\n_____________________________________________________________________________");
+                                $"\nAverage waiting time: {item.AverageWaitingTime:00}" +
+                                $"\n_____________________________________________________________________\n");
 
                         }
 
@@ -217,8 +232,10 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                //p.sw.Start();
-                                break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                p.sw.Start();
+                            //for testing purposes
+                            c.OnCounterReach();
+                            break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
                         break;
@@ -232,8 +249,10 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                //p.sw.Start();
-                                break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                p.sw.Start();
+                            //for testing purposes
+                            c.OnCounterReach();
+                            break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
                         break;

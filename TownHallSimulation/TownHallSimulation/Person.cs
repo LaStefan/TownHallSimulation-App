@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,7 @@ namespace TownHallSimulation
         PropertySale,
         PermitRequest
     }
-    //Position of the counter and person
+
     public enum Position
     {
         UP, LEFT, RIGHT
@@ -26,23 +26,22 @@ namespace TownHallSimulation
     public class Person
     {   //Fields and Properties
         public int id;
-        private static int counter = 0;
         public Point initialPoint, destinationPoint;
         public Timer personMove;
         private Timer personStop;
+        private bool xNow, yNow;
+        private bool firstLocation;
+        private Position direction;
+
         public List<Point> destinations;
         public List<int> destintationsNumbers;
+
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
-        //location of the person
         public Point Location { get; set; }
-        //path the person should follow
         public Point[] PathToFollow { get; set; }
-        public bool Discharged { get; set; }
-        public bool Critical { get; set; }
-        public Counter Counta;
-        public bool Managed { get; set; }
+        public Counter Counter { get; set; }
         public DateTime StartNavigate { get; set; }
         public Stopwatch sw { get; set; }
         public Appointment TypeOfAppointment { get; set; }
@@ -50,22 +49,20 @@ namespace TownHallSimulation
         //Constructor 1
         public Person(Appointment type)
         {
-            counter++;
-            Location = new Point(744, 550);
-            //Image = new Bitmap(TownHallSimulation.Properties.Resources.d);
+            Image = new Bitmap(Properties.Resources.d, new Size(10,10));
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
             sw = new Stopwatch();
         }
-        //Constructor 2, Used in simulator to create objects before location and image are used.
-        //public Person(Appointment appointment)
-        //{
-        //    counter++;
-        //    id = counter;
-        //    TypeOfAppointment = appointment;
-        //    personMove = new Timer();//for unit test
-        //}
+        //constructor 2
+        public Person(Point location, Bitmap image, Appointment type)
+        {
+            Location = location;
+            Image = new Bitmap(TownHallSimulation.Properties.Resources.d, new Size(10, 10));
+            personMove = new Timer();
+            personStop = new Timer();
+        }
 
         //Methods of the class 
         public int GetPersonId()
@@ -75,65 +72,45 @@ namespace TownHallSimulation
 
         public void DrawPerson(Graphics gr)
         {
-         //   gr.DrawImage(Image, Location);
+            gr.DrawImage(Image, Location);
         }
 
-        public bool GoToCounter()
-        {
-            if (Location == destinationPoint)
-            {
-                return true;
-            }
+        //public bool GoToCounter()
+        //{
+        //    if (Location == Counter.Location)
+        //    {
+        //        return true;
+        //    }
 
-            // Point pathStarting = PathToFollow[0];
+        //    Point pathStarting = PathToFollow[0];
 
-            if (Location.X == Counta.Location.X)
-            {
-                switch (Counta.CounterPosition)
-                {
-                    case Position.UP:
-                        Location = new Point(Location.X, Location.Y - 1);
-                        break;
-                        //case Position.DOWN:
-                        //    Location = new Point(Location.X, Location.Y + 1);
-                        //    break;
-                }
-            }
-            ////I comment these line in order to run test.
-            //else if (pathStarting.Y > Location.Y)
-            //{
-            //    Location = new Point(Location.X, Location.Y + 1);
-            //}
-            //else if (pathStarting.Y < Location.Y)
-            //{
-            //    Location = new Point(Location.X, Location.Y - 1);
-            //}
-            else
-            {
-                Location = new Point(Location.X - 1, Location.Y);
-            }
+        //    if (Location.X == Counter.Location.X)
+        //    {
+        //        switch (Counter.CounterPosition)
+        //        {
+        //            case Position.UP:
+        //                Location = new Point(Location.X, Location.Y - 1);
+        //                break;
+        //                //case Position.DOWN:
+        //                //    Location = new Point(Location.X, Location.Y + 1);
+        //                //    break;
+        //        }
+        //    }
+        //    else if (pathStarting.Y > Location.Y)
+        //    {
+        //        Location = new Point(Location.X, Location.Y + 1);
+        //    }
+        //    else if (pathStarting.Y < Location.Y)
+        //    {
+        //        Location = new Point(Location.X, Location.Y - 1);
+        //    }
+        //    else
+        //    {
+        //        Location = new Point(Location.X - 1, Location.Y);
+        //    }
 
-            return false;
-        }
-
-        public void StartMoving()
-        {
-            personMove.Enabled = true;
-            personMove.Interval = 30;
-        }
-
-        public void StopMoving()
-        {
-            personMove.Enabled = false;
-        }
-
-        public void SetInitialPosition(Point x, int startPosition)
-        {
-            initialPoint = x;
-            Location = x;
-
-        }
-
+        //    return false;
+        //}
         public void SetDestination(Point r, List<Point> f, List<int> y)
         {
             //where the car starts 
@@ -148,7 +125,7 @@ namespace TownHallSimulation
 
         public void SetDestinationPoint(Point y)
         {
-            this.destinationPoint = y;
+            y = new Point(195);
         }
 
         public int LocationX()
@@ -158,6 +135,14 @@ namespace TownHallSimulation
         public int LocationY()
         {
             return Location.Y;
+        }
+
+        public void StartMoving()
+        {
+            //person.BringToFront();
+            personMove.Interval = 15;
+            personMove.Enabled = true;
+           // personMove.Tick += personMove_Tick;
         }
     }
 }

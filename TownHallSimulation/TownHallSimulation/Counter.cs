@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Timers;
 using System.Drawing;
 using System.Collections.Generic;
@@ -67,42 +67,7 @@ namespace TownHallSimulation
             FIFO();
         }
         //for moving to a specific counter
-        public Point GetCounterLocation()
-        {
-            Point counter1 = new Point(260, 187);
-            Point counter2 = new Point(413, 92);
-            Point counter3 = new Point(620, 92);
-            Point counter4 = new Point(803, 92);
-            Point counter5 = new Point(971, 92);
-            Point counter6 = new Point(1103, 187);
-            Point counter7 = new Point(1103, 293);
-            Point counter8 = new Point(1103, 404);
-            Point counter9 = new Point(260, 404);
-            Point counter10 = new Point(260, 297);
-            return counter1;
-            //if (Location == counter1)
-            //    return counter1;
-            //if (Location == counter2)
-            //    return counter2;
-            //if (Location == counter3)
-            //    return counter3;
-            //if (Location == counter4)
-            //    return counter4;
-            //if (Location == counter5)
-            //    return counter5;
-            //if (Location == counter6)
-            //    return counter6;
-            //if (Location == counter7)
-            //    return counter7;
-            //if (Location == counter8)
-            //    return counter8;
-            //if (Location == counter9)
-            //    return counter9;
-            //else
-            //{
-            //    return counter10;
-            //}
-        }
+       
 
         public void SetInterval()
         {

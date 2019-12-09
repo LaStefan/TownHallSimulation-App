@@ -17,6 +17,7 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
+        string timetext;
         System.Drawing.Rectangle rect;
         private bool visitedCenter;
         private Simulator sim;
@@ -29,7 +30,8 @@ namespace TownHallSimulation
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
-        {
+        {   
+            lblTime.Text = String.Format("{0:0}:00", sim.time);
             sim.SpawnPeople();
             Invalidate();
         }
@@ -136,7 +138,7 @@ namespace TownHallSimulation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+         
         }
     }
 }

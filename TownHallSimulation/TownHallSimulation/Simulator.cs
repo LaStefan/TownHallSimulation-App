@@ -58,7 +58,6 @@ namespace TownHallSimulation
             rnd = new Random();
             Threads = new List<Thread>();
         }
-
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {

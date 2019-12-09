@@ -162,15 +162,14 @@ namespace UnitTestProject1
             CollectionAssert.AreEqual(y, p.destintationsNumbers);
         }
 
-        //不知道为什么跑不了，之后看
         //[TestMethod]
         //public void TestMethodSetDestinationPoint()
         //{
         //    Person p = new Person(Appointment.AddressChange);
+        //    Point y = new Point();
+        //    p.SetDestinationPoint(y);
         //    Point expect = new Point(195);
-        //    Point result = new Point();
-        //    p.SetDestinationPoint(result);
-        //    Assert.AreEqual(expect, result);
+        //    Assert.AreEqual(expect, y);
         //}
 
         [TestMethod]

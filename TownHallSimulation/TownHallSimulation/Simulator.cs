@@ -66,7 +66,8 @@ namespace TownHallSimulation
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
                     //Person p = new Person(currentType);
-                    Person p = new Person(point, image, currentType);
+                    Point first = new Point(476, 450);
+                    Person p = new Person(first, image, currentType);
                     TotalPeopleList.Add(p);
                     AssignCounter(p);//assigns person to a counter on spawning
                     //counter4.OnCounterReach();
@@ -264,12 +265,12 @@ namespace TownHallSimulation
         //method to test the shortest queue; can be deleted later
         public void CreateOne()
         {
-            //Point first = new Point(476, 368);
-            int x = rnd.Next(350, 595);
-            int y = rnd.Next(437, 457);
-            Point point = new Point(x, y);
+            Point first = new Point(476, 450);
+            //int x = rnd.Next(350, 595);
+            //int y = rnd.Next(437, 457);
+            //Point point = new Point(x, y);
             Bitmap image = Resources.PropertySale;
-            Person p = new Person(point, image, Appointment.AddressChange);
+            Person p = new Person(first, image, Appointment.AddressChange);
             TotalPeopleList.Add(p);
             //AssignCounter(p);//assigns person to a counter on spawning
             //counter4.OnCounterReach();

@@ -36,6 +36,7 @@ namespace TownHallSimulation
 
         public List<Point> destinations;
         public List<int> destintationsNumbers;
+        public Point Firstpoint = new Point(525, 360);
 
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
@@ -132,16 +133,16 @@ namespace TownHallSimulation
                         }
                     }
 
-                    if (!xNow)
+                    if (xNow)
                     {
                         if (this.LocationX() != this.Firstpoint.X)
                         {
-                            if (this.LocationX() < this.destinationPoint.X)
+                            if (this.LocationX() > this.destinationPoint.X)
                             {
                                 this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
                                 direction = Position.LEFT;
                             }
-                            else
+                            else if(this.LocationX() < this.destinationPoint.X)
                             {
                                 this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                                 direction = Position.RIGHT;
@@ -236,7 +237,7 @@ namespace TownHallSimulation
             //check the location of the person with the method SetInitialPosition
             destintationsNumbers = y;
         }
-        public Point Firstpoint = new Point(480, 300);
+        
 
         public Point FirstDestination(Point y)
         {

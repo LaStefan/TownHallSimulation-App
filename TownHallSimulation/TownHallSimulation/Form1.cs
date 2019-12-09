@@ -26,14 +26,14 @@ namespace TownHallSimulation
             InitializeComponent();
             sim = new Simulator(this);
             temp = new List<Person>();
-            sim.CreateOne(); // to test if it assigns to shortest queue
+            //sim.CreateOne(); // to test if it assigns to shortest queue
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
         {   
             lblTime.Text = String.Format("{0:0}:00", sim.time);
-            //sim.SpawnPeople();
+            sim.SpawnPeople();
            //temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }

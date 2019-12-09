@@ -336,6 +336,18 @@ namespace TownHallSimulation
             return TotalPeopleList;
 
         }
+        //it should move people to random destination just for testing if spawned people can move
+        //nothing happens. help!!!!
+        public void MovePeople(List<Person> people)
+        {
+            int randomX = rnd.Next(500, 1050);
+            int randomY = rnd.Next(350, 650);
+            foreach(Person p in people)
+            {
+                p.Location = new Point(randomX, randomY);
+                p.StartMoving();
+            }
+        }
 
     }
 }

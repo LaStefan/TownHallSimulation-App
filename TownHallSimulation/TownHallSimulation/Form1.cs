@@ -17,7 +17,7 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
-        string timetext;
+        List<Person> temp;
         System.Drawing.Rectangle rect;
         private bool visitedCenter;
         private Simulator sim;
@@ -25,6 +25,7 @@ namespace TownHallSimulation
         {
             InitializeComponent();
             sim = new Simulator(this);
+            temp = new List<Person>();
             //sim.CreateOne(); // to test if it assigns to shortest queue
         }
 
@@ -33,6 +34,7 @@ namespace TownHallSimulation
         {   
             lblTime.Text = String.Format("{0:0}:00", sim.time);
             sim.SpawnPeople();
+           // temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }
 
@@ -139,6 +141,11 @@ namespace TownHallSimulation
         private void Form1_Load(object sender, EventArgs e)
         {
          
+        }
+
+        private void MovingTimer_Tick(object sender, EventArgs e)
+        {   
+            //sim.MovePeople(temp);
         }
     }
 }

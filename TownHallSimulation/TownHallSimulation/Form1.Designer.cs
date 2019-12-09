@@ -1,3 +1,5 @@
+using System;
+
 namespace TownHallSimulation
 {
     partial class Form1
@@ -551,6 +553,8 @@ namespace TownHallSimulation
             this.PerformLayout();
 
         }
+
+      
 
         #endregion
 

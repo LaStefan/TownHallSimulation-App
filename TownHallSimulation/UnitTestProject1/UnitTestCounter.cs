@@ -65,7 +65,7 @@ namespace UnitTestProject1
             Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
             c.SetTimer();
             bool autoreset = c.t.AutoReset;
-            Assert.AreEqual(true, autoreset);
+            Assert.AreEqual(false, autoreset);
         }
 
         [TestMethod]
@@ -102,7 +102,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestMethodOnCounterReach_BiggerThenOne_CheckAutoReset()
+        public void TestMethodOnCounterReach_EqualOrBiggerThenOne_CheckAutoReset()
         {
             Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
             Person p1 = new Person(Appointment.AddressChange);
@@ -113,11 +113,11 @@ namespace UnitTestProject1
             c.QueueList.Enqueue(p3);
             c.OnCounterReach();
             bool autoreset = c.t.AutoReset;
-            Assert.AreEqual(true, autoreset);
+            Assert.AreEqual(false, autoreset);
         }
 
         [TestMethod]
-        public void TestMethodOnCounterReach_BiggerThenOne_CheckEnabled()
+        public void TestMethodOnCounterReach_EqualOrBiggerThenOne_CheckEnabled()
         {
             Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
             Person p1 = new Person(Appointment.AddressChange);

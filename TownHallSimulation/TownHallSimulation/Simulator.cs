@@ -62,9 +62,7 @@ namespace TownHallSimulation
         public void SpawnPeople()
         {
             //Point first = new Point(476, 368);
-            int x = rnd.Next(350, 595);
-            int y = rnd.Next(437, 457);
-            Point point = new Point(x, y);
+        
             Bitmap image = Resources.PermitRequest;
 
             if (time < 18)
@@ -76,6 +74,9 @@ namespace TownHallSimulation
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
                     //Person p = new Person(currentType);
+                    int x = rnd.Next(350, 595);
+                    int y = rnd.Next(437, 457);
+                    Point point = new Point(x, y);
                     Person p = new Person(point, image, currentType);
                     TotalPeopleList.Add(p);
                     AssignCounter(p);//assigns person to a counter on spawning

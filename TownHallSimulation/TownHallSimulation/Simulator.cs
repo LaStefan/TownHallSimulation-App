@@ -67,7 +67,7 @@ namespace TownHallSimulation
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
                     //Person p = new Person(currentType);
                     Point first = new Point(476, 450);
-                    Person p = new Person(first, image, currentType);
+                    Person p = new Person(point, image, currentType);
                     TotalPeopleList.Add(p);
                     AssignCounter(p);//assigns person to a counter on spawning
                     //counter4.OnCounterReach();
@@ -173,7 +173,6 @@ namespace TownHallSimulation
             counter4 = new Counter(new Point(803, 92), Appointment.AddressChange);
             // to check if it assigns to shortest queue
             counter4.IsOpened = true; 
-            counter8 = new Counter(new Point(1103, 404), Appointment.PermitRequest);
             counter5 = new Counter(new Point(971, 92), Appointment.PermitRequest);
             counter6 = new Counter(new Point(1103, 187), Appointment.PropertySale); 
             counter7 = new Counter(new Point(1103, 293), Appointment.AddressChange);

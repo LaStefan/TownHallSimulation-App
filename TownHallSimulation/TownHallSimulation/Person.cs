@@ -17,11 +17,6 @@ namespace TownHallSimulation
         PermitRequest
     }
 
-    public enum Position
-    {
-        UP, LEFT, RIGHT
-    }
-
     //Class Person
     public class Person
     {   //Fields and Properties
@@ -32,11 +27,10 @@ namespace TownHallSimulation
         private int arrayCounter;
         private bool xNow, yNow;
         private bool firstLocation;
-        private Position direction;
 
         public List<Point> destinations;
         public List<int> destintationsNumbers;
-        public Point Firstpoint = new Point(525, 360);
+        public Point centerDesk = new Point(525, 360);
 
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
@@ -117,82 +111,56 @@ namespace TownHallSimulation
 
         private void personMove_Tick(object sender, EventArgs e)
         {
-                if (!firstLocation)
+                if (this.Location != centerDesk)
                 {
-                    if (!yNow)
-                    {
-                        if (this.LocationY() != Firstpoint.Y)
+                        if (this.LocationY() != centerDesk.Y)
                         {
                             this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
-                            direction = Position.UP;
                         }
-                        else
+                        else if (this.LocationX() < centerDesk.X)
                         {
-                            yNow = false;
-                            xNow = true;
+                            this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
                         }
-                    }
-
-                    if (xNow)
-                    {
-                        if (this.LocationX() != this.Firstpoint.X)
+                        else if(this.LocationX() > centerDesk.X)
                         {
-                            if (this.LocationX() > this.destinationPoint.X)
-                            {
-                                this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
-                                direction = Position.LEFT;
-                            }
-                            else if(this.LocationX() < this.destinationPoint.X)
-                            {
-                                this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
-                                direction = Position.RIGHT;
-                            }
+                            this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                         }
-                        else
-                        {
-                            xNow = false;
-                            yNow = true;
-                        }
-                    }
                 }
                 else
                 {
                     if (arrayCounter < destinations.Count)
                     {
-                        if (yNow)
+                        //if (yNow)
                         {
                             if (this.LocationY() != destinations[arrayCounter].Y)
                             {
                                 this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
-                                direction = Position.UP;
                             }
-                            else
-                            {
-                                yNow = false;
-                                xNow = true;
-                            }
+                            //else
+                            //{
+                            //    yNow = false;
+                            //    xNow = true;
+                            //}
                         }
 
-                        if (xNow)
+                        //if (xNow)
                         {
                             if (this.LocationX() != destinations[arrayCounter].X)
                             {
                                 if (this.LocationX() < destinations[arrayCounter].X)
                                 {
                                     this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
-                                    direction = Position.RIGHT;
                                 }
                                 else
                                 {
                                     this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
-                                    direction = Position.LEFT;
                                 }
                             }
-                            else
-                            {
-                                xNow = false;
-                                yNow = true;
-                            }
+                            //else
+                            //{
+                            //    xNow = false;
+                            //    yNow = true;
+                            //}
                         }
 
                         if (Location == destinations[arrayCounter])
@@ -215,14 +183,14 @@ namespace TownHallSimulation
                 {
                     if (Location == destinations[destinations.Count - 1])
                     {
-                        Location = new Point(1000, 1000);
+                        //Location = new Point(1000, 1000);
                     }
                 }
                 else
                 {
                     if (Location == destinationPoint)
                     {
-                        Location = new Point(1000, 1000);
+                        //Location = new Point(1000, 1000);
                     }
                 }
         }

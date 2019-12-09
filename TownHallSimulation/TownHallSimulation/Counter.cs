@@ -14,8 +14,6 @@ namespace TownHallSimulation
         public bool IsOpened { get; set; }
         public bool IsOccupied { get; set; }
         private Appointment _appointmentToProcess;
-        //checking if the person is on the position of the counter
-        public Position CounterPosition;
         public Queue<Person> QueueList { get; private set; }
         public List<double> queueTime = new List<double>();
         public Timer t;

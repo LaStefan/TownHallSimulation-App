@@ -18,9 +18,6 @@ namespace TownHallSimulation
         public List<Counter> PropertySaleCountersList;
         public List<Counter> PermitRequestCountersList;
 
-        public List<Thread> Threads { get; private set; }
-        Thread managePersonThread;
-
         public double time { get; private set; }
         bool printed;
         private Random spawnRandom = new Random();
@@ -28,11 +25,6 @@ namespace TownHallSimulation
         Form1 form;
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
         Random rnd;
-
-        //for front end 
-        private Object allPersonLock;
-        // private Object counterPersonLock;
-        private Object personToNavigateLock;
 
         //Lis of people for the different appointments 
         public List<Person> PersonAddressChange { get; private set; }
@@ -51,12 +43,10 @@ namespace TownHallSimulation
             time = 8;
             this.form = f1;
             InitializeCounters();
-            personToNavigateLock = new object();
-            allPersonLock = new object();
             printed = false;
             counter4.OnCounterReach();
             rnd = new Random();
-            Threads = new List<Thread>();
+            
         }
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
@@ -65,7 +55,7 @@ namespace TownHallSimulation
             int x = rnd.Next(350, 595);
             int y = rnd.Next(437, 457);
             Point point = new Point(x, y);
-            Bitmap image = Resources.PermitRequest;
+            Bitmap image = Resources.PropertySale;
 
             if (time < 18)
             {
@@ -99,8 +89,6 @@ namespace TownHallSimulation
                     {
                         item.queueTime.Clear();
                     }
-
-
                 }
             }
             else if(!printed)
@@ -276,78 +264,39 @@ namespace TownHallSimulation
         //method to test the shortest queue; can be deleted later
         public void CreateOne()
         {
-            Person p = new Person(Appointment.AddressChange);
+            //Point first = new Point(476, 368);
+            int x = rnd.Next(350, 595);
+            int y = rnd.Next(437, 457);
+            Point point = new Point(x, y);
+            Bitmap image = Resources.PropertySale;
+            Person p = new Person(point, image, Appointment.AddressChange);
             TotalPeopleList.Add(p);
             //AssignCounter(p);//assigns person to a counter on spawning
             //counter4.OnCounterReach();
         }
 
-        public void ManagePerson()
-        {
-                foreach (Person p in TotalPeopleList)
-                {
-                    GivePersonAPath(p);
-                    lock (personToNavigateLock)
-                    {
-                        PersonToNavigate.Add(p);
-                    }
-                }
-            
-            Thread.Sleep(5000);//sleep 5 seconds
-        }
-
         public void Start()
         {
-            managePersonThread = new Thread(ManagePerson);
-        }
-        private void GivePersonAPath(Person p)
-        {
-            p.PathToFollow = Details.pathAB;
+            foreach (Person p in TotalPeopleList)
+            {
+                p.StartMoving();
+            }
         }
 
-        public void NavigatePerson()
+        public void Stop()
         {
-            lock (personToNavigateLock)
+            foreach (Person p in TotalPeopleList)
             {
-                foreach (Person p in TotalPeopleList)
-                {
-                    //if (p.GoToCounter())
-                    //{
-                    //    p.StartNavigate = DateTime.Now;
-                    //}
-                }
+                p.StopPerson();
             }
         }
 
         public void Draw(Graphics gr)
         {
-            lock (allPersonLock)
-            {
                 foreach (Person p in TotalPeopleList)
                 {
                     p.DrawPerson(gr);
                 }
-            }
         }
-
-        //return the list of people
-        public List<Person> GetListofSpawnedPeople()
-        {
-            return TotalPeopleList;
-
-        }
-        //it should move people to random destination just for testing if spawned people can move
-        //nothing happens. help!!!!
-        public void MovePeople(List<Person> people)
-        {
-            int randomX = rnd.Next(500, 1050);
-            int randomY = rnd.Next(350, 650);
-            foreach(Person p in people)
-            {
-                p.Location = new Point(randomX, randomY);
-                p.StartMoving();
-            }
-        }
-
     }
 }

@@ -26,15 +26,15 @@ namespace TownHallSimulation
             InitializeComponent();
             sim = new Simulator(this);
             temp = new List<Person>();
-            //sim.CreateOne(); // to test if it assigns to shortest queue
+            sim.CreateOne(); // to test if it assigns to shortest queue
         }
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
         {   
             lblTime.Text = String.Format("{0:0}:00", sim.time);
-            sim.SpawnPeople();
-           // temp = sim.GetListofSpawnedPeople();
+            //sim.SpawnPeople();
+           //temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }
 
@@ -70,19 +70,17 @@ namespace TownHallSimulation
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            sim.NavigatePerson();
             sim.Draw(e.Graphics);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            SpawnTimer.Start();
             sim.Start();
         }
 
         private void BtnStop_Click(object sender, EventArgs e)
         {
-            SpawnTimer.Stop();
+            sim.Stop();
         }
 
         private void circularButton9_Click(object sender, EventArgs e)
@@ -104,39 +102,6 @@ namespace TownHallSimulation
         {
             sim.ShowStats();
         }
-
-        //private void MovingTimer_Tick(object sender, EventArgs e)
-        //{
-        //    sim.UpdateLabels();
-        //    if (rect.Y > 130)
-        //    {
-        //        if (visitedCenter)
-        //        {
-        //            rect.X -= Convert.ToInt32(1.35);
-        //            rect.Y -= 3;
-        //        }
-        //        else
-        //        {
-        //            rect.X += 0;
-        //            rect.Y -= 3;
-        //        }
-        //        if (rect.Y > 305 && rect.Y < 310)
-        //        {
-        //            MovingTimer.Stop();
-
-        //            Thread.Sleep(1000);
-
-        //            MovingTimer.Start();
-        //            visitedCenter=true;
-        //            //sim.AssignCounter(sim.TotalPeopleList);
-        //        }
-                
-
-        //        Invalidate();
-        //    }
-            
-        //    Invalidate();
-        //}
 
         private void Form1_Load(object sender, EventArgs e)
         {

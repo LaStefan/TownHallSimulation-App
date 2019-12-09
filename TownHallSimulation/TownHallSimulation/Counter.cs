@@ -32,6 +32,11 @@ namespace TownHallSimulation
             QueueList = new Queue<Person>();//for unit test
         }
 
+        public Point counterLocations()
+        {
+            return new Point(310, 75);
+        }
+
         // methods of the class
         public void UpdateIsOpened()
         {

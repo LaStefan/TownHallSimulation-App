@@ -34,7 +34,8 @@ namespace TownHallSimulation
         {   
             lblTime.Text = String.Format("{0:0}:00", sim.time);
             sim.SpawnPeople();
-           //temp = sim.GetListofSpawnedPeople();
+            //temp = sim.GetListofSpawnedPeople();
+            sim.UpdateLabels();
             Invalidate();
         }
 

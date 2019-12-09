@@ -26,11 +26,11 @@ namespace TownHallSimulation
         private Timer personStop;
         private int arrayCounter;
         private bool xNow, yNow;
-        private bool firstLocation;
 
         public List<Point> destinations;
         public List<int> destintationsNumbers;
         public Point centerDesk = new Point(525, 360);
+        public bool centerWasReached = false;
 
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
@@ -111,71 +111,65 @@ namespace TownHallSimulation
 
         private void personMove_Tick(object sender, EventArgs e)
         {
-                if (this.Location != centerDesk)
+                if (centerWasReached == false)
                 {
-                        if (this.LocationY() != centerDesk.Y)
+                        if (this.Location.Y != centerDesk.Y)
                         {
                             this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
                         }
-                        else if (this.LocationX() < centerDesk.X)
+                        else if (this.Location.X < centerDesk.X)
                         {
                             this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
                         }
-                        else if(this.LocationX() > centerDesk.X)
+                        else if(this.Location.X > centerDesk.X)
                         {
                             this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
+
+                        }
+                        if(this.Location == centerDesk)
+                        {
+                            centerWasReached = true;
                         }
                 }
                 else
                 {
-                    if (arrayCounter < destinations.Count)
+                if (arrayCounter < destinations.Count)
+                {
+                    //if (yNow)
+
+                    if (this.Location.Y > destinationPoint.Y)
                     {
-                        //if (yNow)
+                        this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
+                    }
+                    else if (this.Location.Y < destinationPoint.Y)
+                    {
+                        this.Location = new Point((this.Location.X), (this.Location.Y) + 1);
+                    }
+                    else if (this.Location.Y == destinationPoint.Y)
+                    {
+                        if (this.Location.X < destinationPoint.X)
                         {
-                            if (this.LocationY() != destinations[arrayCounter].Y)
-                            {
-                                this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
-                            }
-                            //else
-                            //{
-                            //    yNow = false;
-                            //    xNow = true;
-                            //}
+                            this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
                         }
-
-                        //if (xNow)
+                        else if (this.Location.X > destinationPoint.X)
                         {
-                            if (this.LocationX() != destinations[arrayCounter].X)
-                            {
-                                if (this.LocationX() < destinations[arrayCounter].X)
-                                {
-                                    this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
-                                }
-                                else
-                                {
-                                    this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
-                                }
-                            }
-                            //else
-                            //{
-                            //    xNow = false;
-                            //    yNow = true;
-                            //}
+                            this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                         }
-
-                        if (Location == destinations[arrayCounter])
-                        {
-                            arrayCounter++;
-                            if (arrayCounter < destintationsNumbers.Count)
-                            {
-                                SetXNowAndYNow(destintationsNumbers[arrayCounter]);
-                            }
-
-                        }
-
-
                     }
 
+                    //if (Location == destinations[arrayCounter])
+                    //    {
+                    //        arrayCounter++;
+                    //        if (arrayCounter < destintationsNumbers.Count)
+                    //        {
+                    //            SetXNowAndYNow(destintationsNumbers[arrayCounter]);
+                    //        }
+
+                    //    }
+
+
+                    //}
+                }
 
                 }
 
@@ -210,17 +204,7 @@ namespace TownHallSimulation
         public Point FirstDestination(Point y)
         {
             y = new Point(480,300);
-            firstLocation = true;
             return y;
-        }
-
-        public int LocationX()
-        {
-            return Location.X;
-        }
-        public int LocationY()
-        {
-            return Location.Y;
         }
 
         public void StartMoving()

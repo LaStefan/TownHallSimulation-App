@@ -26,11 +26,6 @@ namespace TownHallSimulation
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
         Random rnd;
 
-        //Lis of people for the different appointments 
-        public List<Person> PersonAddressChange { get; private set; }
-        public List<Person> PersonPropertySale { get; private set; }
-        public List<Person> PersonPermitRequuest { get; private set; }
-
         public List<Person> PersonToNavigate { get; private set; }
 
         public Simulator(Form1 f1)
@@ -51,7 +46,6 @@ namespace TownHallSimulation
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
-            //Point first = new Point(476, 368);
             int x = rnd.Next(350, 595);
             int y = rnd.Next(437, 457);
             Point point = new Point(x, y);
@@ -65,8 +59,6 @@ namespace TownHallSimulation
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    //Person p = new Person(currentType);
-                    Point first = new Point(476, 450);
                     Person p = new Person(point, image, currentType);
                     TotalPeopleList.Add(p);
                     AssignCounter(p);//assigns person to a counter on spawning
@@ -165,22 +157,22 @@ namespace TownHallSimulation
         //make the counters
         public void InitializeCounters()
         {
-            counter1 = new Counter(new Point(260, 187), Appointment.AddressChange); counter1.IsOpened = true;
+            counter1 = new Counter(new Point(275, 180), Appointment.AddressChange); counter1.IsOpened = true;
             // to check if it assigns to shortest queue
             counter1.IsOpened = true; counter1.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter1.QueueList.Enqueue(new Person(Appointment.AddressChange));
-            counter2 = new Counter(new Point(413, 92), Appointment.PermitRequest); counter2.IsOpened = true;
-            counter3 = new Counter(new Point(620, 92), Appointment.PropertySale); counter3.IsOpened = true;
-            counter4 = new Counter(new Point(803, 92), Appointment.AddressChange);
+            counter2 = new Counter(new Point(340, 132), Appointment.PermitRequest); counter2.IsOpened = true;
+            counter3 = new Counter(new Point(500, 132), Appointment.PropertySale); counter3.IsOpened = true;
+            counter4 = new Counter(new Point(633, 132), Appointment.AddressChange); //+40 for y to make sure it stops before the counter //-170 for x to make sure it stops before the counter
             // to check if it assigns to shortest queue
             counter4.IsOpened = true; 
-            counter5 = new Counter(new Point(971, 92), Appointment.PermitRequest);
-            counter6 = new Counter(new Point(1103, 187), Appointment.PropertySale); 
-            counter7 = new Counter(new Point(1103, 293), Appointment.AddressChange);
+            counter5 = new Counter(new Point(760, 132), Appointment.PermitRequest);
+            counter6 = new Counter(new Point(815, 180), Appointment.PropertySale); 
+            counter7 = new Counter(new Point(815, 260), Appointment.AddressChange);
             // to check if it assigns to shortest queue
             counter7.IsOpened = true; counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
-            counter8 = new Counter(new Point(1103, 404), Appointment.PermitRequest);
-            counter9 = new Counter(new Point(260, 404), Appointment.PropertySale); 
-            counter10 = new Counter(new Point(260, 297), Appointment.AddressChange);
+            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest);
+            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); 
+            counter10 = new Counter(new Point(275, 260), Appointment.AddressChange);
             //to check if it assigns to shortest queue
             counter10.IsOpened = true;
             AddressChangeCountersList.AddRange(new Counter[] { counter1, counter4, counter7, counter10 });

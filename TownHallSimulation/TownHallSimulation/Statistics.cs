@@ -30,7 +30,7 @@ namespace TownHallSimulation
         }
         public double CalculateAvgWaitingTime()
         {
-            double totalWaitingTIme =0;
+            double totalWaitingTIme = 0;
             int totalNum = 0;
             foreach (Counter C in sim.AddressChangeCountersList)
             {
@@ -93,9 +93,6 @@ namespace TownHallSimulation
         {
             TotalNrPeople = n;
         }
-
-       
-
     }
 }
 

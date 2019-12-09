@@ -23,11 +23,9 @@ namespace TownHallSimulation
         public Statistics(Simulator simulator)
         {
             TotalNrPeople = 0;
-            //   TotalNrOfPeopleWaiting = 0;
             sim = simulator;
-            TotalNrOfCounters = 9;
+            TotalNrOfCounters = 10;
             TotalNrOfCountersOpened = GetTotalNrOfCountersOpened();
-            AverageWaitingTime = GetAverageWaitingTime();
             time = simulator.time;
         }
         public double CalculateAvgWaitingTime()
@@ -64,16 +62,6 @@ namespace TownHallSimulation
             return AverageWaitingTime;
         }
 
-        public override string ToString()
-        {
-            return "";
-        }
-
-        //public int GetTotalNrOfPeopleWaiting()
-        //{
-        //    return TotalNrPeople - TotalNrOfPeopleWaiting;
-        //}
-
         public int GetTotalNrOfCountersOpened()
         {
             int num = 0;
@@ -100,42 +88,13 @@ namespace TownHallSimulation
             }
             return num;
         }
-        public double GetAverageWaitingTime()
-        {
-            return 2.3;
-        }
-
+       
         public void UpdateTotalNumPeopl(int n)
         {
             TotalNrPeople = n;
         }
 
-        //public int GetTotalNrOfCountersOccupied()
-        //{
-        //    //int num = 0;
-        //    //foreach (Counter C in sim.CountersList)
-        //    //{
-        //    //    if (C.IsOccupied)
-        //    //    {
-        //    //        num++;
-        //    //    }
-        //    //}
-        //    //return num;
-        //}
-
-        //public int GetTotalNrOfCountersFree()
-        //{
-        //    //int num = 0;
-        //    //foreach (Counter C in sim.CountersList)
-        //    //{
-        //    //    if (!C.IsOccupied && C.IsOpened)
-        //    //    {
-        //    //        num++;
-        //    //    }
-        //    //}
-        //    //return num;
-        //}
-
+       
 
     }
 }

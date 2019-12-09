@@ -31,6 +31,9 @@ namespace TownHallSimulation
             this.components = new System.ComponentModel.Container();
             this.SpawnTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,9 +56,6 @@ namespace TownHallSimulation
             this.lblCounter4 = new System.Windows.Forms.Label();
             this.lblCounter5 = new System.Windows.Forms.Label();
             this.lblCounter6 = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btnCounter7 = new TownHallSimulation.CircularButton();
             this.btnCounter6 = new TownHallSimulation.CircularButton();
             this.btnCounter8 = new TownHallSimulation.CircularButton();
@@ -67,9 +67,9 @@ namespace TownHallSimulation
             this.btnCounter2 = new TownHallSimulation.CircularButton();
             this.btnCounter1 = new TownHallSimulation.CircularButton();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // SpawnTimer
@@ -91,6 +91,36 @@ namespace TownHallSimulation
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1466, 72);
             this.panel1.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.lblTime);
+            this.panel3.Location = new System.Drawing.Point(244, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(139, 59);
+            this.panel3.TabIndex = 34;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 25);
+            this.label2.TabIndex = 33;
+            this.label2.Text = "Time:";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(62, 18);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(62, 25);
+            this.lblTime.TabIndex = 32;
+            this.lblTime.Text = "00:00";
             // 
             // btnExit
             // 
@@ -244,6 +274,7 @@ namespace TownHallSimulation
             // MovingTimer
             // 
             this.MovingTimer.Interval = 1000;
+            this.MovingTimer.Tick += new System.EventHandler(this.MovingTimer_Tick);
             // 
             // lblCounter8
             // 
@@ -325,36 +356,6 @@ namespace TownHallSimulation
             this.lblCounter6.Size = new System.Drawing.Size(90, 20);
             this.lblCounter6.TabIndex = 31;
             this.lblCounter6.Text = "lblCounter6";
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.Location = new System.Drawing.Point(62, 18);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(62, 25);
-            this.lblTime.TabIndex = 32;
-            this.lblTime.Text = "00:00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 25);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Time:";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.lblTime);
-            this.panel3.Location = new System.Drawing.Point(244, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(139, 59);
-            this.panel3.TabIndex = 34;
             // 
             // btnCounter7
             // 
@@ -542,10 +543,10 @@ namespace TownHallSimulation
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

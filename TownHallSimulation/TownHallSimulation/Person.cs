@@ -113,13 +113,13 @@ namespace TownHallSimulation
         //}
         public void SetDestination(Point r, List<Point> f, List<int> y)
         {
-            //where the car starts 
+            //where the person goes 
             destinationPoint = r;
 
             //list of destination 
             destinations = f;
 
-            //check the location of the car with the method SetInitialPosition
+            //check the location of the person with the method SetInitialPosition
             destintationsNumbers = y;
         }
 

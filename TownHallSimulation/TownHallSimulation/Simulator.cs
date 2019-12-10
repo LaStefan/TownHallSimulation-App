@@ -67,7 +67,7 @@ namespace TownHallSimulation
                 if (time % 1 == 0)
                 {
                     Statistics st = new Statistics(this);
-                    st.UpdateTotalNumPeopl(numberToSpawn);
+                    st.UpdateTotalNumPeopl();
                     st.CalculateAvgWaitingTime();
                     stats.Add(st);
                     foreach (Counter item in AddressChangeCountersList)
@@ -147,7 +147,7 @@ namespace TownHallSimulation
                            text+=($"Time:{item.time}\n " +
                                  $"Total number of people: {item.TotalNrPeople} \n " +
                                 $"Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"\nAverage waiting time: {item.AverageWaitingTime:00}" +
+                                $"\nAverage waiting time: {item.CalculateAvgWaitingTime():00}" +
                                 $"\n_____________________________________________________________________\n");
 
                         }

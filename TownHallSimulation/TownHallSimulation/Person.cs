@@ -49,6 +49,7 @@ namespace TownHallSimulation
             personStop = new Timer();
             TypeOfAppointment = type;
             sw = new Stopwatch();
+            sw.Start();
         }
         //constructor 2
         public Person(Point location, Bitmap image, Appointment type)
@@ -58,6 +59,8 @@ namespace TownHallSimulation
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
+            sw = new Stopwatch();
+            sw.Start();
             destinations = new List<Point>()
             {
                 new Point(413,92),

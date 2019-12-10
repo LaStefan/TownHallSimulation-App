@@ -23,9 +23,8 @@ namespace TownHallSimulation
         public Statistics(Simulator simulator)
         {
             TotalNrPeople = 0;
-            //   TotalNrOfPeopleWaiting = 0;
             sim = simulator;
-            TotalNrOfCounters = 9;
+            TotalNrOfCounters = 10;
             TotalNrOfCountersOpened = GetTotalNrOfCountersOpened();
             AverageWaitingTime = GetAverageWaitingTime();
             time = simulator.time;
@@ -33,34 +32,29 @@ namespace TownHallSimulation
         public double CalculateAvgWaitingTime()
         {
             double totalWaitingTIme =0;
-            int totalNum = 0;
-            foreach (Counter C in sim.AddressChangeCountersList)
+            foreach (Counter item in sim.AddressChangeCountersList)
             {
-                foreach (double item in C.queueTime)
+                foreach (double d in item.queueTime)
                 {
-                    totalWaitingTIme+=item;
-                    totalNum++;
-                }  
-            }
-            foreach (Counter b in sim.PermitRequestCountersList)
-            {
-
-                foreach (double item in b.queueTime)
-                {
-                    totalWaitingTIme += item;
-                    totalNum++;
+                   totalWaitingTIme += d;
                 }
             }
-            foreach (Counter c in sim.PropertySaleCountersList)
+            foreach (Counter item in sim.PermitRequestCountersList)
             {
-
-                foreach (double item in c.queueTime)
+                foreach (double d in item.queueTime)
                 {
-                    totalWaitingTIme += item;
-                    totalNum++;
+                    totalWaitingTIme += d;
                 }
             }
-            AverageWaitingTime = totalWaitingTIme / totalNum;
+            foreach (Counter item in sim.PropertySaleCountersList)
+            {
+                foreach (double d in item.queueTime)
+                {
+                    totalWaitingTIme += d;
+                }
+            }
+
+            AverageWaitingTime = totalWaitingTIme / sim.TotalPeopleList.Count(); ;
             return AverageWaitingTime;
         }
 
@@ -69,11 +63,7 @@ namespace TownHallSimulation
             return "";
         }
 
-        //public int GetTotalNrOfPeopleWaiting()
-        //{
-        //    return TotalNrPeople - TotalNrOfPeopleWaiting;
-        //}
-
+      
         public int GetTotalNrOfCountersOpened()
         {
             int num = 0;
@@ -105,36 +95,12 @@ namespace TownHallSimulation
             return 2.3;
         }
 
-        public void UpdateTotalNumPeopl(int n)
+        public void UpdateTotalNumPeopl()
         {
-            TotalNrPeople = n;
+            TotalNrPeople = sim.TotalPeopleList.Count();
         }
 
-        //public int GetTotalNrOfCountersOccupied()
-        //{
-        //    //int num = 0;
-        //    //foreach (Counter C in sim.CountersList)
-        //    //{
-        //    //    if (C.IsOccupied)
-        //    //    {
-        //    //        num++;
-        //    //    }
-        //    //}
-        //    //return num;
-        //}
-
-        //public int GetTotalNrOfCountersFree()
-        //{
-        //    //int num = 0;
-        //    //foreach (Counter C in sim.CountersList)
-        //    //{
-        //    //    if (!C.IsOccupied && C.IsOpened)
-        //    //    {
-        //    //        num++;
-        //    //    }
-        //    //}
-        //    //return num;
-        //}
+      
 
 
     }

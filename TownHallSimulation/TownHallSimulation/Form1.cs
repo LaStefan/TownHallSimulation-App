@@ -19,7 +19,6 @@ namespace TownHallSimulation
     {
         List<Person> temp;
         System.Drawing.Rectangle rect;
-        private bool visitedCenter;
         private Simulator sim;
         public Form1()
         {

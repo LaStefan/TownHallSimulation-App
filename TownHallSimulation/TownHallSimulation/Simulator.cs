@@ -39,7 +39,7 @@ namespace TownHallSimulation
             this.form = f1;
             InitializeCounters();
             printed = false;
-            counter4.OnCounterReach();
+            //counter4.OnCounterReach();
             rnd = new Random();
             
         }
@@ -159,19 +159,19 @@ namespace TownHallSimulation
         {
             counter1 = new Counter(new Point(275, 180), Appointment.AddressChange); counter1.IsOpened = true;
             // to check if it assigns to shortest queue
-            counter1.IsOpened = true; counter1.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter1.QueueList.Enqueue(new Person(Appointment.AddressChange));
+            counter1.IsOpened = true; //counter1.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter1.QueueList.Enqueue(new Person(Appointment.AddressChange));
             counter2 = new Counter(new Point(340, 132), Appointment.PermitRequest); counter2.IsOpened = true;
             counter3 = new Counter(new Point(500, 132), Appointment.PropertySale); counter3.IsOpened = true;
             counter4 = new Counter(new Point(633, 132), Appointment.AddressChange); //+40 for y to make sure it stops before the counter //-170 for x to make sure it stops before the counter
             // to check if it assigns to shortest queue
             counter4.IsOpened = true; 
-            counter5 = new Counter(new Point(760, 132), Appointment.PermitRequest);
-            counter6 = new Counter(new Point(815, 180), Appointment.PropertySale); 
+            counter5 = new Counter(new Point(760, 132), Appointment.PermitRequest); counter5.IsOpened = true;
+            counter6 = new Counter(new Point(815, 180), Appointment.PropertySale); counter6.IsOpened = true;
             counter7 = new Counter(new Point(815, 260), Appointment.AddressChange);
             // to check if it assigns to shortest queue
-            counter7.IsOpened = true; counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
-            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest);
-            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); 
+            counter7.IsOpened = true; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
+            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest); counter8.IsOpened = true;
+            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); counter9.IsOpened = true;
             counter10 = new Counter(new Point(275, 260), Appointment.AddressChange);
             //to check if it assigns to shortest queue
             counter10.IsOpened = true;
@@ -197,6 +197,8 @@ namespace TownHallSimulation
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
                                 //p.sw.Start();
+                                //for testing purposes
+                                //c.OnCounterReach();
                                 break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
@@ -211,16 +213,16 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                p.sw.Start();
-                            //for testing purposes
-                            c.OnCounterReach();
+                                //p.sw.Start();
+                                //for testing purposes
+                                //c.OnCounterReach();
                             break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }
                         break;
 
                     case "PermitRequest":
-                        int shortestQueuePR = PropertySaleCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
+                        int shortestQueuePR = PermitRequestCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
                         foreach (Counter c in PermitRequestCountersList)
                         {
                             if (c.IsOpened && c.QueueList.Count == shortestQueuePR)
@@ -228,9 +230,9 @@ namespace TownHallSimulation
                                 p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                 c.QueueList.Enqueue(p);
                                 //starts the stop watch to get total process time
-                                p.sw.Start();
+                                //p.sw.Start();
                             //for testing purposes
-                            c.OnCounterReach();
+                            //c.OnCounterReach();
                             break; //to assure it's only assigned to 1 counter if the queues are the same length
                             }
                         }

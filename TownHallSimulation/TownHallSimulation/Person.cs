@@ -37,7 +37,6 @@ namespace TownHallSimulation
         public TimeSpan Timer { get; set; }
         public Point Location { get; set; }
         public Point[] PathToFollow { get; set; }
-        public Counter Counter { get; set; }
         public DateTime StartNavigate { get; set; }
         public Stopwatch sw { get; set; }
         public Appointment TypeOfAppointment { get; set; }
@@ -58,7 +57,7 @@ namespace TownHallSimulation
             Image = new Bitmap(TownHallSimulation.Properties.Resources.d, new Size(10, 10));
             personMove = new Timer();
             personStop = new Timer();
-            Counter = new Counter(new Point(413, 92), Appointment.PermitRequest);
+            TypeOfAppointment = type;
             destinations = new List<Point>()
             {
                 new Point(413,92),

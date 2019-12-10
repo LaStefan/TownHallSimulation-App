@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TownHallSimulation;
 
@@ -13,79 +15,48 @@ namespace UnitTestProject1
         {
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
-            string expect = "";
-            string result = s.ToString();
-            Assert.AreEqual(expect, result);
+            sim.InitializeCounters();
+            double totalWaitingTIme = 0;
+            int totalNum = 0;
+            foreach (Counter a in sim.AddressChangeCountersList)
+            {
+                a.FIFO();
+                foreach (double item in a.queueTime)
+                {
+                    totalWaitingTIme += item;
+                    totalNum++;
+                }
+            }
+            foreach (Counter b in sim.PermitRequestCountersList)
+            {
+                b.FIFO();
+                foreach (double item in b.queueTime)
+                {
+                    totalWaitingTIme += item;
+                    totalNum++;
+                }
+            }
+            foreach (Counter c in sim.PropertySaleCountersList)
+            {
+                c.FIFO();
+                foreach (double item in c.queueTime)
+                {
+                    totalWaitingTIme += item;
+                    totalNum++;
+                }
+            }
+            double expect = totalWaitingTIme / totalNum;
+            double result = s.CalculateAvgWaitingTime();
+            Assert.AreEqual(expect,result);
         }
 
         [TestMethod]
-        public void TestMethodToString()
+        public void TestMethodGetTotalNrOfCountersOpened()
         {
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
-            string expect = "";
-            string result = s.ToString();
-            Assert.AreEqual(expect, result);
-        }
-
-        //class simulator did not finished so cannot fully testing
-        //[TestMethod]
-        //public void TestMethodCalculateAvgWaitingTime()
-        //{
-        //    Counter c = new Counter(new Point(20, 20),Appointment.AddressChange);
-        //    c.IsOpened = true;
-        //    Counter c1 = new Counter(new Point(40,40),Appointment.PermitRequest);
-        //    c1.IsOpened = true;
-        //    Counter c2 = new Counter(new Point(60,60),Appointment.PropertySale);
-        //    c2.IsOpened = true;
-        //    Counter c3 = new Counter(new Point(80,80),Appointment.AddressChange);
-        //    c3.IsOpened = true;
-        //    Counter c4 = new Counter(new Point(90, 90),Appointment.AddressChange);
-        //    c4.IsOpened = true;
-        //    Simulator sim = new Simulator(new Form1());
-        //    sim.AddressChangeCountersList.Add(c);
-        //    sim.AddressChangeCountersList.Add(c3);
-        //    sim.AddressChangeCountersList.Add(c4);
-        //    sim.PermitRequestCountersList.Add(c1);
-        //    sim.PropertySaleCountersList.Add(c2);
-        //    Statistics s = new Statistics(sim);
-
-        //    int result = s.GetTotalNrOfCountersOpened();
-        //    Assert.AreEqual(5,result);
-        //}
-
-        //[TestMethod]
-        //public void TestMethodGetTotalNrOfCountersOpened()
-        //{
-        //    Counter c = new Counter(new Point(20, 20),Appointment.AddressChange);
-        //    c.IsOpened = true;
-        //    Counter c1 = new Counter(new Point(40,40),Appointment.PermitRequest);
-        //    c1.IsOpened = true;
-        //    Counter c2 = new Counter(new Point(60,60),Appointment.PropertySale);
-        //    c2.IsOpened = true;
-        //    Counter c3 = new Counter(new Point(80,80),Appointment.AddressChange);
-        //    c3.IsOpened = true;
-        //    Counter c4 = new Counter(new Point(90, 90),Appointment.AddressChange);
-        //    c4.IsOpened = true;
-        //    Simulator sim = new Simulator(new Form1());
-        //    sim.AddressChangeCountersList.Add(c);
-        //    sim.AddressChangeCountersList.Add(c3);
-        //    sim.AddressChangeCountersList.Add(c4);
-        //    sim.PermitRequestCountersList.Add(c1);
-        //    sim.PropertySaleCountersList.Add(c2);
-        //    Statistics s = new Statistics(sim);
-
-        //    int result = s.GetTotalNrOfCountersOpened();
-        //    Assert.AreEqual(5,result);
-        //}
-
-        [TestMethod]
-        public void TestMethodGetAverageWaitingTime()
-        {
-            Simulator sim = new Simulator(new Form1());
-            Statistics s = new Statistics(sim);
-            double result = s.GetAverageWaitingTime();
-            Assert.AreEqual(2.3, result);
+            int result = s.GetTotalNrOfCountersOpened();
+            Assert.AreEqual(6, result);
         }
 
         [TestMethod]

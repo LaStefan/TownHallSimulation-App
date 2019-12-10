@@ -33,6 +33,9 @@ namespace TownHallSimulation
             this.components = new System.ComponentModel.Container();
             this.SpawnTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbTotalPeople = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -69,6 +72,7 @@ namespace TownHallSimulation
             this.btnCounter2 = new TownHallSimulation.CircularButton();
             this.btnCounter1 = new TownHallSimulation.CircularButton();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -76,6 +80,7 @@ namespace TownHallSimulation
             // 
             // SpawnTimer
             // 
+            this.SpawnTimer.Interval = 1500;
             this.SpawnTimer.Interval = 500;
             this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -83,6 +88,7 @@ namespace TownHallSimulation
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.label1);
@@ -93,6 +99,37 @@ namespace TownHallSimulation
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1307, 58);
             this.panel1.TabIndex = 3;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.DarkCyan;
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.lbTotalPeople);
+            this.panel4.Location = new System.Drawing.Point(1013, 5);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(168, 47);
+            this.panel4.TabIndex = 34;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 20);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "Total #:";
+            // 
+            // lbTotalPeople
+            // 
+            this.lbTotalPeople.AutoSize = true;
+            this.lbTotalPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTotalPeople.Location = new System.Drawing.Point(74, 14);
+            this.lbTotalPeople.Name = "lbTotalPeople";
+            this.lbTotalPeople.Size = new System.Drawing.Size(18, 20);
+            this.lbTotalPeople.TabIndex = 32;
+            this.lbTotalPeople.Text = "0";
             // 
             // panel3
             // 
@@ -546,6 +583,8 @@ namespace TownHallSimulation
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -596,6 +635,9 @@ namespace TownHallSimulation
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbTotalPeople;
     }
 }
 

@@ -62,12 +62,6 @@ namespace TownHallSimulation
             return AverageWaitingTime;
         }
 
-        public override string ToString()
-        {
-            return "";
-        }
-
-      
         public int GetTotalNrOfCountersOpened()
         {
             int num = 0;
@@ -99,10 +93,6 @@ namespace TownHallSimulation
         {
             TotalNrPeople = sim.TotalPeopleList.Count();
         }
-
-      
-
-
     }
 }
 

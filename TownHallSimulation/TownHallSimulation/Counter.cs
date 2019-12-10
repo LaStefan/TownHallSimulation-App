@@ -52,6 +52,7 @@ namespace TownHallSimulation
             if (QueueList.Count > 0)
             {
                 QueueList.Peek().sw.Stop();
+                
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
                 QueueList.Dequeue();
             }  

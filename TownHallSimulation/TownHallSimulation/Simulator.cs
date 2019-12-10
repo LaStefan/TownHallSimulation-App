@@ -93,9 +93,7 @@ namespace TownHallSimulation
         }
 
         //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
-        public void ProcessAndRemove(Person p)
-        {
-        }
+        
         public bool PrintStats()
         {
             if (Microsoft.VisualBasic.Interaction.InputBox("Type \"T\" if you want to save today's stats.", "Save Dialog", "Do you want to save?") == "T")
@@ -155,10 +153,7 @@ namespace TownHallSimulation
             MessageBox.Show(text);
         }
 
-        public void MakeStats()
-        {
-
-        }
+       
         //make the counters
         public void InitializeCounters()
         {

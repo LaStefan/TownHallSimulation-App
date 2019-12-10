@@ -141,7 +141,8 @@ namespace TownHallSimulation
 
                     if (this.Location.Y > destinationPoint.Y)
                     {
-                        this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
+                        this.Location 
+                            = new Point((this.Location.X), (this.Location.Y) - 1);
                     }
                     else if (this.Location.Y < destinationPoint.Y)
                     {

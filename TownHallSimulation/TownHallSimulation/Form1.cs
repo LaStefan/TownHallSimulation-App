@@ -17,14 +17,13 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
-        List<Person> temp;
+       
         System.Drawing.Rectangle rect;
         private Simulator sim;
         public Form1()
         {
             InitializeComponent();
             sim = new Simulator(this);
-            temp = new List<Person>();
             //sim.CreateOne(); // to test if it assigns to shortest queue
         }
 
@@ -129,7 +128,7 @@ namespace TownHallSimulation
 
         private void MovingTimer_Tick(object sender, EventArgs e)
         {   
-            //sim.MovePeople(temp);
+            
         }
     }
 }

@@ -43,21 +43,6 @@ namespace TownHallSimulation
             rnd = new Random();
         }
 
-        public Simulator()
-        {
-            TotalPeopleList = new List<Person>();
-            AddressChangeCountersList = new List<Counter>();
-            PropertySaleCountersList = new List<Counter>();
-            PermitRequestCountersList = new List<Counter>();
-            stats = new List<Statistics>();
-            time = 8;
-            InitializeCounters();
-            printed = false;
-            //counter4.OnCounterReach();
-            rnd = new Random();
-
-        }
-
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {

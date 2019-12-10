@@ -76,6 +76,7 @@ namespace TownHallSimulation
         private void BtnStart_Click(object sender, EventArgs e)
         {
             sim.Start();
+            SpawnTimer.Enabled=true;
         }
 
         private void BtnStop_Click(object sender, EventArgs e)

@@ -98,38 +98,43 @@ namespace TownHallSimulation
         }
         public bool PrintStats()
         {
-            using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
+            if (Microsoft.VisualBasic.Interaction.InputBox("Type \"T\" if you want to save today's stats.", "Save Dialog", "Do you want to save?") == "T")
             {
-                if (sfd.ShowDialog() == DialogResult.OK)
+                using (SaveFileDialog sfd = new SaveFileDialog() { Filter = "PDF file|*.pdf", ValidateNames = true })
                 {
-                    iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
-                    try
+                    if (sfd.ShowDialog() == DialogResult.OK)
                     {
-                        PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
-                        doc.Open();
-                        foreach (Statistics item in stats)
+                        iTextSharp.text.Document doc = new iTextSharp.text.Document(PageSize.A4.Rotate());
+                        try
                         {
-                            doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
-                                $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"                                           Average waiting time: {item.AverageWaitingTime}"));
-                                                                    
+                            PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
+                            doc.Open();
+                            foreach (Statistics item in stats)
+                            {
+                                doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
+                                    $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
+                                    $"                                           Average waiting time: {item.AverageWaitingTime}"));
+
+                            }
+
+                            return true;
+
                         }
-                       
-                        return true;
-
-                    }
-                    catch (Exception)
-                    {
-                        return false;
+                        catch (Exception)
+                        {
+                            return false;
 
 
-                    }
-                    finally
-                    {
-                        doc.Close();
+                        }
+                        finally
+                        {
+                            doc.Close();
+                        }
                     }
                 }
             }
+
+
             return false;
         }
 

@@ -31,6 +31,7 @@ namespace TownHallSimulation
         public List<int> destintationsNumbers;
         public Point centerDesk = new Point(525, 360);
         public bool centerWasReached = false;
+        public bool isAssigned = false;
 
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }

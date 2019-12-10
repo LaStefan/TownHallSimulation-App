@@ -49,7 +49,7 @@ namespace TownHallSimulation
             }
            
             sim.SpawnPeople();
-            //temp = sim.GetListofSpawnedPeople();
+            sim.AssignCounter(sim.TotalPeopleList);
             sim.UpdateLabels();
             lbTotalPeople.Text = sim.TotalPeopleList.Count.ToString() + " people";
            // temp = sim.GetListofSpawnedPeople();

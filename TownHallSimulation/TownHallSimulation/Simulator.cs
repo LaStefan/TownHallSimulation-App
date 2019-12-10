@@ -41,8 +41,23 @@ namespace TownHallSimulation
             printed = false;
             //counter4.OnCounterReach();
             rnd = new Random();
-            
         }
+
+        public Simulator()
+        {
+            TotalPeopleList = new List<Person>();
+            AddressChangeCountersList = new List<Counter>();
+            PropertySaleCountersList = new List<Counter>();
+            PermitRequestCountersList = new List<Counter>();
+            stats = new List<Statistics>();
+            time = 8;
+            InitializeCounters();
+            printed = false;
+            //counter4.OnCounterReach();
+            rnd = new Random();
+
+        }
+
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
@@ -61,8 +76,7 @@ namespace TownHallSimulation
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
                     Person p = new Person(point, image, currentType);
                     TotalPeopleList.Add(p);
-                    AssignCounter(p);//assigns person to a counter on spawning
-                    //counter4.OnCounterReach();
+                    //counter4.OnCounterReach(); //to test processing
                 }
                 if (time % 1 == 0)
                 {
@@ -92,10 +106,6 @@ namespace TownHallSimulation
             }
         }
 
-        //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
-        public void ProcessAndRemove(Person p)
-        {
-        }
         public bool PrintStats()
         {
             if (Microsoft.VisualBasic.Interaction.InputBox("Type \"T\" if you want to save today's stats.", "Save Dialog", "Do you want to save?") == "T")
@@ -155,10 +165,6 @@ namespace TownHallSimulation
             MessageBox.Show(text);
         }
 
-        public void MakeStats()
-        {
-
-        }
         //make the counters
         public void InitializeCounters()
         {
@@ -185,65 +191,71 @@ namespace TownHallSimulation
             PropertySaleCountersList.AddRange(new Counter[] { counter3, counter6, counter9 });
         }
         //matching the counter with the person
-        public void AssignCounter(Person p) //List<People> people
+        public void AssignCounter(List<Person> people)
         {
-            //foreach (Person p in people)
-           //{
-                switch (p.TypeOfAppointment.ToString())
+            foreach (Person p in people)
+           {
+                if (p.centerWasReached && p.isAssigned == false)
                 {
-                    case "AddressChange":
-                        //gets the shortest queue out of all counters in the list that are opened
-                        int shortestQueueAC = AddressChangeCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
-                        foreach (Counter c in AddressChangeCountersList)
-                        {
-                            if (c.IsOpened && c.QueueList.Count == shortestQueueAC) //this is used to assign the people to the shortest queue
+                    switch (p.TypeOfAppointment.ToString())
+                    {
+                        case "AddressChange":
+                            //gets the shortest queue out of all counters in the list that are opened
+                            int shortestQueueAC = AddressChangeCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
+                            foreach (Counter c in AddressChangeCountersList)
                             {
-                                p.destinationPoint = c.Location;//or should it be c.CounterPosition??
-                                c.QueueList.Enqueue(p);
-                                //starts the stop watch to get total process time
-                                //p.sw.Start();
-                                //for testing purposes
-                                //c.OnCounterReach();
-                                break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                if (c.IsOpened && c.QueueList.Count == shortestQueueAC) //this is used to assign the people to the shortest queue
+                                {
+                                    p.destinationPoint = c.Location;//or should it be c.CounterPosition??
+                                    c.QueueList.Enqueue(p);
+                                    //starts the stop watch to get total process time
+                                    //p.sw.Start();
+                                    //for testing purposes
+                                    //c.OnCounterReach();
+                                    p.isAssigned = true;
+                                    break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "PropertySale":
-                        int shortestQueuePS = PropertySaleCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
-                        foreach (Counter c in PropertySaleCountersList)
-                        {
-                            if (c.IsOpened && c.QueueList.Count == shortestQueuePS)
+                        case "PropertySale":
+                            int shortestQueuePS = PropertySaleCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
+                            foreach (Counter c in PropertySaleCountersList)
                             {
-                                p.destinationPoint = c.Location;//or should it be c.CounterPosition??
-                                c.QueueList.Enqueue(p);
-                                //starts the stop watch to get total process time
-                                //p.sw.Start();
-                                //for testing purposes
-                                //c.OnCounterReach();
-                            break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                if (c.IsOpened && c.QueueList.Count == shortestQueuePS)
+                                {
+                                    p.destinationPoint = c.Location;//or should it be c.CounterPosition??
+                                    c.QueueList.Enqueue(p);
+                                    //starts the stop watch to get total process time
+                                    //p.sw.Start();
+                                    //for testing purposes
+                                    //c.OnCounterReach();
+                                    p.isAssigned = true;
+                                    break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                }
                             }
-                        }
-                        break;
+                            break;
 
-                    case "PermitRequest":
-                        int shortestQueuePR = PermitRequestCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
-                        foreach (Counter c in PermitRequestCountersList)
-                        {
-                            if (c.IsOpened && c.QueueList.Count == shortestQueuePR)
+                        case "PermitRequest":
+                            int shortestQueuePR = PermitRequestCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
+                            foreach (Counter c in PermitRequestCountersList)
                             {
-                                p.destinationPoint = c.Location;//or should it be c.CounterPosition??
-                                c.QueueList.Enqueue(p);
-                                //starts the stop watch to get total process time
-                                //p.sw.Start();
-                            //for testing purposes
-                            //c.OnCounterReach();
-                            break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                if (c.IsOpened && c.QueueList.Count == shortestQueuePR)
+                                {
+                                    p.destinationPoint = c.Location;//or should it be c.CounterPosition??
+                                    c.QueueList.Enqueue(p);
+                                    //starts the stop watch to get total process time
+                                    //p.sw.Start();
+                                    //for testing purposes
+                                    //c.OnCounterReach();
+                                    p.isAssigned = true;
+                                    break; //to assure it's only assigned to 1 counter if the queues are the same length
+                                }
                             }
-                        }
-                        break;
+                            break;
+                    }
                 }
-            //}
+            }
         }
 
         public void UpdateLabels()

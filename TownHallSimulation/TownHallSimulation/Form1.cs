@@ -34,7 +34,7 @@ namespace TownHallSimulation
             double tempTime = sim.time % 1;
             switch (tempTime)
             {
-                case 0.15:
+                case 0.25:
                     lblTime.Text = String.Format("{0:0}:15", sim.time);
                     break;
                 case 0.50:

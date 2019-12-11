@@ -25,7 +25,6 @@ namespace TownHallSimulation
         public Timer personMove;
         private Timer personStop;
         private int arrayCounter;
-        private bool xNow, yNow;
 
         public List<Point> destinations;
         public List<int> destintationsNumbers;
@@ -88,30 +87,6 @@ namespace TownHallSimulation
             gr.DrawImage(Image, Location);
         }
 
-        private void SetXNowAndYNow(int c)
-        {
-            if (c == 0)
-            {
-                xNow = true;
-                yNow = false;
-            }
-            else if (c == 1)
-            {
-                yNow = true;
-                xNow = false;
-            }
-            else if (c == 2)
-            {
-                xNow = true;
-                yNow = false;
-            }
-            else
-            {
-                yNow = true;
-                xNow = false;
-            }
-        }
-
         private void personMove_Tick(object sender, EventArgs e)
         {
                 if (centerWasReached == false)
@@ -138,8 +113,6 @@ namespace TownHallSimulation
                 {
                 if (arrayCounter < destinations.Count)
                 {
-                    //if (yNow)
-
                     if (this.Location.Y > destinationPoint.Y)
                     {
                         this.Location 
@@ -160,19 +133,6 @@ namespace TownHallSimulation
                             this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                         }
                     }
-
-                    //if (Location == destinations[arrayCounter])
-                    //    {
-                    //        arrayCounter++;
-                    //        if (arrayCounter < destintationsNumbers.Count)
-                    //        {
-                    //            SetXNowAndYNow(destintationsNumbers[arrayCounter]);
-                    //        }
-
-                    //    }
-
-
-                    //}
                 }
 
                 }
@@ -213,7 +173,7 @@ namespace TownHallSimulation
 
         public void StartMoving()
         {
-            personMove.Interval = 15;
+            personMove.Interval = 10;
             personMove.Enabled = true;
             personMove.Tick += personMove_Tick;
         }

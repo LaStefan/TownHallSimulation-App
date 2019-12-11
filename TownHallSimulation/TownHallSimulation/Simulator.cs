@@ -189,7 +189,7 @@ namespace TownHallSimulation
                             int shortestQueueAC = AddressChangeCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
                             foreach (Counter c in AddressChangeCountersList)
                             {
-                                if (c.IsOpened && c.QueueList.Count == shortestQueueAC) //this is used to assign the people to the shortest queue
+                                if (c.QueueList.Count == shortestQueueAC) //this is used to assign the people to the shortest queue
                                 {
                                     p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                     c.QueueList.Enqueue(p);
@@ -207,7 +207,7 @@ namespace TownHallSimulation
                             int shortestQueuePS = PropertySaleCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
                             foreach (Counter c in PropertySaleCountersList)
                             {
-                                if (c.IsOpened && c.QueueList.Count == shortestQueuePS)
+                                if (c.QueueList.Count == shortestQueuePS)
                                 {
                                     p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                     c.QueueList.Enqueue(p);
@@ -225,7 +225,7 @@ namespace TownHallSimulation
                             int shortestQueuePR = PermitRequestCountersList.FindAll(c => c.IsOpened).Min(a => a.QueueList.Count);
                             foreach (Counter c in PermitRequestCountersList)
                             {
-                                if (c.IsOpened && c.QueueList.Count == shortestQueuePR)
+                                if (c.QueueList.Count == shortestQueuePR)
                                 {
                                     p.destinationPoint = c.Location;//or should it be c.CounterPosition??
                                     c.QueueList.Enqueue(p);

@@ -17,6 +17,7 @@ namespace TownHallSimulation
         public Queue<Person> QueueList { get; private set; }
         public List<double> queueTime = new List<double>();
         public Timer t;
+        Simulator sim;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess)
@@ -28,6 +29,11 @@ namespace TownHallSimulation
             t = new Timer();
             SetInterval();
             QueueList = new Queue<Person>();//for unit test
+        }
+
+        public void getSimulator(Simulator s)
+        {
+            sim = s;
         }
 
         public Point counterLocations()
@@ -51,8 +57,8 @@ namespace TownHallSimulation
         {
             if (QueueList.Count > 0)
             {
+                sim.TotalPeopleList.Remove(QueueList.Peek());
                 QueueList.Peek().sw.Stop();
-                
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
                 QueueList.Dequeue();
             }  

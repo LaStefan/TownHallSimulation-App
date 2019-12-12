@@ -80,8 +80,7 @@ namespace TownHallSimulation
             // 
             // SpawnTimer
             // 
-            this.SpawnTimer.Interval = 1500;
-            this.SpawnTimer.Interval = 500;
+            this.SpawnTimer.Interval = 1000;
             this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel1
@@ -313,7 +312,7 @@ namespace TownHallSimulation
             // 
             // MovingTimer
             // 
-            this.MovingTimer.Interval = 1000;
+            this.MovingTimer.Interval = 350;
             this.MovingTimer.Tick += new System.EventHandler(this.MovingTimer_Tick);
             // 
             // lblCounter8
@@ -597,8 +596,6 @@ namespace TownHallSimulation
       
 
         #endregion
-
-        private System.Windows.Forms.Timer SpawnTimer;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label1;
@@ -638,6 +635,7 @@ namespace TownHallSimulation
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbTotalPeople;
+        public System.Windows.Forms.Timer SpawnTimer;
     }
 }
 

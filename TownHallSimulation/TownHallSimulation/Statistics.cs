@@ -33,7 +33,7 @@ namespace TownHallSimulation
             double totalWaitingTIme =0;
             foreach (Counter item in sim.AddressChangeCountersList)
             {
-                item.OnCounterReach();
+               // item.OnCounterReach();
                 foreach (double d in item.queueTime)
                 {
                    totalWaitingTIme += d;
@@ -41,7 +41,7 @@ namespace TownHallSimulation
             }
             foreach (Counter item in sim.PermitRequestCountersList)
             {
-                item.OnCounterReach();
+                //item.OnCounterReach();
 
                 foreach (double d in item.queueTime)
                 {
@@ -50,7 +50,7 @@ namespace TownHallSimulation
             }
             foreach (Counter item in sim.PropertySaleCountersList)
             {
-                item.OnCounterReach();
+                //item.OnCounterReach();
 
                 foreach (double d in item.queueTime)
                 {

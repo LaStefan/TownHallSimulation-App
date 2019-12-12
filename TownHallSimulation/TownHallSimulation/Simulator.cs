@@ -64,7 +64,7 @@ namespace TownHallSimulation
                     AssignCounter(p);//assigns person to a counter on spawning
                     //counter4.OnCounterReach();
                 }
-                if (time % 1 == 0)
+                if (time % 1 == 0.75)
                 {
                     Statistics st = new Statistics(this);
                     st.UpdateTotalNumPeopl();
@@ -73,14 +73,17 @@ namespace TownHallSimulation
                     foreach (Counter item in AddressChangeCountersList)
                     {
                         item.queueTime.Clear();
+                        item.getSimulator(this);
                     }
                     foreach (Counter item in PermitRequestCountersList)
                     {
                         item.queueTime.Clear();
+                        item.getSimulator(this);
                     }
                     foreach (Counter item in PropertySaleCountersList)
                     {
                         item.queueTime.Clear();
+                        item.getSimulator(this);
                     }
                 }
             }
@@ -93,9 +96,7 @@ namespace TownHallSimulation
         }
 
         //When a visitor reaches assigned counter and it's free processing starts. Still need to implement synchronization.
-        public void ProcessAndRemove(Person p)
-        {
-        }
+
         public bool PrintStats()
         {
             if (Microsoft.VisualBasic.Interaction.InputBox("Type \"T\" if you want to save today's stats.", "Save Dialog", "Do you want to save?") == "T")
@@ -111,7 +112,8 @@ namespace TownHallSimulation
                             doc.Open();
                             foreach (Statistics item in stats)
                             {
-                                doc.Add(new iTextSharp.text.Paragraph($"Total number of people: {item.TotalNrPeople} \n " +
+                                doc.Add(new iTextSharp.text.Paragraph($"Time:{item.time}\n "+
+                                    $"  Total number of people: {item.TotalNrPeople} \n " +
                                     $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
                                     $"                                           Average waiting time: {item.AverageWaitingTime}"));
 
@@ -155,10 +157,6 @@ namespace TownHallSimulation
             MessageBox.Show(text);
         }
 
-        public void MakeStats()
-        {
-
-        }
         //make the counters
         public void InitializeCounters()
         {
@@ -276,6 +274,7 @@ namespace TownHallSimulation
 
         public void Start()
         {
+            TotalPeopleList.RemoveAll(item => item == null);
             foreach (Person p in TotalPeopleList)
             {
                 p.StartMoving();
@@ -284,6 +283,8 @@ namespace TownHallSimulation
 
         public void Stop()
         {
+            TotalPeopleList.RemoveAll(item => item == null);
+            form.SpawnTimer.Enabled = false;
             foreach (Person p in TotalPeopleList)
             {
                 p.StopPerson();
@@ -292,10 +293,12 @@ namespace TownHallSimulation
 
         public void Draw(Graphics gr)
         {
-                foreach (Person p in TotalPeopleList)
+            TotalPeopleList.RemoveAll(item => item == null);
+            foreach (Person p in TotalPeopleList)
                 {
                     p.DrawPerson(gr);
                 }
+                
         }
     }
 }

@@ -30,30 +30,47 @@ namespace TownHallSimulation
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            double tempTime = sim.time % 1;
-            switch (tempTime)
-            {
-                case 0.25:
-                    lblTime.Text = String.Format("{0:0}:15", sim.time);
-                    break;
-                case 0.50:
-                    lblTime.Text = String.Format("{0:0}:30", sim.time);
-                    break;
-                case 0.75:
-                    lblTime.Text = String.Format("{0:0}:45", sim.time);
-                    break;
-                default:
-                    lblTime.Text = String.Format("{0:0}:00", sim.time);
-                    break;
-            }
-           
+        {
+
+            
+            double tempTime = sim.time % 1;
+
+            switch (tempTime)
+
+            {
+
+                case 0.25:
+
+                    lblTime.Text = String.Format("{0:0}:15", sim.time);
+
+                    break;
+
+                case 0.50:
+
+                    lblTime.Text = String.Format("{0:0}:30", sim.time);
+
+                    break;
+
+                case 0.75:
+
+                    lblTime.Text = String.Format("{0:0}:45", sim.time);
+
+                    break;
+
+                default:
+
+                    lblTime.Text = String.Format("{0:0}:00", sim.time);
+
+                    break;
+
+            }
+
+           
+
             sim.SpawnPeople();
-            //temp = sim.GetListofSpawnedPeople();
             sim.UpdateLabels();
             lbTotalPeople.Text = sim.TotalPeopleList.Count.ToString() + " people";
-           // temp = sim.GetListofSpawnedPeople();
-            Invalidate();
+            
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -94,6 +111,7 @@ namespace TownHallSimulation
         private void BtnStart_Click(object sender, EventArgs e)
         {
             sim.Start();
+            MovingTimer.Start();
             SpawnTimer.Enabled=true;
         }
 
@@ -125,11 +143,16 @@ namespace TownHallSimulation
         private void Form1_Load(object sender, EventArgs e)
         {
          
-        }
-
-        private void MovingTimer_Tick(object sender, EventArgs e)
-        {   
-            //sim.MovePeople(temp);
-        }
+        }
+
+
+
+        private void MovingTimer_Tick(object sender, EventArgs e)
+
+        {
+            sim.Start();
+            Invalidate();
+        }
+
     }
 }

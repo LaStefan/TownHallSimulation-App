@@ -211,7 +211,7 @@ namespace TownHallSimulation
 
         public void StartMoving()
         {
-            personMove.Interval = 15;
+            personMove.Interval = 5;
             personMove.Enabled = true;
             personMove.Tick += personMove_Tick;
         }

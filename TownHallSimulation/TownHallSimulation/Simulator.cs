@@ -125,7 +125,7 @@ namespace TownHallSimulation
                             doc.Open();
                             foreach (Statistics item in stats)
                             {
-                                doc.Add(new iTextSharp.text.Paragraph($"Time:{item.time}\n "+
+                                doc.Add(new iTextSharp.text.Paragraph($"Time:{item.Time}\n "+
                                     $"  Total number of people: {item.TotalNrPeople} \n " +
                                     $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
                                     $"                                           Average waiting time: {item.AverageWaitingTime}"));

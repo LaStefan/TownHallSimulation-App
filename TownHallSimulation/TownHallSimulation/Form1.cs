@@ -29,24 +29,14 @@ namespace TownHallSimulation
 
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            double tempTime = sim.Time % 1;
-            switch (tempTime)
-            {
-                case 0.25:
-                    lblTime.Text = String.Format("{0:0}:15", sim.Time);
-                    break;
-                case 0.50:
-                    lblTime.Text = String.Format("{0:0}:30", sim.Time);
-                    break;
-                case 0.75:
-                    lblTime.Text = String.Format("{0:0}:45", sim.Time);
-                    break;
-                default:
-                    lblTime.Text = String.Format("{0:0}:00", sim.Time);
-                    break;
-            }
-           
+        {
+
+            double tempTime = sim.Time % 1;
+
+
+
+            lblTime.Text = String.Format("{0:0}:00", sim.Time);
+
             sim.SpawnPeople();
             sim.AssignCounter(sim.GetTotalPeopleList());
             sim.UpdateLabels();
@@ -82,8 +72,14 @@ namespace TownHallSimulation
         private void CircularButton1_Click(object sender, EventArgs e)
         {
             this.Enabled = true;
-            this.BackColor = Color.DarkCyan; 
-            btnCounter7.BackColor = Color.DarkCyan;
+            if (btnCounter7.BackColor == Color.DarkCyan)
+            {
+                btnCounter7.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                btnCounter7.BackColor = Color.DarkCyan;
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -105,7 +101,13 @@ namespace TownHallSimulation
 
         private void circularButton9_Click(object sender, EventArgs e)
         {
-            btnCounter2.BackColor = Color.DarkSlateGray;
+            
+            if (btnCounter2.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter2.BackColor = Color.DarkCyan;
+            }else{
+                btnCounter2.BackColor = Color.DarkSlateGray;
+            }
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -175,27 +177,58 @@ namespace TownHallSimulation
 
         private void btnCounter4_Click(object sender, EventArgs e)
         {
-            btnCounter4.BackColor = Color.DarkSlateGray; 
+            if (btnCounter4.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter4.BackColor = Color.DarkCyan;
+            }else
+{
+                btnCounter4.BackColor = Color.DarkSlateGray;
+            }
         }
 
         private void btnCounter5_Click(object sender, EventArgs e)
         {
-            btnCounter5.BackColor = Color.DarkSlateGray;
+            if (btnCounter5.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter5.BackColor = Color.DarkCyan;
+            }else
+            {
+                btnCounter5.BackColor = Color.DarkSlateGray;
+            }
         }
 
         private void btnCounter9_Click(object sender, EventArgs e)
         {
-            btnCounter9.BackColor = Color.DarkCyan;
+            if (btnCounter9.BackColor == Color.DarkCyan)
+            {
+                btnCounter9.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                btnCounter9.BackColor = Color.DarkCyan;
+            }
         }
 
         private void btnCounter6_Click(object sender, EventArgs e)
         {
-            btnCounter6.BackColor = Color.DarkCyan;
+            if (btnCounter6.BackColor == Color.DarkCyan)
+            {
+                btnCounter6.BackColor = Color.DarkSlateGray;
+            }else{
+                btnCounter6.BackColor = Color.DarkCyan;
+            }
         }
 
         private void btnCounter8_Click(object sender, EventArgs e)
         {
-            btnCounter8.BackColor = Color.DarkCyan;
+            if (btnCounter8.BackColor == Color.DarkCyan)
+            {
+                btnCounter8.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                btnCounter8.BackColor = Color.DarkCyan;
+            }
         }
     }
 }

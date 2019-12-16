@@ -17,6 +17,7 @@ namespace TownHallSimulation
         public Queue<Person> QueueList { get; private set; }
         private List<double> queueTime = new List<double>();
         private Timer t;
+        private Simulator sim;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess)
@@ -35,7 +36,7 @@ namespace TownHallSimulation
             return queueTime;
         }
 
-        public void getSimulator(Simulator s)
+        public void GetSimulator(Simulator s)
         {
             sim = s;
         }
@@ -61,11 +62,11 @@ namespace TownHallSimulation
         {
             if (QueueList.Count > 0)
             {
-                sim.TotalPeopleList.Remove(QueueList.Peek());
                 QueueList.Peek().sw.Stop();
+
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
                 QueueList.Dequeue();
-            }  
+            }
             UpdateStatus();
         }
         //What is used for??

@@ -35,37 +35,37 @@ namespace TownHallSimulation
             
             double tempTime = sim.time % 1;
 
-            switch (tempTime)
+            //switch (tempTime)
 
-            {
+            //{
 
-                case 0.25:
+            //    case 0.25:
 
-                    lblTime.Text = String.Format("{0:0}:15", sim.time);
+            //        lblTime.Text = String.Format("{0:0}:15", sim.time);
 
-                    break;
+            //        break;
 
-                case 0.50:
+            //    case 0.50:
 
-                    lblTime.Text = String.Format("{0:0}:30", sim.time);
+            //        lblTime.Text = String.Format("{0:0}:30", sim.time);
 
-                    break;
+            //        break;
 
-                case 0.75:
+            //    case 0.75:
 
-                    lblTime.Text = String.Format("{0:0}:45", sim.time);
+            //        lblTime.Text = String.Format("{0:0}:45", sim.time);
 
-                    break;
+            //        break;
 
-                default:
+            //    default:
 
-                    lblTime.Text = String.Format("{0:0}:00", sim.time);
+            //        lblTime.Text = String.Format("{0:0}:00", sim.time);
 
-                    break;
+            //        break;
 
-            }
+            //}
 
-           
+            lblTime.Text = String.Format("{0:0}:00", sim.time);
 
             sim.SpawnPeople();
             sim.UpdateLabels();
@@ -101,6 +101,7 @@ namespace TownHallSimulation
         {
             this.Enabled = true;
             this.BackColor = Color.DarkCyan; 
+            btnCounter7.BackColor = Color.DarkCyan;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -122,7 +123,7 @@ namespace TownHallSimulation
 
         private void circularButton9_Click(object sender, EventArgs e)
         {
-
+            btnCounter2.BackColor = Color.DarkSlateGray;
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -154,5 +155,65 @@ namespace TownHallSimulation
             Invalidate();
         }
 
+        private void btnCounter10_Click(object sender, EventArgs e)
+        {
+            if (btnCounter10.BackColor == Color.DarkCyan)
+            {
+                btnCounter10.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                btnCounter10.BackColor = Color.DarkCyan;
+            }
+            
+        }
+
+        private void btnCounter1_Click(object sender, EventArgs e)
+        {
+            if (btnCounter1.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter1.BackColor = Color.DarkCyan;
+            }else{
+                btnCounter1.BackColor = Color.DarkSlateGray;
+            }
+            
+        }
+
+        private void btnCounter3_Click(object sender, EventArgs e)
+        {
+            if (btnCounter3.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter3.BackColor = Color.DarkCyan;
+            }
+            else
+            {
+                btnCounter3.BackColor = Color.DarkSlateGray;
+            }
+        }
+
+        private void btnCounter4_Click(object sender, EventArgs e)
+        {
+            btnCounter4.BackColor = Color.DarkSlateGray; 
+        }
+
+        private void btnCounter5_Click(object sender, EventArgs e)
+        {
+            btnCounter5.BackColor = Color.DarkSlateGray;
+        }
+
+        private void btnCounter9_Click(object sender, EventArgs e)
+        {
+            btnCounter9.BackColor = Color.DarkCyan;
+        }
+
+        private void btnCounter6_Click(object sender, EventArgs e)
+        {
+            btnCounter6.BackColor = Color.DarkCyan;
+        }
+
+        private void btnCounter8_Click(object sender, EventArgs e)
+        {
+            btnCounter8.BackColor = Color.DarkCyan;
+        }
     }
 }

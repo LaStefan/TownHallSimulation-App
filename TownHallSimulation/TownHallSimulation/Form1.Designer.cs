@@ -426,6 +426,7 @@ namespace TownHallSimulation
             this.btnCounter6.TabIndex = 18;
             this.btnCounter6.Text = "Counter 6";
             this.btnCounter6.UseVisualStyleBackColor = false;
+            this.btnCounter6.Click += new System.EventHandler(this.btnCounter6_Click);
             // 
             // btnCounter8
             // 
@@ -441,6 +442,7 @@ namespace TownHallSimulation
             this.btnCounter8.TabIndex = 17;
             this.btnCounter8.Text = "Counter 8";
             this.btnCounter8.UseVisualStyleBackColor = false;
+            this.btnCounter8.Click += new System.EventHandler(this.btnCounter8_Click);
             // 
             // btnCounter9
             // 
@@ -456,6 +458,7 @@ namespace TownHallSimulation
             this.btnCounter9.TabIndex = 16;
             this.btnCounter9.Text = "Counter 9";
             this.btnCounter9.UseVisualStyleBackColor = false;
+            this.btnCounter9.Click += new System.EventHandler(this.btnCounter9_Click);
             // 
             // btnCounter10
             // 
@@ -471,6 +474,7 @@ namespace TownHallSimulation
             this.btnCounter10.TabIndex = 15;
             this.btnCounter10.Text = "Counter 10";
             this.btnCounter10.UseVisualStyleBackColor = false;
+            this.btnCounter10.Click += new System.EventHandler(this.btnCounter10_Click);
             // 
             // btnCounter5
             // 
@@ -485,6 +489,7 @@ namespace TownHallSimulation
             this.btnCounter5.TabIndex = 14;
             this.btnCounter5.Text = "Counter 5";
             this.btnCounter5.UseVisualStyleBackColor = false;
+            this.btnCounter5.Click += new System.EventHandler(this.btnCounter5_Click);
             // 
             // btnCounter4
             // 
@@ -499,6 +504,7 @@ namespace TownHallSimulation
             this.btnCounter4.TabIndex = 13;
             this.btnCounter4.Text = "Counter 4";
             this.btnCounter4.UseVisualStyleBackColor = false;
+            this.btnCounter4.Click += new System.EventHandler(this.btnCounter4_Click);
             // 
             // btnCounter3
             // 
@@ -513,6 +519,7 @@ namespace TownHallSimulation
             this.btnCounter3.TabIndex = 12;
             this.btnCounter3.Text = "Counter 3";
             this.btnCounter3.UseVisualStyleBackColor = false;
+            this.btnCounter3.Click += new System.EventHandler(this.btnCounter3_Click);
             // 
             // btnCounter2
             // 
@@ -542,6 +549,7 @@ namespace TownHallSimulation
             this.btnCounter1.TabIndex = 10;
             this.btnCounter1.Text = "Counter 1";
             this.btnCounter1.UseVisualStyleBackColor = false;
+            this.btnCounter1.Click += new System.EventHandler(this.btnCounter1_Click);
             // 
             // Form1
             // 

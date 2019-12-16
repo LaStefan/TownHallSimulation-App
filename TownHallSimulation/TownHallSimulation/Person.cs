@@ -42,6 +42,7 @@ namespace TownHallSimulation
         public DateTime StartNavigate { get; set; }
         public Stopwatch sw { get; set; }
         public Appointment TypeOfAppointment { get; set; }
+        public Simulator sim;
 
         //Constructor 1
         public Person(Appointment type)
@@ -54,13 +55,14 @@ namespace TownHallSimulation
             sw.Start();
         }
         //constructor 2
-        public Person(Point location, Bitmap image, Appointment type)
+        public Person(Point location, Bitmap image, Appointment type, Simulator sim)
         {
             Location = location;
             Image = new Bitmap(TownHallSimulation.Properties.Resources.d, new Size(10, 10));
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
+            this.sim = sim;
             sw = new Stopwatch();
             sw.Start();
             destinations = new List<Point>()
@@ -87,7 +89,10 @@ namespace TownHallSimulation
 
         public void DrawPerson(Graphics gr)
         {
-            gr.DrawImage(Image, Location);
+            if (this.Image != null)
+            {
+                gr.DrawImage(Image, Location);
+            }
         }
 
         private void personMove_Tick(object sender, EventArgs e)
@@ -134,6 +139,10 @@ namespace TownHallSimulation
                         else if (this.Location.X > DestinationPoint.X)
                         {
                             this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
+                        }
+                        else if (this.Location.X == destinationPoint.X)
+                        {
+                            ReachesCounter();
                         }
                     }
                 }
@@ -191,6 +200,45 @@ namespace TownHallSimulation
         {
             personMove.Stop();
             personMove.Enabled = false;
+        }
+
+        public void ReachesCounter()
+        {
+            switch (this.TypeOfAppointment.ToString())
+            {
+                case "AddressChange":
+                    foreach (Counter c in sim.AddressChangeCountersList)
+                    {
+                        if (c.Location == this.Location && c.IsOccupied == false)
+                        {
+                            c.IsOccupied = true;
+                            c.OnCounterReach();
+                        }
+                    }
+                    break;
+
+                case "PropertySale":
+                    foreach (Counter c in sim.PropertySaleCountersList)
+                    {
+                        if (c.Location == this.Location && c.IsOccupied == false)
+                        {
+                            c.IsOccupied = true;
+                            c.OnCounterReach();
+                        }
+                    }
+                    break;
+
+                case "PermitRequest":
+                    foreach (Counter c in sim.PermitRequestCountersList)
+                    {
+                        if (c.Location == this.Location && c.IsOccupied == false)
+                        {
+                            c.IsOccupied = true;
+                            c.OnCounterReach();
+                        }
+                    }
+                    break;
+            }
         }
     }
 }

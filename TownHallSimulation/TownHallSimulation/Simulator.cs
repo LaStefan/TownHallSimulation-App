@@ -78,7 +78,7 @@ namespace TownHallSimulation
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    Person p = new Person(point, image, currentType);
+                    Person p = new Person(point, image, currentType, this);
                     TotalPeopleList.Add(p);
                     //counter4.OnCounterReach(); //to test processing
                 }
@@ -180,17 +180,17 @@ namespace TownHallSimulation
             counter3 = new Counter(new Point(500, 132), Appointment.PropertySale); counter3.IsOpened = true;
             counter4 = new Counter(new Point(633, 132), Appointment.AddressChange); //+40 for y to make sure it stops before the counter //-170 for x to make sure it stops before the counter
             // to check if it assigns to shortest queue
-            counter4.IsOpened = true; 
+            //counter4.IsOpened = true; 
             counter5 = new Counter(new Point(760, 132), Appointment.PermitRequest); counter5.IsOpened = true;
             counter6 = new Counter(new Point(815, 180), Appointment.PropertySale); counter6.IsOpened = true;
             counter7 = new Counter(new Point(815, 260), Appointment.AddressChange);
             // to check if it assigns to shortest queue
-            counter7.IsOpened = true; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
+           // counter7.IsOpened = true; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
             counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest); counter8.IsOpened = true;
             counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); counter9.IsOpened = true;
             counter10 = new Counter(new Point(275, 260), Appointment.AddressChange);
             //to check if it assigns to shortest queue
-            counter10.IsOpened = true;
+            //counter10.IsOpened = true;
             AddressChangeCountersList.AddRange(new Counter[] { counter1, counter4, counter7, counter10 });
             PermitRequestCountersList.AddRange(new Counter[] { counter2, counter5, counter8 });
             PropertySaleCountersList.AddRange(new Counter[] { counter3, counter6, counter9 });
@@ -285,7 +285,7 @@ namespace TownHallSimulation
             //int y = rnd.Next(437, 457);
             //Point point = new Point(x, y);
             Bitmap image = Resources.PropertySale;
-            Person p = new Person(first, image, Appointment.AddressChange);
+            Person p = new Person(first, image, Appointment.AddressChange, this);
             TotalPeopleList.Add(p);
             //AssignCounter(p);//assigns person to a counter on spawning
             //counter4.OnCounterReach();

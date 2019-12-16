@@ -12,12 +12,15 @@ namespace TownHallSimulation
 {
     public class Statistics
     {
+        //Fields
+        private Simulator sim;
+        //Properties
         public int TotalNrPeople { get; private set; }
         public int TotalNrOfCounters { get; private set; }
         public int TotalNrOfCountersOpened { get; private set; }
         public double AverageWaitingTime { get; private set; }
         public double Time { get; set; }
-        private Simulator sim;
+        
 
 
         public Statistics(Simulator simulator)

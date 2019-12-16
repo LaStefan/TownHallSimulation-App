@@ -78,7 +78,7 @@ namespace TownHallSimulation
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
                     Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    Person p = new Person(point, image, currentType);
+                    Person p = new Person(point, image, currentType, this);
                     TotalPeopleList.Add(p);
                     //counter4.OnCounterReach(); //to test processing
                 }
@@ -285,7 +285,7 @@ namespace TownHallSimulation
             //int y = rnd.Next(437, 457);
             //Point point = new Point(x, y);
             Bitmap image = Resources.PropertySale;
-            Person p = new Person(first, image, Appointment.AddressChange);
+            Person p = new Person(first, image, Appointment.AddressChange, this);
             TotalPeopleList.Add(p);
             //AssignCounter(p);//assigns person to a counter on spawning
             //counter4.OnCounterReach();

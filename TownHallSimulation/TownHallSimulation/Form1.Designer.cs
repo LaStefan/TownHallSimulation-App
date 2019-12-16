@@ -80,7 +80,7 @@ namespace TownHallSimulation
             // 
             // SpawnTimer
             // 
-            this.SpawnTimer.Interval = 500;
+            this.SpawnTimer.Interval = 1000;
             this.SpawnTimer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // panel1

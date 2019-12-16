@@ -19,19 +19,21 @@ namespace TownHallSimulation
 
     //Class Person
     public class Person
-    {   //Fields and Properties
-        public int id;
-        public Point initialPoint, destinationPoint;
-        public Timer personMove;
+    {   //Fields 
+        private int id;
+        private Timer personMove;
         private Timer personStop;
         private int arrayCounter;
-        private bool xNow, yNow;
+        private List<Point> destinations;
+        private List<int> destintationsNumbers;
+        private Point centerDesk = new Point(525, 360);
 
-        public List<Point> destinations;
-        public List<int> destintationsNumbers;
-        public Point centerDesk = new Point(525, 360);
-        public bool centerWasReached = false;
 
+        //Properties
+        public Point DestinationPoint { get; set; }
+        public Point InitialPoint { get; set; }
+        public bool IsAssigned { get; set; } = false;
+        public bool CenterWasReached { get; set; } = false;
         public Bitmap Image { get; private set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
@@ -77,6 +79,7 @@ namespace TownHallSimulation
         }
 
         //Methods of the class 
+       
         public int GetPersonId()
         {
             return id;
@@ -87,33 +90,9 @@ namespace TownHallSimulation
             gr.DrawImage(Image, Location);
         }
 
-        private void SetXNowAndYNow(int c)
-        {
-            if (c == 0)
-            {
-                xNow = true;
-                yNow = false;
-            }
-            else if (c == 1)
-            {
-                yNow = true;
-                xNow = false;
-            }
-            else if (c == 2)
-            {
-                xNow = true;
-                yNow = false;
-            }
-            else
-            {
-                yNow = true;
-                xNow = false;
-            }
-        }
-
         private void personMove_Tick(object sender, EventArgs e)
         {
-                if (centerWasReached == false)
+                if (CenterWasReached == false)
                 {
                         if (this.Location.Y != centerDesk.Y)
                         {
@@ -130,47 +109,33 @@ namespace TownHallSimulation
                         }
                         if(this.Location == centerDesk)
                         {
-                            centerWasReached = true;
+                            CenterWasReached = true;
                         }
                 }
                 else
                 {
                 if (arrayCounter < destinations.Count)
                 {
-                    //if (yNow)
-
-                    if (this.Location.Y > destinationPoint.Y)
+                    if (this.Location.Y > DestinationPoint.Y)
                     {
-                        this.Location = new Point((this.Location.X), (this.Location.Y) - 1);
+                        this.Location 
+                            = new Point((this.Location.X), (this.Location.Y) - 1);
                     }
-                    else if (this.Location.Y < destinationPoint.Y)
+                    else if (this.Location.Y < DestinationPoint.Y)
                     {
                         this.Location = new Point((this.Location.X), (this.Location.Y) + 1);
                     }
-                    else if (this.Location.Y == destinationPoint.Y)
+                    else if (this.Location.Y == DestinationPoint.Y)
                     {
-                        if (this.Location.X < destinationPoint.X)
+                        if (this.Location.X < DestinationPoint.X)
                         {
                             this.Location = new Point((this.Location.X) + 1, (this.Location.Y));
                         }
-                        else if (this.Location.X > destinationPoint.X)
+                        else if (this.Location.X > DestinationPoint.X)
                         {
                             this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                         }
                     }
-
-                    //if (Location == destinations[arrayCounter])
-                    //    {
-                    //        arrayCounter++;
-                    //        if (arrayCounter < destintationsNumbers.Count)
-                    //        {
-                    //            SetXNowAndYNow(destintationsNumbers[arrayCounter]);
-                    //        }
-
-                    //    }
-
-
-                    //}
                 }
 
                 }
@@ -184,7 +149,7 @@ namespace TownHallSimulation
                 }
                 else
                 {
-                    if (Location == destinationPoint)
+                    if (Location == DestinationPoint)
                     {
                         //Location = new Point(1000, 1000);
                     }
@@ -193,7 +158,7 @@ namespace TownHallSimulation
         public void SetDestination(Point r, List<Point> f, List<int> y)
         {
             //where the person starts 
-            destinationPoint = r;
+            DestinationPoint = r;
 
             //list of destination 
             destinations = f;
@@ -211,7 +176,7 @@ namespace TownHallSimulation
 
         public void StartMoving()
         {
-            personMove.Interval = 5;
+            personMove.Interval = 10;
             personMove.Enabled = true;
             personMove.Tick += personMove_Tick;
         }

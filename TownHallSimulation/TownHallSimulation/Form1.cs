@@ -83,6 +83,7 @@ namespace TownHallSimulation
         {
             this.Enabled = true;
             this.BackColor = Color.DarkCyan; 
+            btnCounter7.BackColor = Color.DarkCyan;
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -93,6 +94,7 @@ namespace TownHallSimulation
         private void BtnStart_Click(object sender, EventArgs e)
         {
             sim.Start();
+            MovingTimer.Start();
             SpawnTimer.Enabled=true;
         }
 
@@ -103,7 +105,7 @@ namespace TownHallSimulation
 
         private void circularButton9_Click(object sender, EventArgs e)
         {
-
+            btnCounter2.BackColor = Color.DarkSlateGray;
         }
 
         private void btnPause_Click(object sender, EventArgs e)
@@ -124,11 +126,76 @@ namespace TownHallSimulation
         private void Form1_Load(object sender, EventArgs e)
         {
          
-        }
-
-        private void MovingTimer_Tick(object sender, EventArgs e)
-        {   
-            
-        }
+        }
+
+
+
+        private void MovingTimer_Tick(object sender, EventArgs e)
+
+        {
+            sim.Start();
+            Invalidate();
+        }
+
+        private void btnCounter10_Click(object sender, EventArgs e)
+        {
+            if (btnCounter10.BackColor == Color.DarkCyan)
+            {
+                btnCounter10.BackColor = Color.DarkSlateGray;
+            }
+            else
+            {
+                btnCounter10.BackColor = Color.DarkCyan;
+            }
+            
+        }
+
+        private void btnCounter1_Click(object sender, EventArgs e)
+        {
+            if (btnCounter1.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter1.BackColor = Color.DarkCyan;
+            }else{
+                btnCounter1.BackColor = Color.DarkSlateGray;
+            }
+            
+        }
+
+        private void btnCounter3_Click(object sender, EventArgs e)
+        {
+            if (btnCounter3.BackColor == Color.DarkSlateGray)
+            {
+                btnCounter3.BackColor = Color.DarkCyan;
+            }
+            else
+            {
+                btnCounter3.BackColor = Color.DarkSlateGray;
+            }
+        }
+
+        private void btnCounter4_Click(object sender, EventArgs e)
+        {
+            btnCounter4.BackColor = Color.DarkSlateGray; 
+        }
+
+        private void btnCounter5_Click(object sender, EventArgs e)
+        {
+            btnCounter5.BackColor = Color.DarkSlateGray;
+        }
+
+        private void btnCounter9_Click(object sender, EventArgs e)
+        {
+            btnCounter9.BackColor = Color.DarkCyan;
+        }
+
+        private void btnCounter6_Click(object sender, EventArgs e)
+        {
+            btnCounter6.BackColor = Color.DarkCyan;
+        }
+
+        private void btnCounter8_Click(object sender, EventArgs e)
+        {
+            btnCounter8.BackColor = Color.DarkCyan;
+        }
     }
 }

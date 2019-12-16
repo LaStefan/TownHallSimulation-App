@@ -35,6 +35,11 @@ namespace TownHallSimulation
             return queueTime;
         }
 
+        public void getSimulator(Simulator s)
+        {
+            sim = s;
+        }
+
         public Point counterLocations()
         {
             return new Point(310, 75);
@@ -56,8 +61,8 @@ namespace TownHallSimulation
         {
             if (QueueList.Count > 0)
             {
+                sim.TotalPeopleList.Remove(QueueList.Peek());
                 QueueList.Peek().sw.Stop();
-                
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
                 QueueList.Dequeue();
             }  

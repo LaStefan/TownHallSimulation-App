@@ -13,19 +13,19 @@ namespace TownHallSimulation
 {
     public class Simulator
     {
-        public List<Person> TotalPeopleList;
-        public List<Counter> AddressChangeCountersList;
-        public List<Counter> PropertySaleCountersList;
-        public List<Counter> PermitRequestCountersList;
-
-        public double time { get; private set; }
+        //Fields
+        private List<Person> TotalPeopleList;
+        private List<Counter> AddressChangeCountersList;
+        private List<Counter> PropertySaleCountersList;
+        private List<Counter> PermitRequestCountersList;
         bool printed;
-        private Random spawnRandom = new Random();
-        private List<Statistics> stats ;
         Form1 form;
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
         Random rnd;
-
+        private Random spawnRandom = new Random();
+        private List<Statistics> stats;
+        //Properties
+        public double Time { get; private set; }
         public List<Person> PersonToNavigate { get; private set; }
 
         public Simulator(Form1 f1)
@@ -35,13 +35,32 @@ namespace TownHallSimulation
             PropertySaleCountersList = new List<Counter>();
             PermitRequestCountersList = new List<Counter>();
             stats = new List<Statistics>();
-            time = 8;
+            Time = 8;
             this.form = f1;
             InitializeCounters();
             printed = false;
             //counter4.OnCounterReach();
             rnd = new Random();
         }
+        //return lists methods
+        public List<Person> GetTotalPeopleList()
+        {
+            return TotalPeopleList;
+        }
+        public List<Counter> GetAddressChangeCounterList()
+        {
+            return AddressChangeCountersList;
+        }
+        public List<Counter> GetPropertySaleCountersList()
+        {
+            return PropertySaleCountersList;
+        }
+        public List<Counter> GetPermitRequestCountersList()
+        {
+            return PermitRequestCountersList;
+        }
+
+        
 
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
@@ -51,10 +70,10 @@ namespace TownHallSimulation
             Point point = new Point(x, y);
             Bitmap image = Resources.PropertySale;
 
-            if (time < 18)
+            if (Time < 18)
             {
-                time += 0.25;
-                var numberToSpawn = time >= 12 && time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 5);
+                Time += 0.25;
+                var numberToSpawn = Time >= 12 && Time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 5);
                 var types = Enum.GetValues(typeof(Appointment));
                 for (int i = 0; i <= numberToSpawn; i++)
                 {
@@ -63,7 +82,7 @@ namespace TownHallSimulation
                     TotalPeopleList.Add(p);
                     //counter4.OnCounterReach(); //to test processing
                 }
-                if (time % 1 == 0)
+                if (Time % 1 == 0)
                 {
                     Statistics st = new Statistics(this);
                     st.UpdateTotalNumPeopl();
@@ -71,15 +90,15 @@ namespace TownHallSimulation
                     stats.Add(st);
                     foreach (Counter item in AddressChangeCountersList)
                     {
-                        item.queueTime.Clear();
+                        item.GetQueueTimeList().Clear();
                     }
                     foreach (Counter item in PermitRequestCountersList)
                     {
-                        item.queueTime.Clear();
+                        item.GetQueueTimeList().Clear();
                     }
                     foreach (Counter item in PropertySaleCountersList)
                     {
-                        item.queueTime.Clear();
+                        item.GetQueueTimeList().Clear();
                     }
                 }
             }
@@ -139,7 +158,7 @@ namespace TownHallSimulation
             
                         foreach (Statistics item in stats)
                         {
-                           text+=($"Time:{item.time}\n " +
+                           text+=($"Time:{item.Time}\n " +
                                  $"Total number of people: {item.TotalNrPeople} \n " +
                                 $"Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
                                 $"\nAverage waiting time: {item.CalculateAvgWaitingTime():00}" +
@@ -180,7 +199,7 @@ namespace TownHallSimulation
         {
             foreach (Person p in people)
            {
-                if (p.centerWasReached && p.isAssigned == false)
+                if (p.CenterWasReached && p.IsAssigned == false)
                 {
                     switch (p.TypeOfAppointment.ToString())
                     {
@@ -191,13 +210,13 @@ namespace TownHallSimulation
                             {
                                 if (c.QueueList.Count == shortestQueueAC) //this is used to assign the people to the shortest queue
                                 {
-                                    p.destinationPoint = c.Location;//or should it be c.CounterPosition??
+                                    p.DestinationPoint = c.Location;//or should it be c.CounterPosition??
                                     c.QueueList.Enqueue(p);
                                     //starts the stop watch to get total process time
                                     //p.sw.Start();
                                     //for testing purposes
                                     //c.OnCounterReach();
-                                    p.isAssigned = true;
+                                    p.IsAssigned = true;
                                     break; //to assure it's only assigned to 1 counter if the queues are the same length
                                 }
                             }
@@ -209,13 +228,13 @@ namespace TownHallSimulation
                             {
                                 if (c.QueueList.Count == shortestQueuePS)
                                 {
-                                    p.destinationPoint = c.Location;//or should it be c.CounterPosition??
+                                    p.DestinationPoint = c.Location;//or should it be c.CounterPosition??
                                     c.QueueList.Enqueue(p);
                                     //starts the stop watch to get total process time
                                     //p.sw.Start();
                                     //for testing purposes
                                     //c.OnCounterReach();
-                                    p.isAssigned = true;
+                                    p.IsAssigned = true;
                                     break; //to assure it's only assigned to 1 counter if the queues are the same length
                                 }
                             }
@@ -227,13 +246,13 @@ namespace TownHallSimulation
                             {
                                 if (c.QueueList.Count == shortestQueuePR)
                                 {
-                                    p.destinationPoint = c.Location;//or should it be c.CounterPosition??
+                                    p.DestinationPoint = c.Location;//or should it be c.CounterPosition??
                                     c.QueueList.Enqueue(p);
                                     //starts the stop watch to get total process time
                                     //p.sw.Start();
                                     //for testing purposes
                                     //c.OnCounterReach();
-                                    p.isAssigned = true;
+                                    p.IsAssigned = true;
                                     break; //to assure it's only assigned to 1 counter if the queues are the same length
                                 }
                             }

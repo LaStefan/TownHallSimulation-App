@@ -15,8 +15,8 @@ namespace TownHallSimulation
         public bool IsOccupied { get; set; }
         private Appointment _appointmentToProcess;
         public Queue<Person> QueueList { get; private set; }
-        public List<double> queueTime = new List<double>();
-        public Timer t;
+        private List<double> queueTime = new List<double>();
+        private Timer t;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess)
@@ -28,6 +28,11 @@ namespace TownHallSimulation
             t = new Timer();
             SetInterval();
             QueueList = new Queue<Person>();//for unit test
+        }
+        //return the list of queue
+        public List<Double> GetQueueTimeList()
+        {
+            return queueTime;
         }
 
         public Point counterLocations()

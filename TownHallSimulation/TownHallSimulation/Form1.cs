@@ -30,27 +30,27 @@ namespace TownHallSimulation
         //Test if random creating objects works. Prints every Person in List and corresponding enum type.
         private void timer1_Tick(object sender, EventArgs e)
         {
-            double tempTime = sim.time % 1;
+            double tempTime = sim.Time % 1;
             switch (tempTime)
             {
                 case 0.25:
-                    lblTime.Text = String.Format("{0:0}:15", sim.time);
+                    lblTime.Text = String.Format("{0:0}:15", sim.Time);
                     break;
                 case 0.50:
-                    lblTime.Text = String.Format("{0:0}:30", sim.time);
+                    lblTime.Text = String.Format("{0:0}:30", sim.Time);
                     break;
                 case 0.75:
-                    lblTime.Text = String.Format("{0:0}:45", sim.time);
+                    lblTime.Text = String.Format("{0:0}:45", sim.Time);
                     break;
                 default:
-                    lblTime.Text = String.Format("{0:0}:00", sim.time);
+                    lblTime.Text = String.Format("{0:0}:00", sim.Time);
                     break;
             }
            
             sim.SpawnPeople();
-            sim.AssignCounter(sim.TotalPeopleList);
+            sim.AssignCounter(sim.GetTotalPeopleList());
             sim.UpdateLabels();
-            lbTotalPeople.Text = sim.TotalPeopleList.Count.ToString() + " people";
+            lbTotalPeople.Text = sim.GetTotalPeopleList().Count.ToString() + " people";
            // temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }

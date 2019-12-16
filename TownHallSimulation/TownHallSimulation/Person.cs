@@ -34,7 +34,7 @@ namespace TownHallSimulation
         public Point InitialPoint { get; set; }
         public bool IsAssigned { get; set; } = false;
         public bool CenterWasReached { get; set; } = false;
-        public Bitmap Image { get; private set; }
+        public Bitmap Image { get; set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
         public Point Location { get; set; }
@@ -140,7 +140,7 @@ namespace TownHallSimulation
                         {
                             this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                         }
-                        else if (this.Location.X == destinationPoint.X)
+                        else if (this.Location.X == DestinationPoint.X)
                         {
                             ReachesCounter();
                         }
@@ -207,7 +207,7 @@ namespace TownHallSimulation
             switch (this.TypeOfAppointment.ToString())
             {
                 case "AddressChange":
-                    foreach (Counter c in sim.AddressChangeCountersList)
+                    foreach (Counter c in sim.GetAddressChangeCounterList())
                     {
                         if (c.Location == this.Location && c.IsOccupied == false)
                         {
@@ -218,7 +218,7 @@ namespace TownHallSimulation
                     break;
 
                 case "PropertySale":
-                    foreach (Counter c in sim.PropertySaleCountersList)
+                    foreach (Counter c in sim.GetPropertySaleCountersList())
                     {
                         if (c.Location == this.Location && c.IsOccupied == false)
                         {
@@ -229,7 +229,7 @@ namespace TownHallSimulation
                     break;
 
                 case "PermitRequest":
-                    foreach (Counter c in sim.PermitRequestCountersList)
+                    foreach (Counter c in sim.GetPermitRequestCountersList())
                     {
                         if (c.Location == this.Location && c.IsOccupied == false)
                         {

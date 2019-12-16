@@ -60,13 +60,12 @@ namespace TownHallSimulation
         //I make it to be public only for unit test
         public void FIFO()
         {
-            if (QueueList.Count > 0 && IsOccupied)
+
+            if (QueueList.Count > 0)
             {
-                sim.TotalPeopleList.Remove(QueueList.Peek());
                 QueueList.Peek().sw.Stop();
 
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
-                QueueList.Peek().Image = null;
                 QueueList.Dequeue();
             }
             UpdateStatus();

@@ -77,7 +77,6 @@
   <ItemGroup>
     <Compile Include="UnitTestCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTestDetails.cs" />
     <Compile Include="UnitTestPerson.cs" />
     <Compile Include="UnitTestSimulator.cs" />
     <Compile Include="UnitTestStatistics.cs" />

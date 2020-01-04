@@ -17,87 +17,87 @@ namespace UnitTestProject1
             int result = p.GetPersonId();
             Assert.AreEqual(id,result);
         }
-        //这个方法被注销了
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationEqualsToDestinationPoint()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Location = new Point(20, 20);
-        //    p.destinationPoint = new Point(20,20);
-        //    bool result = p.GoToCounter();
-        //    Assert.AreEqual(true, result);
-        //}
+        ////这个方法被注销了
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationEqualsToDestinationPoint()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Location = new Point(20, 20);
+        ////    p.destinationPoint = new Point(20,20);
+        ////    bool result = p.GoToCounter();
+        ////    Assert.AreEqual(true, result);
+        ////}
 
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithPositionUp_CheckResult()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
-        //    p.Location = new Point(20, 20);
-        //    p.Counta.CounterPosition = Position.UP;
-        //    bool result = p.GoToCounter();
-        //    Assert.AreEqual(false, result);
-        //}
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithPositionUp_CheckResult()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
+        ////    p.Location = new Point(20, 20);
+        ////    p.Counta.CounterPosition = Position.UP;
+        ////    bool result = p.GoToCounter();
+        ////    Assert.AreEqual(false, result);
+        ////}
 
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithPositionUp_CheckPoint()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
-        //    p.Location = new Point(20, 20);
-        //    p.Counta.CounterPosition = Position.UP;
-        //    bool result = p.GoToCounter();
-        //    Point expectlocation = new Point(20,19);
-        //    Point resultlocation = p.Location;
-        //    Assert.AreEqual(expectlocation, resultlocation);
-        //}
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithPositionUp_CheckPoint()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
+        ////    p.Location = new Point(20, 20);
+        ////    p.Counta.CounterPosition = Position.UP;
+        ////    bool result = p.GoToCounter();
+        ////    Point expectlocation = new Point(20,19);
+        ////    Point resultlocation = p.Location;
+        ////    Assert.AreEqual(expectlocation, resultlocation);
+        ////}
 
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithOtherPosition_CheckResult()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
-        //    p.Location = new Point(20, 20);
-        //    p.Counta.CounterPosition = Position.LEFT;
-        //    bool result = p.GoToCounter();
-        //    Assert.AreEqual(false, result);
-        //}
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithOtherPosition_CheckResult()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
+        ////    p.Location = new Point(20, 20);
+        ////    p.Counta.CounterPosition = Position.LEFT;
+        ////    bool result = p.GoToCounter();
+        ////    Assert.AreEqual(false, result);
+        ////}
 
-        //左边位置和右边位置的代码还没有完成，没法测试
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithOtherPosition_CheckPoint()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
-        //    p.Location = new Point(20, 20);
-        //    p.Counta.CounterPosition = Position.LEFT;
-        //    bool result = p.GoToCounter();
-        //    Point expectlocation = new Point(19, 20);
-        //    Point resultlocation = p.Location;
-        //    Assert.AreEqual(expectlocation, resultlocation);
-        //}
+        ////左边位置和右边位置的代码还没有完成，没法测试
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationEqualsToCountaWithOtherPosition_CheckPoint()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
+        ////    p.Location = new Point(20, 20);
+        ////    p.Counta.CounterPosition = Position.LEFT;
+        ////    bool result = p.GoToCounter();
+        ////    Point expectlocation = new Point(19, 20);
+        ////    Point resultlocation = p.Location;
+        ////    Assert.AreEqual(expectlocation, resultlocation);
+        ////}
 
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationNotEqualToCounta_CheckResult()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
-        //    p.Location = new Point(30, 20);
-        //    bool result = p.GoToCounter();
-        //    Assert.AreEqual(false, result);
-        //}
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationNotEqualToCounta_CheckResult()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
+        ////    p.Location = new Point(30, 20);
+        ////    bool result = p.GoToCounter();
+        ////    Assert.AreEqual(false, result);
+        ////}
 
-        //[TestMethod]
-        //public void TestMethodGoToCounter_CheckLocationNotEqualToCounta_CheckPoint()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
-        //    p.Location = new Point(30, 20);
-        //    bool result = p.GoToCounter();
-        //    Point expectlocation = new Point(29, 20);
-        //    Point resultlocation = p.Location;
-        //    Assert.AreEqual(expectlocation, resultlocation);
-        //}
+        ////[TestMethod]
+        ////public void TestMethodGoToCounter_CheckLocationNotEqualToCounta_CheckPoint()
+        ////{
+        ////    Person p = new Person(Appointment.AddressChange);
+        ////    p.Counta = new Counter(new Point(20, 10), Appointment.AddressChange);
+        ////    p.Location = new Point(30, 20);
+        ////    bool result = p.GoToCounter();
+        ////    Point expectlocation = new Point(29, 20);
+        ////    Point resultlocation = p.Location;
+        ////    Assert.AreEqual(expectlocation, resultlocation);
+        ////}
 
         [TestMethod]
         public void TestMethodSetDestination_CheckDestinationPoint()
@@ -117,7 +117,7 @@ namespace UnitTestProject1
             y.Add(2);
             y.Add(3);
             p.SetDestination(point, f, y);
-            Assert.AreEqual(point, p.destinationPoint);
+            Assert.AreEqual(point, p.DestinationPoint);
         }
 
         [TestMethod]
@@ -163,32 +163,14 @@ namespace UnitTestProject1
         }
 
         //[TestMethod]
-        //public void TestMethodSetDestinationPoint()
+        //public void TestMethodFirstDestination()
         //{
         //    Person p = new Person(Appointment.AddressChange);
         //    Point y = new Point();
-        //    p.SetDestinationPoint(y);
-        //    Point expect = new Point(195);
+        //    p.FirstDestination(y);
+        //    Point expect = new Point(480, 300);
         //    Assert.AreEqual(expect, y);
         //}
-
-        [TestMethod]
-        public void TestMethodLocationX()
-        {
-            Person p = new Person(Appointment.AddressChange);
-            double point = p.Location.X;
-            int result = p.LocationX();
-            Assert.AreEqual(point, result);
-        }
-
-        [TestMethod]
-        public void TestMethodLocationY()
-        {
-            Person p = new Person(Appointment.AddressChange);
-            double point = p.Location.Y;
-            int result = p.LocationY();
-            Assert.AreEqual(point, result);
-        }
 
         [TestMethod]
         public void TestMethodStartMoving_CheckEnabled()
@@ -196,7 +178,7 @@ namespace UnitTestProject1
             Person p = new Person(Appointment.AddressChange);
             p.StartMoving();
             bool enabled = p.personMove.Enabled;
-            Assert.AreEqual(true,enabled);
+            Assert.AreEqual(true, enabled);
         }
 
         [TestMethod]
@@ -204,34 +186,52 @@ namespace UnitTestProject1
         {
             Person p = new Person(Appointment.AddressChange);
             p.StartMoving();
-            Assert.AreEqual(15, p.personMove.Interval);
+            Assert.AreEqual(10, p.personMove.Interval);
         }
 
-        //[TestMethod]
-        //public void TestMethodStopMoving()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    p.StopMoving();
-        //    bool enabled = p.personMove.Enabled;
-        //    Assert.AreEqual(false, enabled);
-        //}
+        [TestMethod]
+        public void TestMethodMovePerson()
+        {
+            Person p = new Person(Appointment.AddressChange);
+            p.MovePerson();
+            bool enabled = p.personMove.Enabled;
+            Assert.AreEqual(true, enabled);
+        }
 
-        //[TestMethod]
-        //public void TestMethodSetInitialPosition_CheckInitialPoint()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    Point point = new Point(20,20);
-        //    p.SetInitialPosition(point,3);
-        //    Assert.AreEqual(point,p.initialPoint);
-        //}
+        [TestMethod]
+        public void TestMethodStopPerson()
+        {
+            Person p = new Person(Appointment.AddressChange);
+            p.StopPerson();
+            bool enabled = p.personMove.Enabled;
+            Assert.AreEqual(false, enabled);
+        }
 
-        //[TestMethod]
-        //public void TestMethodSetInitialPosition_CheckLocation()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    Point point = new Point(20, 20);
-        //    p.SetInitialPosition(point, 3);
-        //    Assert.AreEqual(point, p.Location);
-        //}
+        [TestMethod]
+        public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
+        {
+            Person p = new Person(Appointment.AddressChange);
+            Simulator sim = new Simulator(new Form1());
+            List<bool> expect = new List<bool>();
+            foreach (Counter c in sim.GetAddressChangeCounterList())
+            {
+                if (c.Location == p.Location && c.IsOccupied == false)
+                {
+                    c.IsOccupied = true;
+                    expect.Add(c.IsOccupied);
+                }
+                else
+                {
+                    expect.Add(c.IsOccupied);
+                }
+            }
+            p.ReachesCounter();
+            List<bool> result = new List<bool>();
+            foreach (Counter c in sim.GetAddressChangeCounterList())
+            {
+                result.Add(c.IsOccupied);
+            }
+            CollectionAssert.AreEqual(expect,result);
+        }
     }
 }

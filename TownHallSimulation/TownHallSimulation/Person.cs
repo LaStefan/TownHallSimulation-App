@@ -20,12 +20,12 @@ namespace TownHallSimulation
     //Class Person
     public class Person
     {   //Fields 
-        private int id;
-        private Timer personMove;
+        public int id;
+        public Timer personMove;
         private Timer personStop;
         private int arrayCounter;
-        private List<Point> destinations;
-        private List<int> destintationsNumbers;
+        public List<Point> destinations;
+        public List<int> destintationsNumbers;
         private Point centerDesk = new Point(525, 360);
 
 

@@ -15,9 +15,9 @@ namespace TownHallSimulation
         public bool IsOccupied { get; set; }
         private Appointment _appointmentToProcess;
         public Queue<Person> QueueList { get; private set; }
-        private List<double> queueTime = new List<double>();
-        private Timer t;
-        private Simulator sim;
+        public List<double> queueTime = new List<double>();
+        public Timer t;
+        public Simulator sim;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess)

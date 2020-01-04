@@ -18,7 +18,7 @@ namespace UnitTestProject1
             sim.InitializeCounters();
             double totalWaitingTIme = 0;
             int totalNum = 0;
-            foreach (Counter a in sim.AddressChangeCountersList)
+            foreach (Counter a in sim.GetAddressChangeCounterList())
             {
                 a.FIFO();
                 foreach (double item in a.queueTime)
@@ -27,7 +27,7 @@ namespace UnitTestProject1
                     totalNum++;
                 }
             }
-            foreach (Counter b in sim.PermitRequestCountersList)
+            foreach (Counter b in sim.GetPermitRequestCountersList())
             {
                 b.FIFO();
                 foreach (double item in b.queueTime)
@@ -36,7 +36,7 @@ namespace UnitTestProject1
                     totalNum++;
                 }
             }
-            foreach (Counter c in sim.PropertySaleCountersList)
+            foreach (Counter c in sim.GetPropertySaleCountersList())
             {
                 c.FIFO();
                 foreach (double item in c.queueTime)
@@ -47,7 +47,7 @@ namespace UnitTestProject1
             }
             double expect = totalWaitingTIme / totalNum;
             double result = s.CalculateAvgWaitingTime();
-            Assert.AreEqual(expect,result);
+            Assert.AreEqual(expect, result);
         }
 
         [TestMethod]
@@ -56,7 +56,7 @@ namespace UnitTestProject1
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
             int result = s.GetTotalNrOfCountersOpened();
-            Assert.AreEqual(6, result);
+            Assert.AreEqual(10, result);
         }
 
         [TestMethod]
@@ -64,8 +64,8 @@ namespace UnitTestProject1
         {
             Simulator sim = new Simulator(new Form1());
             Statistics s = new Statistics(sim);
-            s.UpdateTotalNumPeopl(50);
-            int expect = 50;
+            int expect = sim.GetTotalPeopleList().Count;
+            s.UpdateTotalNumPeopl();
             int result = s.TotalNrPeople;
             Assert.AreEqual(expect, result);
         }

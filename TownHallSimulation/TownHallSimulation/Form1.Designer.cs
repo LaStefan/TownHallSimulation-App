@@ -168,7 +168,7 @@ namespace TownHallSimulation
             this.btnExit.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Location = new System.Drawing.Point(1239, 4);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(55, 44);
             this.btnExit.TabIndex = 2;
@@ -192,7 +192,7 @@ namespace TownHallSimulation
             // 
             this.pictureBox1.Image = global::TownHallSimulation.Properties.Resources.Screenshot3;
             this.pictureBox1.Location = new System.Drawing.Point(-3, -1);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(173, 63);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -209,7 +209,7 @@ namespace TownHallSimulation
             this.panel2.Controls.Add(this.btnStop);
             this.panel2.Controls.Add(this.btnStart);
             this.panel2.Location = new System.Drawing.Point(37, 65);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(135, 447);
             this.panel2.TabIndex = 20;
@@ -221,7 +221,7 @@ namespace TownHallSimulation
             this.btnStatistics.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistics.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnStatistics.Location = new System.Drawing.Point(9, 369);
-            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.btnStatistics.Name = "btnStatistics";
             this.btnStatistics.Size = new System.Drawing.Size(132, 81);
             this.btnStatistics.TabIndex = 21;
@@ -236,7 +236,7 @@ namespace TownHallSimulation
             this.btnResume.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResume.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnResume.Location = new System.Drawing.Point(9, 281);
-            this.btnResume.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResume.Margin = new System.Windows.Forms.Padding(4);
             this.btnResume.Name = "btnResume";
             this.btnResume.Size = new System.Drawing.Size(129, 81);
             this.btnResume.TabIndex = 6;
@@ -251,7 +251,7 @@ namespace TownHallSimulation
             this.btnPause.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPause.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnPause.Location = new System.Drawing.Point(9, 192);
-            this.btnPause.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPause.Margin = new System.Windows.Forms.Padding(4);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(129, 81);
             this.btnPause.TabIndex = 5;
@@ -266,7 +266,7 @@ namespace TownHallSimulation
             this.btnStop.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStop.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnStop.Location = new System.Drawing.Point(9, 103);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(129, 81);
             this.btnStop.TabIndex = 4;
@@ -281,7 +281,7 @@ namespace TownHallSimulation
             this.btnStart.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStart.ForeColor = System.Drawing.Color.DarkCyan;
             this.btnStart.Location = new System.Drawing.Point(9, 15);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(129, 81);
             this.btnStart.TabIndex = 3;
@@ -293,7 +293,7 @@ namespace TownHallSimulation
             // 
             this.roundButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton.Location = new System.Drawing.Point(655, 386);
-            this.roundButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roundButton.Margin = new System.Windows.Forms.Padding(4);
             this.roundButton.Name = "roundButton";
             this.roundButton.Size = new System.Drawing.Size(112, 43);
             this.roundButton.TabIndex = 21;
@@ -403,7 +403,7 @@ namespace TownHallSimulation
             this.btnCounter7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter7.ForeColor = System.Drawing.Color.White;
             this.btnCounter7.Location = new System.Drawing.Point(1103, 293);
-            this.btnCounter7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter7.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter7.Name = "btnCounter7";
             this.btnCounter7.Size = new System.Drawing.Size(100, 70);
             this.btnCounter7.TabIndex = 19;
@@ -418,7 +418,7 @@ namespace TownHallSimulation
             this.btnCounter6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter6.ForeColor = System.Drawing.Color.White;
             this.btnCounter6.Location = new System.Drawing.Point(1103, 187);
-            this.btnCounter6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter6.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter6.Name = "btnCounter6";
             this.btnCounter6.Size = new System.Drawing.Size(100, 70);
             this.btnCounter6.TabIndex = 18;
@@ -433,7 +433,7 @@ namespace TownHallSimulation
             this.btnCounter8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter8.ForeColor = System.Drawing.Color.White;
             this.btnCounter8.Location = new System.Drawing.Point(1103, 404);
-            this.btnCounter8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter8.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter8.Name = "btnCounter8";
             this.btnCounter8.Size = new System.Drawing.Size(100, 70);
             this.btnCounter8.TabIndex = 17;
@@ -448,7 +448,7 @@ namespace TownHallSimulation
             this.btnCounter9.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter9.ForeColor = System.Drawing.Color.White;
             this.btnCounter9.Location = new System.Drawing.Point(260, 404);
-            this.btnCounter9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter9.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter9.Name = "btnCounter9";
             this.btnCounter9.Size = new System.Drawing.Size(100, 70);
             this.btnCounter9.TabIndex = 16;
@@ -463,7 +463,7 @@ namespace TownHallSimulation
             this.btnCounter10.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter10.ForeColor = System.Drawing.Color.White;
             this.btnCounter10.Location = new System.Drawing.Point(260, 297);
-            this.btnCounter10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter10.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter10.Name = "btnCounter10";
             this.btnCounter10.Size = new System.Drawing.Size(100, 70);
             this.btnCounter10.TabIndex = 15;
@@ -478,7 +478,7 @@ namespace TownHallSimulation
             this.btnCounter5.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter5.ForeColor = System.Drawing.Color.White;
             this.btnCounter5.Location = new System.Drawing.Point(971, 92);
-            this.btnCounter5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter5.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter5.Name = "btnCounter5";
             this.btnCounter5.Size = new System.Drawing.Size(100, 70);
             this.btnCounter5.TabIndex = 14;
@@ -493,7 +493,7 @@ namespace TownHallSimulation
             this.btnCounter4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter4.ForeColor = System.Drawing.Color.White;
             this.btnCounter4.Location = new System.Drawing.Point(803, 92);
-            this.btnCounter4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter4.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter4.Name = "btnCounter4";
             this.btnCounter4.Size = new System.Drawing.Size(100, 70);
             this.btnCounter4.TabIndex = 13;
@@ -508,7 +508,7 @@ namespace TownHallSimulation
             this.btnCounter3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter3.ForeColor = System.Drawing.Color.White;
             this.btnCounter3.Location = new System.Drawing.Point(620, 92);
-            this.btnCounter3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter3.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter3.Name = "btnCounter3";
             this.btnCounter3.Size = new System.Drawing.Size(100, 70);
             this.btnCounter3.TabIndex = 12;
@@ -523,7 +523,7 @@ namespace TownHallSimulation
             this.btnCounter2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter2.ForeColor = System.Drawing.Color.White;
             this.btnCounter2.Location = new System.Drawing.Point(413, 92);
-            this.btnCounter2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter2.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter2.Name = "btnCounter2";
             this.btnCounter2.Size = new System.Drawing.Size(100, 70);
             this.btnCounter2.TabIndex = 11;
@@ -538,7 +538,7 @@ namespace TownHallSimulation
             this.btnCounter1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter1.ForeColor = System.Drawing.Color.White;
             this.btnCounter1.Location = new System.Drawing.Point(260, 187);
-            this.btnCounter1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCounter1.Margin = new System.Windows.Forms.Padding(4);
             this.btnCounter1.Name = "btnCounter1";
             this.btnCounter1.Size = new System.Drawing.Size(100, 70);
             this.btnCounter1.TabIndex = 10;
@@ -577,7 +577,7 @@ namespace TownHallSimulation
             this.Controls.Add(this.roundButton);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

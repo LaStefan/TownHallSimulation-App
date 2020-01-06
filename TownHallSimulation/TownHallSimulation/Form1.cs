@@ -1,4 +1,4 @@
-﻿using iTextSharp.text;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
@@ -84,7 +84,12 @@ namespace TownHallSimulation
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            sim.Draw(e.Graphics);
+           sim.Draw(e.Graphics);
+            foreach (Person person in sim.TotalPeopleList)
+            {
+               
+                this.Controls.Add(person.Image);
+            }
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
@@ -92,6 +97,16 @@ namespace TownHallSimulation
             sim.Start();
             MovingTimer.Start();
             SpawnTimer.Enabled=true;
+            //PictureBox picture = new PictureBox();
+            //picture.Size = new Size(16, 16);
+            //picture.Location = new Point(539, 458);
+            //picture.Image = Properties.Resources.d;
+            //picture.BackColor = Color.Black;
+
+
+
+            //this.Controls.Add(picture);
+
         }
 
         private void BtnStop_Click(object sender, EventArgs e)

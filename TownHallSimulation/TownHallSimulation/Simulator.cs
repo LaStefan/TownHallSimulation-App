@@ -14,7 +14,7 @@ namespace TownHallSimulation
     public class Simulator
     {
         //Fields
-        private List<Person> TotalPeopleList;
+        
         private List<Counter> AddressChangeCountersList;
         private List<Counter> PropertySaleCountersList;
         private List<Counter> PermitRequestCountersList;
@@ -26,7 +26,7 @@ namespace TownHallSimulation
         private List<Statistics> stats;
         //Properties
         public double Time { get; private set; }
-        public List<Person> PersonToNavigate { get; private set; }
+        public List<Person> TotalPeopleList { get; private set; }
 
         public Simulator(Form1 f1)
         {
@@ -173,22 +173,22 @@ namespace TownHallSimulation
         //make the counters
         public void InitializeCounters()
         {
-            counter1 = new Counter(new Point(275, 180), Appointment.AddressChange); counter1.IsOpened = true;
+            counter1 = new Counter(new Point(275, 180), Appointment.AddressChange,this); counter1.IsOpened = true;
             // to check if it assigns to shortest queue
             counter1.IsOpened = true; //counter1.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter1.QueueList.Enqueue(new Person(Appointment.AddressChange));
-            counter2 = new Counter(new Point(340, 132), Appointment.PermitRequest); counter2.IsOpened = true;
-            counter3 = new Counter(new Point(500, 132), Appointment.PropertySale); counter3.IsOpened = true;
-            counter4 = new Counter(new Point(633, 132), Appointment.AddressChange); //+40 for y to make sure it stops before the counter //-170 for x to make sure it stops before the counter
+            counter2 = new Counter(new Point(340, 132), Appointment.PermitRequest,this); counter2.IsOpened = true;
+            counter3 = new Counter(new Point(500, 132), Appointment.PropertySale,this); counter3.IsOpened = true;
+            counter4 = new Counter(new Point(633, 132), Appointment.AddressChange,this); //+40 for y to make sure it stops before the counter //-170 for x to make sure it stops before the counter
             // to check if it assigns to shortest queue
             counter4.IsOpened = true; 
-            counter5 = new Counter(new Point(760, 132), Appointment.PermitRequest); counter5.IsOpened = true;
-            counter6 = new Counter(new Point(815, 180), Appointment.PropertySale); counter6.IsOpened = true;
-            counter7 = new Counter(new Point(815, 260), Appointment.AddressChange);
+            counter5 = new Counter(new Point(760, 132), Appointment.PermitRequest, this); counter5.IsOpened = true;
+            counter6 = new Counter(new Point(815, 180), Appointment.PropertySale, this); counter6.IsOpened = true;
+            counter7 = new Counter(new Point(815, 260), Appointment.AddressChange, this);
             // to check if it assigns to shortest queue
             counter7.IsOpened = true; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
-            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest); counter8.IsOpened = true;
-            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); counter9.IsOpened = true;
-            counter10 = new Counter(new Point(275, 260), Appointment.AddressChange);
+            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest, this); counter8.IsOpened = true;
+            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale, this); counter9.IsOpened = true;
+            counter10 = new Counter(new Point(275, 260), Appointment.AddressChange, this);
             //to check if it assigns to shortest queue
             counter10.IsOpened = true;
             AddressChangeCountersList.AddRange(new Counter[] { counter1, counter4, counter7, counter10 });
@@ -294,7 +294,7 @@ namespace TownHallSimulation
         public void Start()
         {
             TotalPeopleList.RemoveAll(item => item == null);
-            foreach (Person p in TotalPeopleList)
+            foreach (Person p in TotalPeopleList.ToList())
             {
                 p.StartMoving();
             }
@@ -312,7 +312,7 @@ namespace TownHallSimulation
 
         public void Draw(Graphics gr)
         {
-            TotalPeopleList.RemoveAll(item => item == null);
+            //TotalPeopleList.RemoveAll(item => item == null);
             foreach (Person p in TotalPeopleList)
                 {
                     p.DrawPerson(gr);

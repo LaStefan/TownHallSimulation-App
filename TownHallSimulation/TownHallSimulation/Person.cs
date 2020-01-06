@@ -34,7 +34,8 @@ namespace TownHallSimulation
         public Point InitialPoint { get; set; }
         public bool IsAssigned { get; set; } = false;
         public bool CenterWasReached { get; set; } = false;
-        public Bitmap Image { get; set; }
+       // public Bitmap Image { get; set; }
+        public PictureBox Image { get; set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
         public Point Location { get; set; }
@@ -47,7 +48,17 @@ namespace TownHallSimulation
         //Constructor 1
         public Person(Appointment type)
         {
-            Image = new Bitmap(Properties.Resources.d, new Size(10,10));
+            //Image = new Bitmap(Properties.Resources.d, new Size(10,10));
+
+            Image = new PictureBox
+            {
+                Name = PersonId.ToString(),
+                Size = new Size(16, 16),
+                Location = Location,
+                Image = Properties.Resources.d,
+                BackColor = Color.Black,
+
+            };
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
@@ -58,7 +69,17 @@ namespace TownHallSimulation
         public Person(Point location, Bitmap image, Appointment type, Simulator sim)
         {
             Location = location;
-            Image = new Bitmap(TownHallSimulation.Properties.Resources.d, new Size(10, 10));
+            // Image = new Bitmap(TownHallSimulation.Properties.Resources.d, new Size(10, 10));
+
+            Image = new PictureBox
+            {
+                Name = PersonId.ToString(),
+                Size = new Size(16, 16),
+                Location = Location,
+                Image = Properties.Resources.d,
+                BackColor = Color.Black,
+
+            };
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
@@ -89,14 +110,26 @@ namespace TownHallSimulation
 
         public void DrawPerson(Graphics gr)
         {
-            if (this.Image != null)
-            {
-                gr.DrawImage(Image, Location);
-            }
+            //if (this.Image != null)
+            //{
+            //    gr.DrawImage(Image, Location);
+            //}
+            Image.Location = Location;
+            Image.Refresh();
+        }
+        public void TDrawPerson(Form1 fr)
+        {
+            form = fr;
+            form.Controls.Add(Image);
+            Image.Refresh();
         }
 
         private void personMove_Tick(object sender, EventArgs e)
         {
+            if (CenterWasReached)
+            {
+                ChangeColor();
+            }
                 if (CenterWasReached == false)
                 {
                         if (this.Location.Y != centerDesk.Y)

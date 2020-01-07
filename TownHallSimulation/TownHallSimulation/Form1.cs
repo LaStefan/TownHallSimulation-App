@@ -32,7 +32,11 @@ namespace TownHallSimulation
         {
 
             double tempTime = sim.Time % 1;
-
+            
+            foreach (Person p in sim.GetTotalPeopleList())
+            {
+                p.ReachesCounter();
+            }
 
 
             lblTime.Text = String.Format("{0:0}:00", sim.Time);

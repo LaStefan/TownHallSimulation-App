@@ -60,8 +60,6 @@ namespace TownHallSimulation
             return PermitRequestCountersList;
         }
 
-        
-
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
@@ -73,34 +71,37 @@ namespace TownHallSimulation
             if (Time < 18)
             {
                 Time += 0.25;
-                var numberToSpawn = Time >= 12 && Time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 5);
-                var types = Enum.GetValues(typeof(Appointment));
-                for (int i = 0; i <= numberToSpawn; i++)
+                if (Time < 16)
                 {
-                    Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    Person p = new Person(point, image, currentType, this);
-                    TotalPeopleList.Add(p);
-                    //counter4.OnCounterReach(); //to test processing
-                }
-                if (Time % 1 == 0)
-                {
-                    Statistics st = new Statistics(this);
-                    st.UpdateTotalNumPeopl();
-                    st.CalculateAvgWaitingTime();
-                    stats.Add(st);
-                    foreach (Counter item in AddressChangeCountersList)
+                    var numberToSpawn = Time >= 12 && Time <= 14 ? spawnRandom.Next(4, 6) : spawnRandom.Next(0, 3);
+                    var types = Enum.GetValues(typeof(Appointment));
+                    for (int i = 0; i <= numberToSpawn; i++)
                     {
-                        item.GetQueueTimeList().Clear();
-                    }
-                    foreach (Counter item in PermitRequestCountersList)
-                    {
-                        item.GetQueueTimeList().Clear();
-                    }
-                    foreach (Counter item in PropertySaleCountersList)
-                    {
-                        item.GetQueueTimeList().Clear();
+                        Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
+                        Person p = new Person(point, image, currentType, this);
+                        TotalPeopleList.Add(p);
+                        //counter4.OnCounterReach(); //to test processing
                     }
                 }
+                    if (Time % 1 == 0)
+                    {
+                        Statistics st = new Statistics(this);
+                        st.UpdateTotalNumPeopl();
+                        st.CalculateAvgWaitingTime();
+                        stats.Add(st);
+                        foreach (Counter item in AddressChangeCountersList)
+                        {
+                            item.GetQueueTimeList().Clear();
+                        }
+                        foreach (Counter item in PermitRequestCountersList)
+                        {
+                            item.GetQueueTimeList().Clear();
+                        }
+                        foreach (Counter item in PropertySaleCountersList)
+                        {
+                            item.GetQueueTimeList().Clear();
+                        }
+                    }
             }
             else if(!printed)
             {
@@ -187,7 +188,7 @@ namespace TownHallSimulation
             // to check if it assigns to shortest queue
             counter7.IsOpened = true; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
             counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest); counter8.IsOpened = true;
-            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); counter9.IsOpened = true;
+            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale); //counter9.IsOpened = true;
             counter10 = new Counter(new Point(275, 260), Appointment.AddressChange);
             //to check if it assigns to shortest queue
             counter10.IsOpened = true;

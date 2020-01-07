@@ -88,15 +88,15 @@ namespace TownHallSimulation
         {
             if (_appointmentToProcess == Appointment.AddressChange)
             {
-                t.Interval = 3000;
+                t.Interval = 300;
             }
             else if (_appointmentToProcess == Appointment.PermitRequest)
             {
-                t.Interval = 5000;
+                t.Interval = 500;
             }
             else
             {
-                t.Interval = 8000;
+                t.Interval = 800;
             }
         }
 

@@ -31,6 +31,14 @@ namespace TownHallSimulation
         private void timer1_Tick(object sender, EventArgs e)
         {
 
+            if (sim.Time>12 && sim.Time <14)
+            {
+                SpawnTimer.Interval = 200;
+            }
+            else
+            {
+                SpawnTimer.Interval = 1000;
+            }
             double tempTime = sim.Time % 1;
 
 
@@ -40,7 +48,6 @@ namespace TownHallSimulation
             sim.SpawnPeople();
             sim.AssignCounter(sim.GetTotalPeopleList());
             sim.UpdateLabels();
-            lbTotalPeople.Text = sim.GetTotalPeopleList().Count.ToString() + " people";
            // temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }
@@ -85,7 +92,7 @@ namespace TownHallSimulation
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
            sim.Draw(e.Graphics);
-            foreach (Person person in sim.TotalPeopleList)
+            foreach (Person person in sim.TotalPeopleList.ToList())
             {
                
                 this.Controls.Add(person.Image);
@@ -94,9 +101,17 @@ namespace TownHallSimulation
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            sim.Start();
-            MovingTimer.Start();
-            SpawnTimer.Enabled=true;
+            if (sim != null)
+            {
+                sim.Start();
+                MovingTimer.Start();
+                SpawnTimer.Enabled = true;
+            }
+            else
+            {
+                sim = new Simulator(this);
+            }
+           
             //PictureBox picture = new PictureBox();
             //picture.Size = new Size(16, 16);
             //picture.Location = new Point(539, 458);
@@ -112,6 +127,8 @@ namespace TownHallSimulation
         private void BtnStop_Click(object sender, EventArgs e)
         {
             sim.Stop();
+            sim.reset();
+            
         }
 
         private void circularButton9_Click(object sender, EventArgs e)
@@ -152,6 +169,8 @@ namespace TownHallSimulation
         {
             sim.Start();
             Invalidate();
+
+            lbTotalPeople.Text = sim.GetTotalPeopleList().Count.ToString() + " people";
         }
 
         private void btnCounter10_Click(object sender, EventArgs e)

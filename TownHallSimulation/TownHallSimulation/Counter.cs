@@ -65,15 +65,18 @@ namespace TownHallSimulation
             {
                 QueueList.Peek().sw.Stop();
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
-                QueueList.Peek().Image = null;
+               // QueueList.Peek().Image.BackColor = Color.Yellow;
+
                 findAndRemve(QueueList.Peek());
+               
                 QueueList.Dequeue();
                 UpdateStatus();
             }
         }
+        //removesm the person from the totalPeople list when we dequeue;
         private void findAndRemve(Person p)
         {
-                    sim.TotalPeopleList.Remove(p);
+            sim.TotalPeopleList.Remove(p);
                 
         }
 
@@ -98,15 +101,15 @@ namespace TownHallSimulation
         {
             if (_appointmentToProcess == Appointment.AddressChange)
             {
-                t.Interval = 3000;
+                t.Interval = 30;
             }
             else if (_appointmentToProcess == Appointment.PermitRequest)
             {
-                t.Interval = 5000;
+                t.Interval = 50;
             }
             else
             {
-                t.Interval = 8000;
+                t.Interval = 80;
             }
         }
 

@@ -61,7 +61,7 @@ namespace TownHallSimulation
         }
 
         
-
+        
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
@@ -73,15 +73,21 @@ namespace TownHallSimulation
             if (Time < 18)
             {
                 Time += 0.25;
-                var numberToSpawn = Time >= 12 && Time <= 16 ? spawnRandom.Next(10, 11) : spawnRandom.Next(0, 5);
-                var types = Enum.GetValues(typeof(Appointment));
-                for (int i = 0; i <= numberToSpawn; i++)
+                if (Time < 16)
                 {
-                    Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                    Person p = new Person(point, image, currentType, this);
-                    TotalPeopleList.Add(p);
-                    //counter4.OnCounterReach(); //to test processing
+
+                    // var numberToSpawn = Time >= 12 && Time <= 16 ? spawnRandom.Next(1, 1) : spawnRandom.Next(1, 1);
+                   // var numberToSpawn = 1;
+                    var types = Enum.GetValues(typeof(Appointment));
+                    //for (int i = 0; i <= numberToSpawn; i++)
+                    //{
+                        Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
+                        Person p = new Person(point, image, currentType, this);
+                        TotalPeopleList.Add(p);
+                        //counter4.OnCounterReach(); //to test processing
+                    //}
                 }
+                
                 if (Time % 1 == 0)
                 {
                     Statistics st = new Statistics(this);
@@ -185,12 +191,12 @@ namespace TownHallSimulation
             counter6 = new Counter(new Point(815, 180), Appointment.PropertySale, this); counter6.IsOpened = true;
             counter7 = new Counter(new Point(815, 260), Appointment.AddressChange, this);
             // to check if it assigns to shortest queue
-            counter7.IsOpened = true; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
-            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest, this); counter8.IsOpened = true;
-            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale, this); counter9.IsOpened = true;
+            counter7.IsOpened = false; //counter7.QueueList.Enqueue(new Person(Appointment.AddressChange)); counter7.QueueList.Enqueue(new Person(Appointment.AddressChange));
+            counter8 = new Counter(new Point(815, 350), Appointment.PermitRequest, this); counter8.IsOpened = false;
+            counter9 = new Counter(new Point(275, 350), Appointment.PropertySale, this); counter9.IsOpened = false;
             counter10 = new Counter(new Point(275, 260), Appointment.AddressChange, this);
             //to check if it assigns to shortest queue
-            counter10.IsOpened = true;
+            counter10.IsOpened = false;
             AddressChangeCountersList.AddRange(new Counter[] { counter1, counter4, counter7, counter10 });
             PermitRequestCountersList.AddRange(new Counter[] { counter2, counter5, counter8 });
             PropertySaleCountersList.AddRange(new Counter[] { counter3, counter6, counter9 });
@@ -198,6 +204,7 @@ namespace TownHallSimulation
         //matching the counter with the person
         public void AssignCounter(List<Person> people)
         {
+            people.RemoveAll(item => item == null);
             foreach (Person p in people)
            {
                 if (p.CenterWasReached && p.IsAssigned == false)
@@ -310,14 +317,35 @@ namespace TownHallSimulation
             }
         }
 
+        public void reset()
+        {
+            foreach (Person item in TotalPeopleList)
+            {
+                item.Image.Dispose();
+
+            }
+            TotalPeopleList = new List<Person>();
+            AddressChangeCountersList = new List<Counter>();
+            PropertySaleCountersList = new List<Counter>();
+            PermitRequestCountersList = new List<Counter>();
+            stats = new List<Statistics>();
+            Time = 8;
+            InitializeCounters();
+            printed = false;
+            //counter4.OnCounterReach();
+            rnd = new Random();
+        }
+
         public void Draw(Graphics gr)
         {
             //TotalPeopleList.RemoveAll(item => item == null);
-            foreach (Person p in TotalPeopleList)
+            foreach (Person p in TotalPeopleList.ToList())
                 {
                     p.DrawPerson(gr);
                 }
                 
         }
+
+        
     }
 }

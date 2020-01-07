@@ -312,7 +312,6 @@ namespace TownHallSimulation
             // 
             // MovingTimer
             // 
-            this.MovingTimer.Interval = 350;
             this.MovingTimer.Tick += new System.EventHandler(this.MovingTimer_Tick);
             // 
             // lblCounter8

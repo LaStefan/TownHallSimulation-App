@@ -114,15 +114,37 @@ namespace TownHallSimulation
             //{
             //    gr.DrawImage(Image, Location);
             //}
-            Image.Location = Location;
-            Image.Refresh();
+            if (Image != null)
+            {
+                Image.Location = Location;
+                Image.Refresh();
+            }
+           
         }
-        public void TDrawPerson(Form1 fr)
+        private void ChangeColor()
         {
-            form = fr;
-            form.Controls.Add(Image);
-            Image.Refresh();
+            if (Image != null)
+            {
+                switch (TypeOfAppointment)
+                {
+                    case Appointment.AddressChange:
+                        Image.BackColor = Color.Red;
+                        break;
+                    case Appointment.PropertySale:
+                        Image.BackColor = Color.RoyalBlue;
+                        break;
+                    case Appointment.PermitRequest:
+                        Image.BackColor = Color.Green;
+                        break;
+                    default:
+                        Image.BackColor = Color.Black;
+                        break;
+                }
+            }
+            
         }
+
+
 
         private void personMove_Tick(object sender, EventArgs e)
         {
@@ -218,7 +240,7 @@ namespace TownHallSimulation
 
         public void StartMoving()
         {
-            personMove.Interval = 10;
+            personMove.Interval = 50;
             personMove.Enabled = true;
             personMove.Tick += personMove_Tick;
         }

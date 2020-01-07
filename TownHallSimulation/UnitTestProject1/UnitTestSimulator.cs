@@ -76,34 +76,34 @@ namespace UnitTestProject1
 
         }
 
-        [TestMethod]
-        public void TestMethodCreateOne()
-        {
-            Form1 f = new Form1();
-            Simulator s = new Simulator(f);
-            Person p = new Person(Appointment.AddressChange);
-            s.TotalPeopleList.Add(p);
-            List<Person> temp = new List<Person>();
-            temp.Add(p);
-            CollectionAssert.AreEqual(temp,s.TotalPeopleList);
-        }
+        //[TestMethod]
+        //public void TestMethodCreateOne()
+        //{
+        //    Form1 f = new Form1();
+        //    Simulator s = new Simulator(f);
+        //    Person p = new Person(Appointment.AddressChange);
+        //    s.TotalPeopleList.Add(p);
+        //    List<Person> temp = new List<Person>();
+        //    temp.Add(p);
+        //    CollectionAssert.AreEqual(temp,s.TotalPeopleList);
+        //}
 
-        //what means lock?
-        [TestMethod]
-        public void TestMethodNavigatePerson()
-        {
-            Form1 f = new Form1();
-            Simulator s = new Simulator(f);
-        }
+        ////what means lock?
+        //[TestMethod]
+        //public void TestMethodNavigatePerson()
+        //{
+        //    Form1 f = new Form1();
+        //    Simulator s = new Simulator(f);
+        //}
 
-        [TestMethod]
-        public void TestMethodGetListofSpawnedPeople()
-        {
-            Form1 f = new Form1();
-            Simulator s = new Simulator(f);
-            List<Person> temp = s.TotalPeopleList;
-            List<Person> result = s.GetListofSpawnedPeople();
-            CollectionAssert.AreEqual(temp,result);
-        }
+        //[TestMethod]
+        //public void TestMethodGetListofSpawnedPeople()
+        //{
+        //    Form1 f = new Form1();
+        //    Simulator s = new Simulator(f);
+        //    List<Person> temp = s.TotalPeopleList;
+        //    List<Person> result = s.GetListofSpawnedPeople();
+        //    CollectionAssert.AreEqual(temp,result);
+        //}
     }
 }

@@ -60,8 +60,6 @@ namespace TownHallSimulation
             return PermitRequestCountersList;
         }
 
-        
-        
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
@@ -96,17 +94,31 @@ namespace TownHallSimulation
                     stats.Add(st);
                     foreach (Counter item in AddressChangeCountersList)
                     {
-                        item.GetQueueTimeList().Clear();
-                    }
-                    foreach (Counter item in PermitRequestCountersList)
-                    {
-                        item.GetQueueTimeList().Clear();
-                    }
-                    foreach (Counter item in PropertySaleCountersList)
-                    {
-                        item.GetQueueTimeList().Clear();
+                        Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
+                        Person p = new Person(point, image, currentType, this);
+                        TotalPeopleList.Add(p);
+                        //counter4.OnCounterReach(); //to test processing
                     }
                 }
+                    if (Time % 1 == 0)
+                    {
+                        Statistics st = new Statistics(this);
+                        st.UpdateTotalNumPeopl();
+                        st.CalculateAvgWaitingTime();
+                        stats.Add(st);
+                        foreach (Counter item in AddressChangeCountersList)
+                        {
+                            item.GetQueueTimeList().Clear();
+                        }
+                        foreach (Counter item in PermitRequestCountersList)
+                        {
+                            item.GetQueueTimeList().Clear();
+                        }
+                        foreach (Counter item in PropertySaleCountersList)
+                        {
+                            item.GetQueueTimeList().Clear();
+                        }
+                    }
             }
             else if(!printed)
             {

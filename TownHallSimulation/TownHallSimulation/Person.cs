@@ -20,12 +20,12 @@ namespace TownHallSimulation
     //Class Person
     public class Person
     {   //Fields 
-        private int id;
-        private Timer personMove;
+        public int id;
+        public Timer personMove;
         private Timer personStop;
         private int arrayCounter;
-        private List<Point> destinations;
-        private List<int> destintationsNumbers;
+        public List<Point> destinations;
+        public List<int> destintationsNumbers;
         private Point centerDesk = new Point(525, 360);
 
 
@@ -195,10 +195,6 @@ namespace TownHallSimulation
                         {
                             this.Location = new Point((this.Location.X) - 1, (this.Location.Y));
                         }
-                        else if (this.Location.X == DestinationPoint.X)
-                        {
-                            ReachesCounter();
-                        }
                     }
                 }
 
@@ -264,10 +260,11 @@ namespace TownHallSimulation
                 case "AddressChange":
                     foreach (Counter c in sim.GetAddressChangeCounterList())
                     {
-                        if (c.Location == this.Location && c.IsOccupied == false)
+                        if (c.Location == this.Location)
                         {
                             c.IsOccupied = true;
                             c.OnCounterReach();
+                            break;
                         }
                     }
                     break;
@@ -275,10 +272,11 @@ namespace TownHallSimulation
                 case "PropertySale":
                     foreach (Counter c in sim.GetPropertySaleCountersList())
                     {
-                        if (c.Location == this.Location && c.IsOccupied == false)
+                        if (c.Location == this.Location)
                         {
                             c.IsOccupied = true;
                             c.OnCounterReach();
+                            break;
                         }
                     }
                     break;
@@ -286,10 +284,11 @@ namespace TownHallSimulation
                 case "PermitRequest":
                     foreach (Counter c in sim.GetPermitRequestCountersList())
                     {
-                        if (c.Location == this.Location && c.IsOccupied == false)
+                        if (c.Location == this.Location)
                         {
                             c.IsOccupied = true;
                             c.OnCounterReach();
+                            break;
                         }
                     }
                     break;

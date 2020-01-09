@@ -13,7 +13,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodCalculateAvgWaitingTime()
         {
-            Simulator sim = new Simulator(new Form1());
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
             sim.InitializeCounters();
             double totalWaitingTIme = 0;
@@ -53,16 +54,18 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodGetTotalNrOfCountersOpened()
         {
-            Simulator sim = new Simulator(new Form1());
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
             int result = s.GetTotalNrOfCountersOpened();
-            Assert.AreEqual(10, result);
+            Assert.AreEqual(6, result);
         }
 
         [TestMethod]
         public void TestMethodUpdateTotalNumPeopl()
         {
-            Simulator sim = new Simulator(new Form1());
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
             int expect = sim.GetTotalPeopleList().Count;
             s.UpdateTotalNumPeopl();

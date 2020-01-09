@@ -121,7 +121,7 @@ namespace TownHallSimulation
             }
            
         }
-        private void ChangeColor()
+        public void ChangeColor()
         {
             if (Image != null)
             {
@@ -146,7 +146,7 @@ namespace TownHallSimulation
 
 
 
-        private void personMove_Tick(object sender, EventArgs e)
+        public void personMove_Tick(object sender, EventArgs e)
         {
             if (CenterWasReached)
             {

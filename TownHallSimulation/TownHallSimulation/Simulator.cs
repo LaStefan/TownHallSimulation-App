@@ -15,12 +15,12 @@ namespace TownHallSimulation
     {
         //Fields
         
-        private List<Counter> AddressChangeCountersList;
-        private List<Counter> PropertySaleCountersList;
-        private List<Counter> PermitRequestCountersList;
+        public List<Counter> AddressChangeCountersList;
+        public List<Counter> PropertySaleCountersList;
+        public List<Counter> PermitRequestCountersList;
         bool printed;
         Form1 form;
-        Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
+        public Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
         Random rnd;
         private Random spawnRandom = new Random();
         private List<Statistics> stats;
@@ -92,6 +92,7 @@ namespace TownHallSimulation
                     st.UpdateTotalNumPeopl();
                     st.CalculateAvgWaitingTime();
                     stats.Add(st);
+
                     foreach (Counter item in AddressChangeCountersList)
                     {
                         Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));

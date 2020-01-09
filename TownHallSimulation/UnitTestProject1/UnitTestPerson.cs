@@ -3,6 +3,7 @@ using TownHallSimulation;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System;
 
 namespace UnitTestProject1
 {
@@ -15,9 +16,34 @@ namespace UnitTestProject1
             Person p = new Person(Appointment.AddressChange);
             int id = p.id;
             int result = p.GetPersonId();
-            Assert.AreEqual(id,result);
+            Assert.AreEqual(id, result);
         }
-        ////这个方法被注销了
+
+        [TestMethod]
+        public void TestMethodChangeColor_AddressChange_check()
+        {
+            Person p = new Person(Appointment.AddressChange);
+            p.ChangeColor();
+            Assert.AreEqual(Color.Red, p.Image.BackColor);
+        }
+
+        [TestMethod]
+        public void TestMethodChangeColor_PropertySale_check()
+        {
+            Person p = new Person(Appointment.PropertySale);
+            p.ChangeColor();
+            Assert.AreEqual(Color.RoyalBlue, p.Image.BackColor);
+        }
+
+        [TestMethod]
+        public void TestMethodChangeColor_PermitRequest_check()
+        {
+            Person p = new Person(Appointment.PermitRequest);
+            p.ChangeColor();
+            Assert.AreEqual(Color.Green, p.Image.BackColor);
+        }
+
+        ////这个方法被删掉了
         ////[TestMethod]
         ////public void TestMethodGoToCounter_CheckLocationEqualsToDestinationPoint()
         ////{
@@ -186,7 +212,7 @@ namespace UnitTestProject1
         {
             Person p = new Person(Appointment.AddressChange);
             p.StartMoving();
-            Assert.AreEqual(10, p.personMove.Interval);
+            Assert.AreEqual(50, p.personMove.Interval);
         }
 
         [TestMethod]
@@ -207,31 +233,17 @@ namespace UnitTestProject1
             Assert.AreEqual(false, enabled);
         }
 
-        //[TestMethod]
-        //public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
-        //{
-        //    Person p = new Person(Appointment.AddressChange);
-        //    Simulator sim = new Simulator(new Form1());
-        //    List<bool> expect = new List<bool>();
-        //    foreach (Counter c in sim.GetAddressChangeCounterList())
-        //    {
-        //        if (c.Location == p.Location && c.IsOccupied == false)
-        //        {
-        //            c.IsOccupied = true;
-        //            expect.Add(c.IsOccupied);
-        //        }
-        //        else
-        //        {
-        //            expect.Add(c.IsOccupied);
-        //        }
-        //    }
-        //    p.ReachesCounter();
-        //    List<bool> result = new List<bool>();
-        //    foreach (Counter c in sim.GetAddressChangeCounterList())
-        //    {
-        //        result.Add(c.IsOccupied);
-        //    }
-        //    CollectionAssert.AreEqual(expect,result);
-        //}
+        [TestMethod]
+        public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
+        {
+            Person p = new Person(Appointment.AddressChange);
+            p.Location = new Point(275, 180);
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
+            sim.InitializeCounters();
+            p.ReachesCounter();
+            bool result = sim.counter1.IsOccupied;
+            Assert.AreEqual(true, result);
+        }
     }
 }

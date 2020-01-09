@@ -13,7 +13,7 @@ namespace TownHallSimulation
         //checking if the counters are opened and occupied 
         public bool IsOpened { get; set; }
         public bool IsOccupied { get; set; }
-        private Appointment _appointmentToProcess;
+        public Appointment _appointmentToProcess;
         public Queue<Person> QueueList { get; private set; }
         public List<double> queueTime = new List<double>();
         public Timer t;
@@ -74,7 +74,7 @@ namespace TownHallSimulation
             }
         }
         //removesm the person from the totalPeople list when we dequeue;
-        private void findAndRemve(Person p)
+        public void findAndRemve(Person p)
         {
             sim.TotalPeopleList.Remove(p);
                 

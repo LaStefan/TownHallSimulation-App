@@ -207,31 +207,31 @@ namespace UnitTestProject1
             Assert.AreEqual(false, enabled);
         }
 
-        [TestMethod]
-        public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
-        {
-            Person p = new Person(Appointment.AddressChange);
-            Simulator sim = new Simulator(new Form1());
-            List<bool> expect = new List<bool>();
-            foreach (Counter c in sim.GetAddressChangeCounterList())
-            {
-                if (c.Location == p.Location && c.IsOccupied == false)
-                {
-                    c.IsOccupied = true;
-                    expect.Add(c.IsOccupied);
-                }
-                else
-                {
-                    expect.Add(c.IsOccupied);
-                }
-            }
-            p.ReachesCounter();
-            List<bool> result = new List<bool>();
-            foreach (Counter c in sim.GetAddressChangeCounterList())
-            {
-                result.Add(c.IsOccupied);
-            }
-            CollectionAssert.AreEqual(expect,result);
-        }
+        //[TestMethod]
+        //public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
+        //{
+        //    Person p = new Person(Appointment.AddressChange);
+        //    Simulator sim = new Simulator(new Form1());
+        //    List<bool> expect = new List<bool>();
+        //    foreach (Counter c in sim.GetAddressChangeCounterList())
+        //    {
+        //        if (c.Location == p.Location && c.IsOccupied == false)
+        //        {
+        //            c.IsOccupied = true;
+        //            expect.Add(c.IsOccupied);
+        //        }
+        //        else
+        //        {
+        //            expect.Add(c.IsOccupied);
+        //        }
+        //    }
+        //    p.ReachesCounter();
+        //    List<bool> result = new List<bool>();
+        //    foreach (Counter c in sim.GetAddressChangeCounterList())
+        //    {
+        //        result.Add(c.IsOccupied);
+        //    }
+        //    CollectionAssert.AreEqual(expect,result);
+        //}
     }
 }

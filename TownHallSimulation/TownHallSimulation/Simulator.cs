@@ -95,10 +95,11 @@ namespace TownHallSimulation
 
                     foreach (Counter item in AddressChangeCountersList)
                     {
-                        Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
-                        Person p = new Person(point, image, currentType, this);
-                        TotalPeopleList.Add(p);
-                        //counter4.OnCounterReach(); //to test processing
+                        //记得改过来
+                        //Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
+                        //Person p = new Person(point, image, currentType, this);
+                        //TotalPeopleList.Add(p);
+                        ////counter4.OnCounterReach(); //to test processing
                     }
                 }
                     if (Time % 1 == 0)

@@ -260,6 +260,8 @@ namespace TownHallSimulation
                 case "AddressChange":
                     foreach (Counter c in sim.GetAddressChangeCounterList())
                     {
+                        Console.WriteLine("counter location:" + c.Location);
+                        Console.WriteLine("Person location:" + this.Location);
                         if (c.Location == this.Location)
                         {
                             c.IsOccupied = true;
@@ -283,16 +285,16 @@ namespace TownHallSimulation
 
                 case "PermitRequest":
                     foreach (Counter c in sim.GetPermitRequestCountersList())
-                    {
-                        if (c.Location == this.Location)
-                        {
-                            c.IsOccupied = true;
-                            c.OnCounterReach();
-                            break;
-                        }
-                    }
+            {
+                if (c.Location == this.Location)
+                {
+                    c.IsOccupied = true;
+                    c.OnCounterReach();
                     break;
+                }
             }
+            break;
         }
+    }
     }
 }

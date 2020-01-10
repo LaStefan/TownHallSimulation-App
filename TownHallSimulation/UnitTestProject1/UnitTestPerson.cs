@@ -233,17 +233,15 @@ namespace UnitTestProject1
             Assert.AreEqual(false, enabled);
         }
 
-        [TestMethod]
-        public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
-        {
-            Person p = new Person(Appointment.AddressChange);
-            p.Location = new Point(275, 180);
-            Form1 f = new Form1();
-            Simulator sim = new Simulator(f);
-            sim.InitializeCounters();
-            p.ReachesCounter();
-            bool result = sim.counter1.IsOccupied;
-            Assert.AreEqual(true, result);
-        }
+        //[TestMethod]
+        //public void TestMethodReachesCounter_AddressChange_CheckIsOccupied()
+        //{
+        //    Form1 f = new Form1();
+        //    Simulator sim = new Simulator(f);
+        //    Person p = new Person(Appointment.AddressChange);
+        //    p.Location = new Point(275,180);
+        //    p.ReachesCounter();
+        //    Assert.AreEqual(275, p.Location.X);
+        //}
     }
 }

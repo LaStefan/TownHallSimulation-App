@@ -17,7 +17,7 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
-       
+
         System.Drawing.Rectangle rect;
         private Simulator sim;
         public Form1()
@@ -31,7 +31,7 @@ namespace TownHallSimulation
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-            if (sim.Time>12 && sim.Time <14)
+            if (sim.Time > 12 && sim.Time < 14)
             {
                 SpawnTimer.Interval = 100;
             }
@@ -40,7 +40,7 @@ namespace TownHallSimulation
                 SpawnTimer.Interval = 500;
             }
             double tempTime = sim.Time % 1;
-            
+
             foreach (Person p in sim.GetTotalPeopleList())
             {
                 p.ReachesCounter();
@@ -52,7 +52,7 @@ namespace TownHallSimulation
             sim.SpawnPeople();
             sim.AssignCounter(sim.GetTotalPeopleList());
             sim.UpdateLabels();
-           // temp = sim.GetListofSpawnedPeople();
+            // temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }
 
@@ -86,7 +86,7 @@ namespace TownHallSimulation
 
         private void CircularButton1_Click(object sender, EventArgs e)
         {
-            this.Enabled = true;
+            sim.AddressChangeCountersList[2].UpdateIsOpened();
             if (btnCounter7.BackColor == Color.DarkCyan)
             {
                 btnCounter7.BackColor = Color.DarkSlateGray;
@@ -99,10 +99,10 @@ namespace TownHallSimulation
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-           sim.Draw(e.Graphics);
+            sim.Draw(e.Graphics);
             foreach (Person person in sim.TotalPeopleList.ToList())
             {
-               
+
                 this.Controls.Add(person.Image);
             }
         }
@@ -119,7 +119,7 @@ namespace TownHallSimulation
             {
                 sim = new Simulator(this);
             }
-           
+
             //PictureBox picture = new PictureBox();
             //picture.Size = new Size(16, 16);
             //picture.Location = new Point(539, 458);
@@ -136,16 +136,18 @@ namespace TownHallSimulation
         {
             sim.Stop();
             sim.reset();
-            
+
         }
 
         private void circularButton9_Click(object sender, EventArgs e)
         {
-            
+            sim.PermitRequestCountersList[0].UpdateIsOpened();
             if (btnCounter2.BackColor == Color.DarkSlateGray)
             {
                 btnCounter2.BackColor = Color.DarkCyan;
-            }else{
+            }
+            else
+            {
                 btnCounter2.BackColor = Color.DarkSlateGray;
             }
         }
@@ -167,7 +169,7 @@ namespace TownHallSimulation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+
         }
 
 
@@ -182,7 +184,8 @@ namespace TownHallSimulation
         }
 
         private void btnCounter10_Click(object sender, EventArgs e)
-        {
+        { 
+            sim.AddressChangeCountersList[3].UpdateIsOpened();
             if (btnCounter10.BackColor == Color.DarkCyan)
             {
                 btnCounter10.BackColor = Color.DarkSlateGray;
@@ -191,22 +194,26 @@ namespace TownHallSimulation
             {
                 btnCounter10.BackColor = Color.DarkCyan;
             }
-            
+
         }
 
         private void btnCounter1_Click(object sender, EventArgs e)
         {
+            sim.AddressChangeCountersList[0].UpdateIsOpened();
             if (btnCounter1.BackColor == Color.DarkSlateGray)
             {
                 btnCounter1.BackColor = Color.DarkCyan;
-            }else{
+            }
+            else
+            {
                 btnCounter1.BackColor = Color.DarkSlateGray;
             }
-            
+
         }
 
         private void btnCounter3_Click(object sender, EventArgs e)
         {
+            sim.PropertySaleCountersList[0].UpdateIsOpened();
             if (btnCounter3.BackColor == Color.DarkSlateGray)
             {
                 btnCounter3.BackColor = Color.DarkCyan;
@@ -219,21 +226,25 @@ namespace TownHallSimulation
 
         private void btnCounter4_Click(object sender, EventArgs e)
         {
+            sim.AddressChangeCountersList[1].UpdateIsOpened();
             if (btnCounter4.BackColor == Color.DarkSlateGray)
             {
                 btnCounter4.BackColor = Color.DarkCyan;
-            }else
-{
+            }
+            else
+            {
                 btnCounter4.BackColor = Color.DarkSlateGray;
             }
         }
 
         private void btnCounter5_Click(object sender, EventArgs e)
         {
+            sim.PermitRequestCountersList[1].UpdateIsOpened();
             if (btnCounter5.BackColor == Color.DarkSlateGray)
             {
                 btnCounter5.BackColor = Color.DarkCyan;
-            }else
+            }
+            else
             {
                 btnCounter5.BackColor = Color.DarkSlateGray;
             }
@@ -241,6 +252,7 @@ namespace TownHallSimulation
 
         private void btnCounter9_Click(object sender, EventArgs e)
         {
+            sim.PropertySaleCountersList[2].UpdateIsOpened();
             if (btnCounter9.BackColor == Color.DarkCyan)
             {
                 btnCounter9.BackColor = Color.DarkSlateGray;
@@ -253,16 +265,20 @@ namespace TownHallSimulation
 
         private void btnCounter6_Click(object sender, EventArgs e)
         {
+            sim.PropertySaleCountersList[1].UpdateIsOpened();
             if (btnCounter6.BackColor == Color.DarkCyan)
             {
                 btnCounter6.BackColor = Color.DarkSlateGray;
-            }else{
+            }
+            else
+            {
                 btnCounter6.BackColor = Color.DarkCyan;
             }
         }
 
         private void btnCounter8_Click(object sender, EventArgs e)
         {
+            sim.PermitRequestCountersList[2].UpdateIsOpened();
             if (btnCounter8.BackColor == Color.DarkCyan)
             {
                 btnCounter8.BackColor = Color.DarkSlateGray;

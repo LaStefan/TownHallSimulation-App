@@ -11,7 +11,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodGetQueueTimeList()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             c.queueTime.Add(0.1);
             c.queueTime.Add(2.3);
             List<double> expect = new List<double>();
@@ -24,11 +26,13 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodGetSimulator()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
             Form1 f = new Form1();
             Simulator s = new Simulator(f);
-            c.GetSimulator(s);
-            Simulator expect = s;
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
+            Form1 f1 = new Form1();
+            Simulator s1 = new Simulator(f);
+            c.GetSimulator(s1);
+            Simulator expect = s1;
             Simulator result = c.sim;
             Assert.AreSame(expect, result);
         }
@@ -36,7 +40,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodcounterLocations()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             Point expect = new Point(310,75);
             Point result = c.counterLocations();
             Assert.AreEqual(expect, result);
@@ -45,7 +51,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodUpdateIsOpened()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             bool expect = c.IsOpened;
             c.UpdateIsOpened();
             bool result = c.IsOpened;
@@ -55,48 +63,98 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodUpdateStatus()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             c.UpdateStatus();
             bool result = c.IsOccupied;
             Assert.AreEqual(true, result);
         }
 
-        //[TestMethod]
-        //public void TestMethodFIFO_QueueListChanged()
-        //{
-        //    Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
-        //    Person p1 = new Person(Appointment.AddressChange);
-        //    Person p2 = new Person(Appointment.PermitRequest);
-        //    Person p3 = new Person(Appointment.PropertySale);
-        //    c.QueueList.Enqueue(p1);
-        //    c.QueueList.Enqueue(p2);
-        //    c.QueueList.Enqueue(p3);
-        //    c.FIFO();
-        //    Queue<Person> temp = new Queue<Person>();
-        //    temp.Enqueue(p2);
-        //    temp.Enqueue(p3);
-        //    CollectionAssert.AreEqual(temp, c.QueueList);
-        //}
-
         [TestMethod]
-        public void TestMethodFIFO_UpdateStatus()
+        public void TestMethodFIFO_findAndRemve_check()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             Person p1 = new Person(Appointment.AddressChange);
             Person p2 = new Person(Appointment.PermitRequest);
             Person p3 = new Person(Appointment.PropertySale);
             c.QueueList.Enqueue(p1);
             c.QueueList.Enqueue(p2);
             c.QueueList.Enqueue(p3);
+            c.IsOccupied = true;
+            c.sim.TotalPeopleList.Add(p1);
+            c.sim.TotalPeopleList.Add(p3);
+            c.FIFO();
+            List<Person> expect = new List<Person>();
+            expect.Add(p3);
+            CollectionAssert.AreEqual(expect,c.sim.TotalPeopleList);
+        }
+
+        [TestMethod]
+        public void TestMethodFIFO_QueueList_check()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange, s);
+            Person p1 = new Person(Appointment.AddressChange);
+            Person p2 = new Person(Appointment.PermitRequest);
+            Person p3 = new Person(Appointment.PropertySale);
+            c.QueueList.Enqueue(p1);
+            c.QueueList.Enqueue(p2);
+            c.QueueList.Enqueue(p3);
+            c.IsOccupied = true;
+            c.FIFO();
+            List<Person> expect = new List<Person>();
+            expect.Add(p2);
+            expect.Add(p3);
+            CollectionAssert.AreEqual(expect, c.QueueList);
+        }
+
+        [TestMethod]
+        public void TestMethodFIFO_UpdateStatus()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
+            Person p1 = new Person(Appointment.AddressChange);
+            Person p2 = new Person(Appointment.PermitRequest);
+            Person p3 = new Person(Appointment.PropertySale);
+            c.QueueList.Enqueue(p1);
+            c.QueueList.Enqueue(p2);
+            c.QueueList.Enqueue(p3);
+            c.IsOccupied = true;
             c.FIFO();
             bool result = c.IsOccupied;
             Assert.AreEqual(false, result);
         }
 
         [TestMethod]
+        public void TestMethodfindAndRemve()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange, s);
+            Person p1 = new Person(Appointment.AddressChange);
+            Person p2 = new Person(Appointment.PermitRequest);
+            Person p3 = new Person(Appointment.PropertySale);
+            c.sim.TotalPeopleList.Add(p1);
+            c.sim.TotalPeopleList.Add(p2);
+            c.sim.TotalPeopleList.Add(p3);
+            c.findAndRemve(p2);
+            List<Person> expect = new List<Person>();
+            expect.Add(p1);
+            expect.Add(p3);
+            CollectionAssert.AreEqual(expect, c.sim.TotalPeopleList);
+        }
+
+        [TestMethod]
         public void TestMethodSetTimer_CheckAutoReset()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             c.SetTimer();
             bool autoreset = c.t.AutoReset;
             Assert.AreEqual(false, autoreset);
@@ -105,7 +163,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodSetTimer_CheckEnabled()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             c.SetTimer();
             bool enabled = c.t.Enabled;
             Assert.AreEqual(true, enabled);
@@ -114,31 +174,45 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodSetInterval_CheckAddressChange()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
-            double temp = 3000;
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
+            c._appointmentToProcess = Appointment.AddressChange;
+            c.SetInterval();
+            double temp = 300;
             Assert.AreEqual(temp, c.t.Interval);
         }
 
         [TestMethod]
         public void TestMethodSetInterval_CheckPermitRequest()
         {
-            Counter c1 = new Counter(new Point(20, 20), Appointment.PermitRequest);
-            double temp = 5000;
-            Assert.AreEqual(temp, c1.t.Interval);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.PermitRequest,s);
+            c._appointmentToProcess = Appointment.PermitRequest;
+            c.SetInterval();
+            double temp = 500;
+            Assert.AreEqual(temp, c.t.Interval);
         }
 
         [TestMethod]
         public void TestMethodSetInterval_CheckPropertySale()
         {
-            Counter c2 = new Counter(new Point(20, 20), Appointment.PropertySale);
-            double temp = 8000;
-            Assert.AreEqual(temp, c2.t.Interval);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.PropertySale,s);
+            c._appointmentToProcess = Appointment.PropertySale;
+            c.SetInterval();
+            double temp = 800;
+            Assert.AreEqual(temp, c.t.Interval);
         }
 
         [TestMethod]
         public void TestMethodOnCounterReach_EqualOrBiggerThenOne_CheckAutoReset()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             Person p1 = new Person(Appointment.AddressChange);
             Person p2 = new Person(Appointment.PermitRequest);
             Person p3 = new Person(Appointment.PropertySale);
@@ -153,7 +227,9 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodOnCounterReach_EqualOrBiggerThenOne_CheckEnabled()
         {
-            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange);
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            Counter c = new Counter(new Point(20, 20), Appointment.AddressChange,s);
             Person p1 = new Person(Appointment.AddressChange);
             Person p2 = new Person(Appointment.PermitRequest);
             Person p3 = new Person(Appointment.PropertySale);
@@ -164,5 +240,6 @@ namespace UnitTestProject1
             bool enabled = c.t.Enabled;
             Assert.AreEqual(true, enabled);
         }
+
     }
 }

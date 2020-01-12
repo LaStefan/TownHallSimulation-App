@@ -13,7 +13,7 @@ namespace TownHallSimulation
         //checking if the counters are opened and occupied 
         public bool IsOpened { get; set; }
         public bool IsOccupied { get; set; }
-        private Appointment _appointmentToProcess;
+        public Appointment _appointmentToProcess;
         public Queue<Person> QueueList { get; private set; }
         public List<double> queueTime = new List<double>();
         public Timer t;

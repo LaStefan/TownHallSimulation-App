@@ -151,7 +151,7 @@ namespace TownHallSimulation
 
 
 
-        private void personMove_Tick(object sender, EventArgs e)
+        public void personMove_Tick(object sender, EventArgs e)
         {
             if (CenterWasReached)
             {
@@ -265,6 +265,8 @@ namespace TownHallSimulation
                 case "AddressChange":
                     foreach (Counter c in sim.GetAddressChangeCounterList())
                     {
+                        Console.WriteLine("counter location:" + c.Location);
+                        Console.WriteLine("Person location:" + this.Location);
                         if (c.Location == this.Location)
                         {
                             c.IsOccupied = true;
@@ -300,7 +302,10 @@ namespace TownHallSimulation
                         }
                     }
                     break;
+                }
             }
+            break;
         }
+    }
     }
 }

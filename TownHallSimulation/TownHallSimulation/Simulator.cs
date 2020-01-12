@@ -15,9 +15,9 @@ namespace TownHallSimulation
     {
         //Fields
         
-        private List<Counter> AddressChangeCountersList;
-        private List<Counter> PropertySaleCountersList;
-        private List<Counter> PermitRequestCountersList;
+        public List<Counter> AddressChangeCountersList;
+        public List<Counter> PropertySaleCountersList;
+        public List<Counter> PermitRequestCountersList;
         bool printed;
         public Form1 form { get;  set; }
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
@@ -90,6 +90,7 @@ namespace TownHallSimulation
                 {
                     Statistics st = new Statistics(this);
                     stats.Add(st);
+
                     foreach (Counter item in AddressChangeCountersList)
                     {
                         item.queueTime.Clear();

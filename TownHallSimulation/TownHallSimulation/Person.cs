@@ -34,7 +34,7 @@ namespace TownHallSimulation
         public Point InitialPoint { get; set; }
         public bool IsAssigned { get; set; } = false;
         public bool CenterWasReached { get; set; } = false;
-       // public Bitmap Image { get; set; }
+        // public Bitmap Image { get; set; }
         public PictureBox Image { get; set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
@@ -55,7 +55,6 @@ namespace TownHallSimulation
                 Name = PersonId.ToString(),
                 Size = new Size(16, 16),
                 Location = Location,
-                Image = Properties.Resources.d,
                 BackColor = Color.Black,
 
             };
@@ -120,6 +119,12 @@ namespace TownHallSimulation
                 Image.Refresh();
             }
            
+        }
+        public void DiscardPerson()
+        {
+            Image.BackColor = Color.White;
+            PictureBox.CheckForIllegalCrossThreadCalls = false;
+            Image.Dispose();
         }
         private void ChangeColor()
         {
@@ -264,6 +269,7 @@ namespace TownHallSimulation
                         {
                             c.IsOccupied = true;
                             c.OnCounterReach();
+                            Image.BackColor = Color.White;
                             break;
                         }
                     }
@@ -276,6 +282,7 @@ namespace TownHallSimulation
                         {
                             c.IsOccupied = true;
                             c.OnCounterReach();
+                            Image.BackColor = Color.White;
                             break;
                         }
                     }
@@ -288,6 +295,7 @@ namespace TownHallSimulation
                         {
                             c.IsOccupied = true;
                             c.OnCounterReach();
+                            Image.BackColor = Color.White;
                             break;
                         }
                     }

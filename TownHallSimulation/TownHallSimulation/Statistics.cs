@@ -20,44 +20,48 @@ namespace TownHallSimulation
         public int TotalNrOfCountersOpened { get; private set; }
         public double AverageWaitingTime { get; private set; }
         public double Time { get; set; }
+        public double avgWaitingTime { get; set; }
         
 
 
         public Statistics(Simulator simulator)
         {
-            TotalNrPeople = 0;
+            
             sim = simulator;
+            TotalNrPeople = sim.GetTotalPeopleList().Count;
             TotalNrOfCounters = 10;
             TotalNrOfCountersOpened = GetTotalNrOfCountersOpened();
             Time = simulator.Time;
+            avgWaitingTime = CalculateAvgWaitingTime();
         }
         public double CalculateAvgWaitingTime()
         {
             double totalWaitingTIme =0;
+            int temp = 0;
             foreach (Counter item in sim.GetAddressChangeCounterList())
             {
-                //item.OnCounterReach();
-                foreach (double d in item.GetQueueTimeList())
+                foreach (double d in item.queueTime)
                 {
                    totalWaitingTIme += d;
+                    temp++;
                 }
             }
             foreach (Counter item in sim.GetPermitRequestCountersList())
             {
-                //item.OnCounterReach();
 
-                foreach (double d in item.GetQueueTimeList())
+                foreach (double d in item.queueTime)
                 {
                     totalWaitingTIme += d;
+                    temp++;
                 }
             }
             foreach (Counter item in sim.GetPropertySaleCountersList())
             {
-                //item.OnCounterReach();
 
-                foreach (double d in item.GetQueueTimeList())
+                foreach (double d in item.queueTime)
                 {
                     totalWaitingTIme += d;
+                    temp++;
                 }
             }
 

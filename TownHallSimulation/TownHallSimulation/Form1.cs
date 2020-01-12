@@ -33,11 +33,11 @@ namespace TownHallSimulation
 
             if (sim.Time>12 && sim.Time <14)
             {
-                SpawnTimer.Interval = 200;
+                SpawnTimer.Interval = 100;
             }
             else
             {
-                SpawnTimer.Interval = 1000;
+                SpawnTimer.Interval = 500;
             }
             double tempTime = sim.Time % 1;
             
@@ -56,6 +56,10 @@ namespace TownHallSimulation
             Invalidate();
         }
 
+        private void iHateThis()
+        {
+
+        }
         private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

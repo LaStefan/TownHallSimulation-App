@@ -18,6 +18,7 @@ namespace TownHallSimulation
         public List<double> queueTime = new List<double>();
         public Timer t;
         public Simulator sim;
+        private Form1 form;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess, Simulator s)
@@ -61,22 +62,47 @@ namespace TownHallSimulation
         //I make it to be public only for unit test
         public void FIFO()
         {
-            if (QueueList.Count > 0 && IsOccupied)
+            if (QueueList.Count > 0)
             {
                 QueueList.Peek().sw.Stop();
-                queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
-               // QueueList.Peek().Image.BackColor = Color.Yellow;
 
-                findAndRemve(QueueList.Peek());
-               
+                queueTime.Add((QueueList.Peek().sw.Elapsed.TotalSeconds));
+                //try
+                {
+                    //if (QueueList.Peek().Image.InvokeRequired)
+                    //{
+                    //    QueueList.Peek().Image.Invoke(new Action(form.Dispose));
+                    //    return;
+                    //}
+                    QueueList.Peek().Image.BackColor = Color.White;
+                    QueueList.Peek().DiscardPerson();
+
+                    findAndRemve(QueueList.Peek());
+                }
+                //catch (Exception ex)
+                //{
+
+                //   // System.Windows.Forms.MessageBox.Show(ex.ToString());
+                //}
+
+
                 QueueList.Dequeue();
                 UpdateStatus();
             }
         }
-        //removesm the person from the totalPeople list when we dequeue;
+        //removes the person from the totalPeople list when we dequeue;
         private void findAndRemve(Person p)
         {
-            sim.TotalPeopleList.Remove(p);
+            foreach (var item in sim.TotalPeopleList)
+            {
+                if (item==p)
+                {
+                    item.DiscardPerson();
+
+                    sim.TotalPeopleList.Remove(p);
+                    break;
+                }
+            }
                 
         }
 

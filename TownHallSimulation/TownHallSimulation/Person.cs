@@ -34,7 +34,7 @@ namespace TownHallSimulation
         public Point InitialPoint { get; set; }
         public bool IsAssigned { get; set; } = false;
         public bool CenterWasReached { get; set; } = false;
-        public Bitmap Image { get; set; }
+        public PictureBox Image { get; set; }
         public int PersonId { get; private set; }
         public TimeSpan Timer { get; set; }
         public Point Location { get; set; }
@@ -47,7 +47,15 @@ namespace TownHallSimulation
         //Constructor 1
         public Person(Appointment type)
         {
-            Image = new Bitmap(Properties.Resources.d, new Size(10,10));
+            Image = new PictureBox
+            {
+                Name = PersonId.ToString(),
+                Size = new Size(16, 16),
+                Location = Location,
+                Image = Properties.Resources.d,
+                BackColor = Color.Black,
+
+            };
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
@@ -58,7 +66,15 @@ namespace TownHallSimulation
         public Person(Point location, Bitmap image, Appointment type, Simulator sim)
         {
             Location = location;
-            Image = new Bitmap(TownHallSimulation.Properties.Resources.d, new Size(10, 10));
+            Image = new PictureBox
+            {
+                Name = PersonId.ToString(),
+                Size = new Size(16, 16),
+                Location = Location,
+                Image = Properties.Resources.d,
+                BackColor = Color.Black,
+
+            };
             personMove = new Timer();
             personStop = new Timer();
             TypeOfAppointment = type;
@@ -89,15 +105,54 @@ namespace TownHallSimulation
 
         public void DrawPerson(Graphics gr)
         {
-            if (this.Image != null)
+            //if (this.Image != null)
+            //{
+            //gr.DrawImage(Image, Location);
+            //}
+            if (Image != null)
             {
-                gr.DrawImage(Image, Location);
+                Image.Location = Location;
+                Image.Refresh();
             }
+        }
+
+        public void DiscardPerson()
+        {
+            Image.BackColor = Color.White;
+            PictureBox.CheckForIllegalCrossThreadCalls = false;
+            Image.Dispose();
+        }
+
+        private void ChangeColor()
+        {
+            if (Image != null)
+            {
+                switch (TypeOfAppointment)
+                {
+                    case Appointment.AddressChange:
+                        Image.BackColor = Color.Red;
+                        break;
+                    case Appointment.PropertySale:
+                        Image.BackColor = Color.RoyalBlue;
+                        break;
+                    case Appointment.PermitRequest:
+                        Image.BackColor = Color.Green;
+                        break;
+                    default:
+                        Image.BackColor = Color.Black;
+                        break;
+                }
+            }
+
         }
 
         private void personMove_Tick(object sender, EventArgs e)
         {
-                if (CenterWasReached == false)
+            if (CenterWasReached)
+            {
+                ChangeColor();
+            }
+            if (CenterWasReached == false)
                 {
                         if (this.Location.Y != centerDesk.Y)
                         {

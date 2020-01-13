@@ -17,7 +17,7 @@ namespace TownHallSimulation
 {
     public partial class Form1 : Form
     {
-       
+
         System.Drawing.Rectangle rect;
         private Simulator sim;
         public Form1()
@@ -32,12 +32,11 @@ namespace TownHallSimulation
         {
 
             double tempTime = sim.Time % 1;
-            
-            foreach (Person p in sim.GetTotalPeopleList())
+
+            foreach(Person p in sim.TotalPeopleList)
             {
                 p.ReachesCounter();
             }
-
 
             lblTime.Text = String.Format("{0:0}:00", sim.Time);
 
@@ -45,7 +44,7 @@ namespace TownHallSimulation
             sim.AssignCounter(sim.GetTotalPeopleList());
             sim.UpdateLabels();
             lbTotalPeople.Text = sim.GetTotalPeopleList().Count.ToString() + " people";
-           // temp = sim.GetListofSpawnedPeople();
+            // temp = sim.GetListofSpawnedPeople();
             Invalidate();
         }
 
@@ -89,13 +88,28 @@ namespace TownHallSimulation
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             sim.Draw(e.Graphics);
+            foreach (Person person in sim.TotalPeopleList)
+            {
+
+                this.Controls.Add(person.Image);
+            }
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
             sim.Start();
             MovingTimer.Start();
-            SpawnTimer.Enabled=true;
+            SpawnTimer.Enabled = true;
+            //PictureBox picture = new PictureBox();
+            //picture.Size = new Size(16, 16);
+            //picture.Location = new Point(539, 458);
+            //picture.Image = Properties.Resources.d;
+            //picture.BackColor = Color.Black;
+
+
+
+            //this.Controls.Add(picture);
+
         }
 
         private void BtnStop_Click(object sender, EventArgs e)
@@ -105,11 +119,13 @@ namespace TownHallSimulation
 
         private void circularButton9_Click(object sender, EventArgs e)
         {
-            
+
             if (btnCounter2.BackColor == Color.DarkSlateGray)
             {
                 btnCounter2.BackColor = Color.DarkCyan;
-            }else{
+            }
+            else
+            {
                 btnCounter2.BackColor = Color.DarkSlateGray;
             }
         }
@@ -131,7 +147,7 @@ namespace TownHallSimulation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-         
+
         }
 
 
@@ -153,7 +169,7 @@ namespace TownHallSimulation
             {
                 btnCounter10.BackColor = Color.DarkCyan;
             }
-            
+
         }
 
         private void btnCounter1_Click(object sender, EventArgs e)
@@ -161,10 +177,12 @@ namespace TownHallSimulation
             if (btnCounter1.BackColor == Color.DarkSlateGray)
             {
                 btnCounter1.BackColor = Color.DarkCyan;
-            }else{
+            }
+            else
+            {
                 btnCounter1.BackColor = Color.DarkSlateGray;
             }
-            
+
         }
 
         private void btnCounter3_Click(object sender, EventArgs e)
@@ -184,8 +202,9 @@ namespace TownHallSimulation
             if (btnCounter4.BackColor == Color.DarkSlateGray)
             {
                 btnCounter4.BackColor = Color.DarkCyan;
-            }else
-{
+            }
+            else
+            {
                 btnCounter4.BackColor = Color.DarkSlateGray;
             }
         }
@@ -195,7 +214,8 @@ namespace TownHallSimulation
             if (btnCounter5.BackColor == Color.DarkSlateGray)
             {
                 btnCounter5.BackColor = Color.DarkCyan;
-            }else
+            }
+            else
             {
                 btnCounter5.BackColor = Color.DarkSlateGray;
             }
@@ -218,7 +238,9 @@ namespace TownHallSimulation
             if (btnCounter6.BackColor == Color.DarkCyan)
             {
                 btnCounter6.BackColor = Color.DarkSlateGray;
-            }else{
+            }
+            else
+            {
                 btnCounter6.BackColor = Color.DarkCyan;
             }
         }

@@ -20,12 +20,13 @@ namespace TownHallSimulation
         public Simulator sim;
 
         // class constructor 
-        public Counter(Point location, Appointment appointmentToProcess)
+        public Counter(Point location, Appointment appointmentToProcess, Simulator s)
         {
             _id++;
             Location = location;
             IsOccupied = false;
             _appointmentToProcess = appointmentToProcess;
+            sim = s;
             t = new Timer();
             SetInterval();
             QueueList = new Queue<Person>();//for unit test
@@ -64,12 +65,32 @@ namespace TownHallSimulation
             {
                 QueueList.Peek().sw.Stop();
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
-                QueueList.Peek().Image = null;
+
+                QueueList.Peek().Image.BackColor = Color.White;
+                QueueList.Peek().DiscardPerson();
+
+                //findAndRemve(QueueList.Peek());
                 QueueList.Dequeue();
                 UpdateStatus();
             }
         }
-        //What is used for??
+
+        //removes the person from the totalPeople list when we dequeue;
+        private void findAndRemve(Person p)
+        {
+            foreach (var item in sim.TotalPeopleList)
+            {
+                if (item == p)
+                {
+                    item.DiscardPerson();
+
+                    sim.TotalPeopleList.Remove(p);
+                    break;
+                }
+            }
+
+        }
+
         public void SetTimer()
         {
             t.Elapsed += OnTick;

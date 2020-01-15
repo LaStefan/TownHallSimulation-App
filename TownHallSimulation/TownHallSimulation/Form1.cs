@@ -88,7 +88,7 @@ namespace TownHallSimulation
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             sim.Draw(e.Graphics);
-            foreach (Person person in sim.TotalPeopleList)
+            foreach (Person person in sim.TotalPeopleList.ToList())
             {
 
                 this.Controls.Add(person.Image);

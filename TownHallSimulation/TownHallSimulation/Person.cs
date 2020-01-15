@@ -118,9 +118,9 @@ namespace TownHallSimulation
 
         public void DiscardPerson()
         {
-            Image.BackColor = Color.White;
+            //Image.BackColor = Color.White;
             PictureBox.CheckForIllegalCrossThreadCalls = false;
-            Image.Dispose();
+            //Image.Dispose();
         }
 
         private void ChangeColor()

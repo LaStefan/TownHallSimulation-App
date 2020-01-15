@@ -62,9 +62,6 @@ namespace TownHallSimulation
         //Creates an instance of Person with a random Appointment value each time and adds to the list.
         public void SpawnPeople()
         {
-            int x = rnd.Next(350, 595);
-            int y = rnd.Next(437, 457);
-            Point point = new Point(x, y);
             Bitmap image = Resources.PropertySale;
 
             if (Time < 18)
@@ -76,6 +73,9 @@ namespace TownHallSimulation
                     var types = Enum.GetValues(typeof(Appointment));
                     for (int i = 0; i <= numberToSpawn; i++)
                     {
+                        int x = rnd.Next(350, 595);
+                        int y = rnd.Next(437, 457);
+                        Point point = new Point(x, y);
                         Appointment currentType = (Appointment)types.GetValue(spawnRandom.Next(types.Length));
                         Person p = new Person(point, image, currentType, this);
                         TotalPeopleList.Add(p);

@@ -67,10 +67,10 @@ namespace TownHallSimulation
                 QueueList.Peek().sw.Stop();
                 queueTime.Add(QueueList.Peek().sw.ElapsedMilliseconds);
 
-                QueueList.Peek().Image.BackColor = Color.White;
-                QueueList.Peek().DiscardPerson();
+                //QueueList.Peek().Image.BackColor = Color.White;
+                //QueueList.Peek().DiscardPerson();
 
-                //findAndRemve(QueueList.Peek());
+                findAndRemve(QueueList.Peek());
                 QueueList.Dequeue();
                 UpdateStatus();
             }

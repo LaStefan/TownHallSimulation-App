@@ -286,7 +286,7 @@ namespace TownHallSimulation
         public void Start()
         {
             TotalPeopleList.RemoveAll(item => item == null);
-            foreach (Person p in TotalPeopleList)
+            foreach (Person p in TotalPeopleList.ToList())
             {
                 p.StartMoving();
             }
@@ -300,6 +300,25 @@ namespace TownHallSimulation
             {
                 p.StopPerson();
             }
+        }
+
+        public void reset()
+        {
+            foreach (Person item in TotalPeopleList)
+            {
+                item.Image.Dispose();
+
+            }
+            TotalPeopleList = new List<Person>();
+            AddressChangeCountersList = new List<Counter>();
+            PropertySaleCountersList = new List<Counter>();
+            PermitRequestCountersList = new List<Counter>();
+            stats = new List<Statistics>();
+            Time = 8;
+            InitializeCounters();
+            printed = false;
+            //counter4.OnCounterReach();
+            rnd = new Random();
         }
 
         public void Draw(Graphics gr)

@@ -97,24 +97,23 @@ namespace TownHallSimulation
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            sim.Start();
-            MovingTimer.Start();
-            SpawnTimer.Enabled = true;
-            //PictureBox picture = new PictureBox();
-            //picture.Size = new Size(16, 16);
-            //picture.Location = new Point(539, 458);
-            //picture.Image = Properties.Resources.d;
-            //picture.BackColor = Color.Black;
-
-
-
-            //this.Controls.Add(picture);
+            if (sim != null)
+            {
+                sim.Start();
+                MovingTimer.Start();
+                SpawnTimer.Enabled = true;
+            }
+            else
+            {
+                sim = new Simulator(this);
+            }
 
         }
 
         private void BtnStop_Click(object sender, EventArgs e)
         {
             sim.Stop();
+            sim.reset();
         }
 
         private void circularButton9_Click(object sender, EventArgs e)

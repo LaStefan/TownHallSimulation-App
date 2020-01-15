@@ -18,6 +18,7 @@ namespace TownHallSimulation
         public List<double> queueTime = new List<double>();
         public Timer t;
         public Simulator sim;
+        private Form1 form;
 
         // class constructor 
         public Counter(Point location, Appointment appointmentToProcess, Simulator s)

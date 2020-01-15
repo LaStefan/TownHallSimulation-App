@@ -18,7 +18,7 @@ namespace TownHallSimulation
         public List<Counter> PropertySaleCountersList;
         public List<Counter> PermitRequestCountersList;
         bool printed;
-        Form1 form;
+        public Form1 form { get; set; }
         Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
         Random rnd;
         private Random spawnRandom = new Random();
@@ -90,15 +90,15 @@ namespace TownHallSimulation
                         stats.Add(st);
                         foreach (Counter item in AddressChangeCountersList)
                         {
-                            item.GetQueueTimeList().Clear();
+                            item.queueTime.Clear();
                         }
                         foreach (Counter item in PermitRequestCountersList)
                         {
-                            item.GetQueueTimeList().Clear();
+                            item.queueTime.Clear();
                         }
                         foreach (Counter item in PropertySaleCountersList)
                         {
-                            item.GetQueueTimeList().Clear();
+                            item.queueTime.Clear();
                         }
                     }
             }
@@ -128,7 +128,7 @@ namespace TownHallSimulation
                                 doc.Add(new iTextSharp.text.Paragraph($"Time:{item.Time}\n "+
                                     $"  Total number of people: {item.TotalNrPeople} \n " +
                                     $"                                  Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                    $"                                           Average waiting time: {item.AverageWaitingTime}"));
+                                    $"                                           Average waiting time: {item.avgWaitingTime}:0:00"));
 
                             }
 
@@ -162,10 +162,10 @@ namespace TownHallSimulation
                            text+=($"Time:{item.Time}\n " +
                                  $"Total number of people: {item.TotalNrPeople} \n " +
                                 $"Total number of counters open: {item.TotalNrOfCountersOpened} / {item.TotalNrOfCounters}" +
-                                $"\nAverage waiting time: {item.CalculateAvgWaitingTime():00}" +
+                                $"\nAverage waiting time: {item.avgWaitingTime:00}" +
                                 $"\n_____________________________________________________________________\n");
 
-                        }
+            }
 
             MessageBox.Show(text);
         }

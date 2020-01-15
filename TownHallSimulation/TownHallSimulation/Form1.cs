@@ -119,7 +119,7 @@ namespace TownHallSimulation
 
         private void circularButton9_Click(object sender, EventArgs e)
         {
-
+            sim.PermitRequestCountersList[0].UpdateIsOpened();
             if (btnCounter2.BackColor == Color.DarkSlateGray)
             {
                 btnCounter2.BackColor = Color.DarkCyan;
@@ -161,6 +161,7 @@ namespace TownHallSimulation
 
         private void btnCounter10_Click(object sender, EventArgs e)
         {
+            sim.AddressChangeCountersList[3].UpdateIsOpened();
             if (btnCounter10.BackColor == Color.DarkCyan)
             {
                 btnCounter10.BackColor = Color.DarkSlateGray;
@@ -174,6 +175,7 @@ namespace TownHallSimulation
 
         private void btnCounter1_Click(object sender, EventArgs e)
         {
+            sim.AddressChangeCountersList[0].UpdateIsOpened();
             if (btnCounter1.BackColor == Color.DarkSlateGray)
             {
                 btnCounter1.BackColor = Color.DarkCyan;
@@ -187,6 +189,7 @@ namespace TownHallSimulation
 
         private void btnCounter3_Click(object sender, EventArgs e)
         {
+            sim.PropertySaleCountersList[0].UpdateIsOpened();
             if (btnCounter3.BackColor == Color.DarkSlateGray)
             {
                 btnCounter3.BackColor = Color.DarkCyan;
@@ -199,6 +202,7 @@ namespace TownHallSimulation
 
         private void btnCounter4_Click(object sender, EventArgs e)
         {
+            sim.AddressChangeCountersList[1].UpdateIsOpened();
             if (btnCounter4.BackColor == Color.DarkSlateGray)
             {
                 btnCounter4.BackColor = Color.DarkCyan;
@@ -211,6 +215,7 @@ namespace TownHallSimulation
 
         private void btnCounter5_Click(object sender, EventArgs e)
         {
+            sim.PermitRequestCountersList[1].UpdateIsOpened();
             if (btnCounter5.BackColor == Color.DarkSlateGray)
             {
                 btnCounter5.BackColor = Color.DarkCyan;
@@ -223,6 +228,7 @@ namespace TownHallSimulation
 
         private void btnCounter9_Click(object sender, EventArgs e)
         {
+            sim.PropertySaleCountersList[2].UpdateIsOpened();
             if (btnCounter9.BackColor == Color.DarkCyan)
             {
                 btnCounter9.BackColor = Color.DarkSlateGray;
@@ -235,6 +241,7 @@ namespace TownHallSimulation
 
         private void btnCounter6_Click(object sender, EventArgs e)
         {
+            sim.PropertySaleCountersList[1].UpdateIsOpened();
             if (btnCounter6.BackColor == Color.DarkCyan)
             {
                 btnCounter6.BackColor = Color.DarkSlateGray;
@@ -247,6 +254,7 @@ namespace TownHallSimulation
 
         private void btnCounter8_Click(object sender, EventArgs e)
         {
+            sim.PermitRequestCountersList[2].UpdateIsOpened();
             if (btnCounter8.BackColor == Color.DarkCyan)
             {
                 btnCounter8.BackColor = Color.DarkSlateGray;

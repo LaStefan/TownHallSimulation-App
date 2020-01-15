@@ -413,7 +413,7 @@ namespace TownHallSimulation
             // 
             // btnCounter6
             // 
-            this.btnCounter6.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.btnCounter6.BackColor = System.Drawing.Color.DarkCyan;
             this.btnCounter6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCounter6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCounter6.ForeColor = System.Drawing.Color.White;

@@ -130,7 +130,7 @@ namespace TownHallSimulation
                 switch (TypeOfAppointment)
                 {
                     case Appointment.AddressChange:
-                        Image.BackColor = Color.Red;
+                        Image.BackColor = Color.DarkViolet;
                         break;
                     case Appointment.PropertySale:
                         Image.BackColor = Color.RoyalBlue;

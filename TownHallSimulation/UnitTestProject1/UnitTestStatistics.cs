@@ -11,41 +11,32 @@ namespace UnitTestProject1
     public class UnitTestStatistics
     {
         [TestMethod]
-        public void TestMethodCalculateAvgWaitingTime()
+        public void TestMethodCalculateAvgWaitingTime_Test1()
         {
-            Simulator sim = new Simulator(new Form1());
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
-            sim.InitializeCounters();
-            double totalWaitingTIme = 0;
-            int totalNum = 0;
-            foreach (Counter a in sim.GetAddressChangeCounterList())
-            {
-                a.FIFO();
-                foreach (double item in a.queueTime)
-                {
-                    totalWaitingTIme += item;
-                    totalNum++;
-                }
-            }
-            foreach (Counter b in sim.GetPermitRequestCountersList())
-            {
-                b.FIFO();
-                foreach (double item in b.queueTime)
-                {
-                    totalWaitingTIme += item;
-                    totalNum++;
-                }
-            }
-            foreach (Counter c in sim.GetPropertySaleCountersList())
-            {
-                c.FIFO();
-                foreach (double item in c.queueTime)
-                {
-                    totalWaitingTIme += item;
-                    totalNum++;
-                }
-            }
-            double expect = totalWaitingTIme / totalNum;
+            sim.AddressChangeCountersList[0].queueTime.Add(5.0);
+            sim.PropertySaleCountersList[0].queueTime.Add(6.0);
+            sim.PermitRequestCountersList[0].queueTime.Add(10.0);
+            sim.TotalPeopleList.Add(new Person(Appointment.PermitRequest));
+            double expect = 21;
+            double result = s.CalculateAvgWaitingTime();
+            Assert.AreEqual(expect, result);
+        }
+
+        [TestMethod]
+        public void TestMethodCalculateAvgWaitingTime_Test2()
+        {
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
+            Statistics s = new Statistics(sim);
+            sim.AddressChangeCountersList[0].queueTime.Add(5.0);
+            sim.PropertySaleCountersList[0].queueTime.Add(7.0);
+            sim.PermitRequestCountersList[0].queueTime.Add(10.0);
+            sim.TotalPeopleList.Add(new Person(Appointment.PermitRequest));
+            sim.TotalPeopleList.Add(new Person(Appointment.AddressChange));
+            double expect = 11;
             double result = s.CalculateAvgWaitingTime();
             Assert.AreEqual(expect, result);
         }
@@ -53,16 +44,18 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestMethodGetTotalNrOfCountersOpened()
         {
-            Simulator sim = new Simulator(new Form1());
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
             int result = s.GetTotalNrOfCountersOpened();
-            Assert.AreEqual(10, result);
+            Assert.AreEqual(6, result);
         }
 
         [TestMethod]
         public void TestMethodUpdateTotalNumPeopl()
         {
-            Simulator sim = new Simulator(new Form1());
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
             int expect = sim.GetTotalPeopleList().Count;
             s.UpdateTotalNumPeopl();

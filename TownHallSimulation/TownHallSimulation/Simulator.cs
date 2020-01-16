@@ -19,7 +19,7 @@ namespace TownHallSimulation
         public List<Counter> PermitRequestCountersList;
         bool printed;
         public Form1 form { get; set; }
-        Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
+        public Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
         Random rnd;
         private Random spawnRandom = new Random();
         private List<Statistics> stats;

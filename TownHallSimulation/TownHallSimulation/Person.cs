@@ -96,8 +96,28 @@ namespace TownHallSimulation
             };
         }
 
+        //constructor
+        public Person(Appointment type, Simulator sim)
+        {
+            Image = new PictureBox
+            {
+                Name = PersonId.ToString(),
+                Size = new Size(16, 16),
+                Location = Location,
+                Image = Properties.Resources.d,
+                BackColor = Color.Black,
+
+            };
+            this.sim = sim;
+            personMove = new Timer();
+            personStop = new Timer();
+            TypeOfAppointment = type;
+            sw = new Stopwatch();
+            sw.Start();
+        }
+
         //Methods of the class 
-       
+
         public int GetPersonId()
         {
             return id;
@@ -123,7 +143,7 @@ namespace TownHallSimulation
             Image.Dispose();
         }
 
-        private void ChangeColor()
+        public void ChangeColor() //make it pubic for unit test
         {
             if (Image != null)
             {
@@ -225,13 +245,6 @@ namespace TownHallSimulation
 
             //check the location of the person with the method SetInitialPosition
             destintationsNumbers = y;
-        }
-        
-
-        public Point FirstDestination(Point y)
-        {
-            y = new Point(480,300);
-            return y;
         }
 
         public void StartMoving()

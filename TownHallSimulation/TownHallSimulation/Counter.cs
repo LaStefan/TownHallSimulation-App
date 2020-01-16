@@ -32,6 +32,7 @@ namespace TownHallSimulation
             SetInterval();
             QueueList = new Queue<Person>();
         }
+
         //return the list of queue
         public List<Double> GetQueueTimeList()
         {

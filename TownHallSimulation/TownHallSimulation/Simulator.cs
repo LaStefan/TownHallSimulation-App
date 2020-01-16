@@ -17,14 +17,14 @@ namespace TownHallSimulation
         public List<Counter> AddressChangeCountersList;
         public List<Counter> PropertySaleCountersList;
         public List<Counter> PermitRequestCountersList;
-        bool printed;
+        public bool printed;//make it public for unit test
         public Form1 form { get; set; }
         public Counter counter1, counter2, counter3, counter4, counter5, counter6, counter7, counter8, counter9, counter10;
-        Random rnd;
-        private Random spawnRandom = new Random();
-        private List<Statistics> stats;
+        public Random rnd;
+        public Random spawnRandom = new Random();
+        public List<Statistics> stats;//for test
         //Properties
-        public double Time { get; private set; }
+        public double Time { get; set; }//use set rather than private set for unit test
         public List<Person> TotalPeopleList { get; private set; }
 
         public Simulator(Form1 f1)
@@ -106,7 +106,6 @@ namespace TownHallSimulation
             {
                 printed = true;
                 PrintStats();
-                
             }
         }
 

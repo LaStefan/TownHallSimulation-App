@@ -109,7 +109,7 @@ namespace TownHallSimulation
             }
         }
 
-        public bool PrintStats()
+        private bool PrintStats()
         {
             if (Microsoft.VisualBasic.Interaction.InputBox("Type \"T\" if you want to save today's stats.", "Save Dialog", "Do you want to save?") == "T")
             {

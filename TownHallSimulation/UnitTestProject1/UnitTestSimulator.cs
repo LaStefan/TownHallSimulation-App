@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TownHallSimulation;
 
@@ -122,50 +123,187 @@ namespace UnitTestProject1
             Assert.AreEqual(expect.ToString(), s.spawnRandom.ToString());
         }
 
-        //[TestMethod]
-        //public void TestMethodSpawnPeople_AddPerson_check()
-        //{
-        //    Form1 f = new Form1();
-        //    Simulator s = new Simulator(f);
-        //    s.Time = 14;
-        //    s.SpawnPeople();
-        //    //int x = s.rnd.Next(350, 595);
-        //    //int y = s.rnd.Next(437, 457);
-        //    //Point point = new Point(x, y);
-        //    Person p = new Person(Appointment.AddressChange);
-        //    Assert.AreSame(p, s.TotalPeopleList[s.TotalPeopleList.Count - 1]);
-        //}
+        [TestMethod]
+        public void TestMethodSpawnPeople_TimeCanDividedBy1_check_UpdateTotalNumPeopl()
+        {
+            Form1 f = new Form1();
+            Simulator sim = new Simulator(f);
+            int expect = sim.GetTotalPeopleList().Count;
+            Statistics s = new Statistics(sim);
+            sim.SpawnPeople();
+            int result = s.TotalNrPeople;
+            Assert.AreEqual(expect, result);
+        }
 
         [TestMethod]
-        public void TestMethodSpawnPeople_TimeCanDividedBy1_check()
+        public void TestMethodSpawnPeople_TimeCanDividedBy1_check_CalculateAvgWaitingTime_Test2()
         {
             Form1 f = new Form1();
             Simulator sim = new Simulator(f);
             Statistics s = new Statistics(sim);
-            foreach (Counter item in sim.AddressChangeCountersList)
-            {
-                item.queueTime.Clear();
-            }
-            foreach (Counter item in sim.PermitRequestCountersList)
-            {
-                item.queueTime.Clear();
-            }
-            foreach (Counter item in sim.PropertySaleCountersList)
-            {
-                item.queueTime.Clear();
-            }
-
+            sim.AddressChangeCountersList[0].queueTime.Add(5.0);
+            sim.PropertySaleCountersList[0].queueTime.Add(7.0);
+            sim.PermitRequestCountersList[0].queueTime.Add(10.0);
+            sim.TotalPeopleList.Add(new Person(Appointment.PermitRequest));
+            sim.TotalPeopleList.Add(new Person(Appointment.AddressChange));
+            double expect = 11;
+            double result = s.CalculateAvgWaitingTime();
+            Assert.AreEqual(expect, result);
         }
 
         [TestMethod]
-        public void TestMethodSpawnPeople_TimeBiggerThan18Print_check()
+        public void TestMethodSpawnPeople_TimeCanDividedBy1_check_AddressChangeCountersList()
         {
             Form1 f = new Form1();
             Simulator s = new Simulator(f);
-            s.Time = 19;
             s.SpawnPeople();
-            Assert.AreEqual(true, s.printed);
+            for (int i = 0; i < s.AddressChangeCountersList.Count; i++)
+            {
+                Assert.AreEqual(0,s.AddressChangeCountersList[i].queueTime.Count);
+            }
         }
+
+        [TestMethod]
+        public void TestMethodSpawnPeople_TimeCanDividedBy1_check_PermitRequestCountersList()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            s.SpawnPeople();
+            for (int i = 0; i < s.PermitRequestCountersList.Count; i++)
+            {
+                Assert.AreEqual(0, s.PermitRequestCountersList[i].queueTime.Count);
+            }
+        }
+
+        [TestMethod]
+        public void TestMethodSpawnPeople_TimeCanDividedBy1_check_PropertySaleCountersList()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            s.SpawnPeople();
+            for (int i = 0; i < s.PropertySaleCountersList.Count; i++)
+            {
+                Assert.AreEqual(0, s.PropertySaleCountersList[i].queueTime.Count);
+            }
+        }
+
+        public List<Person> GetTempPerson(Simulator s)
+        {
+            List<Person> templist = new List<Person>();
+            Person person1 = new Person(new Point(275, 180), null, Appointment.AddressChange, s);
+            person1.IsAssigned = false;
+            person1.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person1);
+            Person person11 = new Person(new Point(275, 180), null, Appointment.AddressChange, s);
+            person1.IsAssigned = false;
+            person1.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person11);
+            Person person12 = new Person(new Point(275, 180), null, Appointment.AddressChange, s);
+            person1.IsAssigned = false;
+            person1.ReachesCounter();
+            s.AddressChangeCountersList[0].QueueList.Enqueue(person12);
+            Person person2 = new Person(new Point(340, 132), null, Appointment.PermitRequest, s);
+            person2.IsAssigned = false;
+            person2.ReachesCounter();
+            Person person3 = new Person(new Point(340, 132), null, Appointment.PermitRequest, s);
+            person3.IsAssigned = false;
+            person3.ReachesCounter();
+            Person person4 = new Person(new Point(500, 132), null, Appointment.PropertySale, s);
+            person4.IsAssigned = false;
+            person4.ReachesCounter();
+            Person person5 = new Person(new Point(500, 132), null, Appointment.PropertySale, s);
+            person5.IsAssigned = false;
+            person5.ReachesCounter();
+            Person person6 = new Person(new Point(500, 132), null, Appointment.PropertySale, s);
+            person6.IsAssigned = false;
+            person6.ReachesCounter();
+            templist.AddRange(new Person[] { person1, person2, person3, person4, person5, person6 });
+            return templist;
+        }
+
+        [TestMethod]
+        public void TestMethodAssignCounter_AddressChange_check()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            List<Person> templist = new List<Person>();
+            Person person1 = new Person(new Point(275, 180), null, Appointment.AddressChange, s);
+            person1.IsAssigned = false;
+            person1.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person1);
+            Person person2 = new Person(new Point(275, 180), null, Appointment.AddressChange, s);
+            person2.IsAssigned = false;
+            person2.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person2);
+            Person person3 = new Person(new Point(275, 180), null, Appointment.AddressChange, s);
+            person3.IsAssigned = false;
+            person3.ReachesCounter();
+            s.AddressChangeCountersList[0].QueueList.Enqueue(person3);
+            person3.CenterWasReached = true;
+            templist.AddRange(new Person[] { person1, person2, person3 });
+            s.AssignCounter(templist);
+            Assert.AreEqual(true, person3.IsAssigned);
+        }
+
+        [TestMethod]
+        public void TestMethodAssignCounter_PermitRequest_check()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            List<Person> templist = new List<Person>();
+            Person person1 = new Person(new Point(340, 132), null, Appointment.PermitRequest, s);
+            person1.IsAssigned = false;
+            person1.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person1);
+            Person person2 = new Person(new Point(340, 132), null, Appointment.PermitRequest, s);
+            person2.IsAssigned = false;
+            person2.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person2);
+            Person person3 = new Person(new Point(340, 132), null, Appointment.PermitRequest, s);
+            person3.IsAssigned = false;
+            person3.ReachesCounter();
+            s.AddressChangeCountersList[0].QueueList.Enqueue(person3);
+            person3.CenterWasReached = true;
+            templist.AddRange(new Person[] { person1, person2, person3 });
+            s.AssignCounter(templist);
+            Assert.AreEqual(true, person3.IsAssigned);
+        }
+
+        [TestMethod]
+        public void TestMethodAssignCounter_PropertySale_check()
+        {
+            Form1 f = new Form1();
+            Simulator s = new Simulator(f);
+            List<Person> templist = new List<Person>();
+            Person person1 = new Person(new Point(500, 132), null, Appointment.PropertySale, s);
+            person1.IsAssigned = false;
+            person1.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person1);
+            Person person2 = new Person(new Point(500, 132), null, Appointment.PropertySale, s);
+            person2.IsAssigned = false;
+            person2.ReachesCounter();
+            s.AddressChangeCountersList[1].QueueList.Enqueue(person2);
+            Person person3 = new Person(new Point(500, 132), null, Appointment.PropertySale, s);
+            person3.IsAssigned = false;
+            person3.ReachesCounter();
+            s.AddressChangeCountersList[0].QueueList.Enqueue(person3);
+            person3.CenterWasReached = true;
+            templist.AddRange(new Person[] { person1, person2, person3 });
+            s.AssignCounter(templist);
+            Assert.AreEqual(true, person3.IsAssigned);
+        }
+
+        //if you want to run the test please only run this one at a time
+        //as there is a dialog will be opened,so if run all the test it will catch an exception.
+        //[TestMethod]
+        //public void TestMethodSpawnPeople_TimeBiggerThan18Print_check()
+        //{
+        //    Form1 f = new Form1();
+        //    Simulator s = new Simulator(f);
+        //    s.Time = 19;
+        //    s.SpawnPeople();
+        //    Assert.AreEqual(true, s.printed);
+        //}
 
         [TestMethod]
         public void TestMethodInitializeCounters_counter1_check()
